@@ -36,7 +36,7 @@ var NRS = (function (NRS, $, undefined) {
                 },
                 error: function (data) {
                     if (hasUserServer) {
-                        $.growl("Server " + server + " doesn't have CORS enabled! Activate in your Nxt (nxt/conf) config file.", { "type": "danger" });
+                        console.log("Server " + server + " doesn't have CORS enabled! Activate in your Nxt (nxt/conf) config file.", { "type": "danger" });
                     }
                     
                     server = "";
