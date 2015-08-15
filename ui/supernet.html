@@ -1930,6 +1930,8 @@ works with tutorials, WIKI links and more.">HELP</a>
             <h3 data-i18n="servers_status">SERVERS STATUS</h3>
             <div>
                 <div class="md-content-inner">
+
+                    <!--
                     <div class="data-container data-loading" style="overflow:auto;">
                         <table class="table table-striped" id="server_status_table">
                             <thead>
@@ -1944,6 +1946,15 @@ works with tutorials, WIKI links and more.">HELP</a>
                         </table>
                         <div class="data-loading-container"><img src="img/loading_indicator.gif" alt="Loading..." width="32" height="32" /></div>
                         <div class="data-empty-container"><p data-i18n="nxt_not_connected">Nxt is not connected</p></div>
+                    </div>
+                    -->
+                    <div class="col-lg-10">
+                        <div class="jumbotron">
+                            MultiGateWay is a technology which relies on several Servers which allow you to trade your coins in a distributed manner.<br>
+                            The Servers are handled by independend parties, and might be under maintenance for short timespans. See which servers are online.<br>
+                            Servers that are offline or respond with a Timeout may have a delay creating deposit addresses, handling deposits and withdraws.
+                        </div>
+                        <div id="modal_server_status_content"></div>
                     </div>
                 </div>
                 <div class="md-button-wrapper full-wrapper">

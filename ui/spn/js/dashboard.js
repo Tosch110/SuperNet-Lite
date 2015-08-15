@@ -292,6 +292,13 @@ var NRS = (function (NRS, $, undefined) {
             $(".bg" + coin.toLowerCase() + " h4").text($.t("node_under_maintenance"));
             $(".bg" + coin.toLowerCase() + " h4").attr("data-i18n", "node_under_maintenance");
 
+            var coinLight = $(".bg" + coin.toLowerCase() + " .led-div");
+            if (coinLight.hasClass("led-green")) {
+                coinLight.removeClass("led-green").addClass("led-red");
+                coinLight.tooltipster('content', $.t("offline"));
+                coinLight.attr("data-i18n-tooltip", "offline");
+            }
+
             if (index + 1 < _bridge.length) {
 
                 sendNewbieInitRequest(++index, 1)
@@ -299,6 +306,8 @@ var NRS = (function (NRS, $, undefined) {
             else {
                 if (hasCoinAddressFail) {
                     setTimeout(function () { sendNewbieInitRequest(0, 1); }, 600000); // 10 minutes
+
+
                 }
             }
             return;
@@ -870,8 +879,6 @@ var NRS = (function (NRS, $, undefined) {
 
 
     NRS.getServerStatus = function (lastBlockchainFeederHeight) {
-        $("#server_status_table tbody").empty();
-        $("#server_status_table").parent().addClass("data-loading").removeClass("data-empty");
         var url = '';
         /*
         //return;
@@ -976,6 +983,70 @@ var NRS = (function (NRS, $, undefined) {
         */
 
     }
+
+
+    $(".led-div").on("click", function () {
+
+        $("#server_status_table tbody").empty();
+        //$("#server_status_table").parent().addClass("data-loading").removeClass("data-empty");
+
+        var rows = '<table class="table">' +
+            '<thead>'+
+            '<tr>'+
+            '<th>Coin</th>'+
+            '<th>Server Status</th>'+
+            '</tr>'+
+            '</thead>'+
+            '<tbody>';
+
+        $.each(_bridge, function (index, value) {
+            var url = '';
+
+            if (value.coin === 'BTC' || value.coin === 'LTC' || value.coin === 'DOGE') {
+                url = value.bridge + ":7777/public?plugin=relay&method=busdata&servicename=MGW&serviceNXT=8119557380101451968&destplugin=MGW&submethod=status&coin=" + value.coin + "&jsonflag=";
+            } else {
+                url = value.bridge + "/init/?requestType=status&coin=" + value.coin + "&jsonflag=1";
+            }
+
+
+            $.ajax({
+                url: url,
+                dataType: 'text',
+                type: 'GET',
+                timeout: 10000,
+                crossDomain: true,
+                success: function (data) {
+
+                    var result = JSON.parse(data);
+                    console.log(result);
+
+                    if(result[0].coin !== undefined) {
+                        $("#"+value.coin+"_server_status").html('Online');
+                    }
+
+                },error: function (x, t, m) {
+                    if(t === 'timeout') {
+                        $("#"+value.coin+"_server_status").html('Timeout');
+                    }
+                }
+            }, false);
+
+            rows += '<tr>' +
+            '<td>'+value.coin+'</td>'+
+            '<td><div id="'+value.coin+'_server_status">Offline</div></td>'+
+            '</tr>';
+
+        });
+
+
+        rows +=   '</tbody>'+
+        '</table>';
+
+        $("#modal_server_status_content").html(rows);
+
+
+
+    });
 
     function getServerStatusColor(nxtHeight, nxtLag, coinHeight, coinLag, nxtLastBlockHeight, coin) {
 
