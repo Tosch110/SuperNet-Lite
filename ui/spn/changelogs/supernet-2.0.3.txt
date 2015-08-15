@@ -1,0 +1,7 @@
+Fix modal overlay bug, tutorial can now be opened in child modal
+
+Add syncthing 
+
+Store node ip in localstorage for quick reference
+
+Litewallet can now be toggle into jay mode

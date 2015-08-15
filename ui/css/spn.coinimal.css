@@ -1,0 +1,49 @@
+#spn_coinimal_page .alert,
+#coinimalModalOrderSummary .alert {
+	margin-left: 0px;
+}
+
+#spn_coinimal_page a.btn { white-space: normal; } /* damit der text auch zwei zeilig sein kann */
+#spn_coinimal_page button.btn { white-space: normal; } /* damit der text auch zwei zeilig sein kann */
+
+#coinimalPaymentProviders {
+	font-size: 80%;
+}
+
+#coinimalPriceChart .axis path,
+#coinimalPriceChart .axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+#coinimalPriceChart .axis text {
+	stroke: none;
+	fill: #000;
+	font-size: 12px;	
+}
+
+#coinimalPriceChart .line {
+  fill: none;
+  stroke: black;
+  stroke-width: 1.5px;
+}
+
+#coinimalPriceChart .areaPriceChart {
+  fill: #2498b9;
+  opacity: 0.5;
+}
+
+#coinimalPriceChart .grid .tick {
+    stroke: lightgrey;
+    opacity: 0.7;
+}
+#coinimalPriceChart .grid path {
+      stroke-width: 0;
+}
+
+#coinimalPriceChart .order-price {
+  fill: none;
+  stroke: black;
+  stroke-width: 3px;
+}

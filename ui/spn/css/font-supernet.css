@@ -1,0 +1,51 @@
+/*@font-face{
+    font-family: 'Supernet';
+    src: local('Supernet Regular'), url('font/superNET_font_A_regular-webfont.woff2') format('woff2');
+    font-style: normal;
+}*/
+ 
+
+@font-face{
+    font-family: 'Supernet';
+    src: local('Supernet Light'), url('font/superNET_font_A_light-webfont.woff2') format('woff2');
+    font-style: normal;
+}
+
+
+@font-face{
+    font-family: 'Supernet';
+    src: local('Supernet Italic'), url('font/superNET_font_A_italic-webfont.woff2') format('woff2');
+    font-style: italic;
+}
+
+
+@font-face{
+    font-family: 'Supernet';
+    src: local('Supernet Bold'), url('font/superNET_font_A_bold-webfont.woff2') format('woff2');
+    font-weight: bold;
+}
+
+@font-face{
+    font-family: 'Supernet';
+    src: local('Supernet Bold Italic'), url('font/superNET_font_A_bold_italic-webfont.woff2') format('woff2');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face{
+    font-family: 'Swatch';
+    src: local('Swatch regular'), url('font/swatch-webfont') format('woff2');
+    font-weight: normal;
+}
+
+@font-face { 
+	font-family: 'normalText';
+	src: url('/fonts/opensans-light-webfont.eot');
+	src: url('/fonts/opensans-light-webfont.eot?#iefix') format('embedded-opentype'),
+	  url('/fonts/opensans-light-webfont.woff2') format('woff2'),
+	  url('/fonts/opensans-light-webfont.woff') format('woff'),    
+	  url('/fonts/opensans-light-webfont.ttf') format('truetype'),    
+	  url('/fonts/opensans-light-webfont.svg#open_sanslight') format('svg');
+	font-family: 'myfontCAPS';
+	  src:url('font/sansation_light-webfont.woff2') format('woff2');
+}

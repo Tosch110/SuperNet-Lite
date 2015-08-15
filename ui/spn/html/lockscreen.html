@@ -1,0 +1,225 @@
+<table id="center" style="width:100%;height:100%;">
+    <tr>
+        <td style="text-align:center;vertical-align:middle">
+            <center><img id="spn_logo" src="spn/img/logo.png" style="margin-bottom:40px;" /></center>
+
+            <div id="spn_waiting_server" class="panel panel-default" style="max-width: 500px;">
+                <div class="snPanelHead"><center><span data-i18n="supernet_lite">SuperNET Lite Wallet</span></center></div>
+                <div class="snPanelBody">
+                    <div>
+                        <div style="width:80%;margin: auto;">
+                            <center><span data-i18n="checking_server_connectivity">Checking server connectivity<!-- <span class="loading_dots"></span> --></span></center>
+                        </div>
+                        <div style="text-align:center;margin-top:20px;margin-bottom:20px;"><img src="img/loading_indicator.gif" alt="Loading..." width="32" height="32" /></div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="login_panel" style="display:none">
+                <div class="callout calloutTR callout-danger" id="testnet_login" style="max-width:400px;min-width:400px;display:none;" data-i18n="[html]testnet_login_warning">Log in with your <strong>TestNet</strong> account - not your real one!</div><div id="login_error" style="max-width:400px;min-width:400px;display:none">
+                <div class="callout calloutTR callout-danger"></div>
+            </div>
+
+
+                <!--  ---------------------- spn_login ---------------------- -->
+
+                <div id="spn_login">
+                    <div class="row" id="node_ip_div" style="font-size:10px;">
+                        <div class="col-lg-6">
+                            Connected via:
+                        </div>
+                        <div class="col-lg-6">
+                            <span id="node_ip"></span>
+                        </div>
+                    </div>
+                    <div id="lang_select_area" class="fontOS">
+                        <input type="radio" id="lang_sel_en" class="lang_selector" name="GUIlang" value="en">
+                        <label for="lang_sel_en"><img src="spn/img/flag_en.svg" class="tooltip" title="English" /></label>
+                        <input type="radio" id="lang_sel_chi" class="lang_selector" name="GUIlang" value="zh-cn">
+                        <label for="lang_sel_chi"><img src="spn/img/flag_chi.svg" class="tooltip" title="中文" /></label>
+                        <input type="radio" id="lang_sel_ru" class="lang_selector" name="GUIlang" value="ru">
+                        <label for="lang_sel_ru"><img src="spn/img/flag_ru.svg" class="tooltip" title="Русский" /></label>
+                        <input type="radio" id="lang_sel_es" class="lang_selector" name="GUIlang" value="es-es">
+                        <label for="lang_sel_es"><img src="spn/img/flag_es.svg" class="tooltip" title="Español" /></label>
+                    </div>
+
+                    <br />
+
+                    <div id="div_jay_account_list" class="input-group" style="display:table;height:34px;width: 100%;">
+                        <div class="dropdown" style="width: 100%;">
+                            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="true" style="width: 100%;">
+                                <div>
+                                    <span id="jay_account" data-i18n="nxt_account_id">NXT Account ID</span>
+                                    <span class="caret"></span>
+                                </div>
+                            </button>
+                            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1" id="jay_account_list"></ul>
+                        </div>
+                        <br />
+                    </div>
+
+                    <input id="login_password" name="login_password" type="password" class="spn fontOS" data-i18n="[placeholder]enter_passphrase_here" autofocus />
+                    <input id="login_account" type="text" class="spn fontOS masked" data-i18n="[placeholder]your_account" style="display:none" autofocus />
+                    <input id="login_button" type="submit" class="spn fontOS" data-i18n="[value]login;[data-loading-text]loading_login" onclick="NRS.login($('#login_password').val())" data-loading-text="Signing in. Please wait..." />
+                    <input id="login_button_account" type="submit" class="spn fontOS" data-i18n="[value]login;[data-loading-text]loading_login" onclick="NRS.loginWithAccount($('#login_account').val())" data-loading-text="Signing in. Please wait..." style="display:none" />
+
+                    <div id="login_pin_div" class="input-group" style="display:none; width:100%">
+                        <div class="input-group">
+                            <input id="login_pin" type="password" class="form-control" data-i18n="[placeholder]enter_pin_number_here" />
+                                    <span class="input-group-btn">
+                                        <button id="btn_login_jay" class="btn btn-default" type="button" onclick="NRS.loginJayAccount();">
+                                            <i class="fa fa-arrow-right"></i>
+                                            <i class="fa fa-spinner fa-spin" style="display:none"></i>
+                                        </button>
+                                    </span>
+                        </div>
+                        <br />
+                    </div>
+
+
+                    <input id="import_nxt" type="submit" class="spn fontOS" data-i18n="[value]import_nxt_passphrase" onclick="NRS.showImportNxtPhrase();" />
+                    <input id="register_button" type="submit" class="spn fontOS" data-i18n="[value]register_new_account;[data-loading-text]register_new_account" onclick="NRS.registerAccount();" data-loading-text="Register a new account" />
+                    <input type="hidden" name="check_password_length" id="login_check_password_length" value="0" />
+                </div>
+
+                <!--  ---------------------- /spn_login ---------------------- -->
+
+
+
+                <div id="remember_password_container" class="spn" style="visibility:hidden">
+                    <input type="checkbox" name="remember_password" id="remember_password" value="1" checked /> <span></span><label for="remember_password" data-i18n="remember_passphrase_during_session">Remember passphrase during session</label>
+                </div>
+
+                <div id="registration_link" style="visibility:hidden">
+                    <a href="#" onclick="NRS.registerAccount();" data-i18n="no_account_q_create_account">Don't have an account? Click here to create one!</a>
+                </div>
+            </div>
+
+            <div class="panel panel-default" id="welcome_panel" style="display:none;max-width:500px;">
+                <div class="panel-heading"><span class="glyphicon glyphicon-lock"></span> <span>Welcome to SuperNET</span></div>
+                <div class="panel-body">
+                    <button class="btn btn-primary" id="registration_cancel" onclick="NRS.showLoginScreen();return false;" data-i18n="returning_user_q">Returning User?</button>
+                    &nbsp;&nbsp;
+                    <button class="btn btn-success" id="registration_cancel" onclick="NRS.registerAccount();return false;" data-i18n="new_q_create_account">New? Create Your Account!</button>
+                </div>
+            </div>
+
+            <div class="panel panel-default" id="account_phrase_custom_panel" style="display:none;max-width:500px;">
+                <div class="panel-heading"><span class="glyphicon glyphicon-lock"></span> <span data-i18n="create_your_account">Create Your Account</span></div>
+                <div class="panel-body">
+                    <form class="form-horizontal" role="form" method="post" autocomplete="off">
+                        <div class="callout calloutTR callout-info" style="max-width:500px;" data-i18n="passphrase_length_warning">Your passphrase must be at least 35 characters long.</div>
+
+                        <div class="callout calloutTR callout-danger" data-i18n="[html]passphrase_warning"><strong>Attention</strong>: The passphrase is everything that stands between your account and the rest of the world. Do not use any meaningful sentence, especially any that appears in song or literature.<br /><br />Don't ever disclose your passphrase. If you lose it you lose access to your account!</div>
+
+                        <div class="form-group">
+                            <label for="registration_password" class="col-sm-3 control-label" data-i18n="passphrase">Passphrase</label>
+                            <div class="col-sm-9"><input type="password" name="registration_password" class="form-control" id="registration_password" placeholder="" /></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="registration_password_repeat" class="col-sm-3 control-label" data-i18n="repeat">Repeat</label>
+                            <div class="col-sm-9"><input type="password" name="registration_password_repeat" class="form-control" id="registration_password_repeat" placeholder="" /></div>
+                        </div>
+
+                        <div style="text-align:right">
+                            <input type="submit" class="btn btn-primary btn-sm" value="Register" data-i18n="[value]register" />&nbsp;&nbsp;<button class="btn btn-sm btn-default" id="registration_cancel" onclick="NRS.showLoginOrWelcomeScreen();return false;" data-i18n="cancel">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!------------------------- Popup on login ------------------------->
+            <div class="panel panel-default fontOS" id="account_phrase_generator_panel" style="display:none;max-width:500px">
+                <div class="snPanelHead"><span data-i18n="create_your_account">ACCOUNT CREATION</span></div>
+                <div class="snPanelBody">
+                    <div id="account_phrase_generator_loading">
+                        <p><span class="loading_text" data-i18n="loading_word_list">Loading word list</span><span class="loading_dots"><span>.</span><span>.</span><span>.</span></span></p>
+
+                        <div style="text-align:center;margin-top:20px;margin-bottom:20px;"><img src="img/loading_indicator.gif" alt="Loading..." width="32" height="32" /></div>
+                    </div>
+
+                    <div id="account_phrase_generator_loaded">
+                        <div class="step_1 account_phrase_generator_steps">
+                            <div id="account_phrase_generator_seeder" class="seeder">
+                                <p data-i18n="seed_password_generator">Move your cursor around to seed the random number generator...</p>
+                                <div class="progress progress-striped">
+                                    <div class="progress-bar progress-bar-info" id="account_phrase_generator_seed_progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
+                                        <span class="sr-only">0% Seeded</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div style="text-align:right">
+                                <button class="btn btn-sm btn-default" id="registration_cancel" onclick="NRS.showLoginOrWelcomeScreen();return false;" data-i18n="cancel">Cancel</button>
+                            </div>
+                        </div>
+
+                        <div class="step_2 account_phrase_generator_steps">
+                            <div id="account_phrase_generator_start">
+                                <p><span data-i18n="generating_passphrase_wait">Generating your passphrase. Please wait</span><span class="loading_dots"><span>.</span><span>.</span><span>.</span></span></p>
+
+                                <div style="text-align:center;margin-top:20px;margin-bottom:20px;"><img src="img/loading_indicator.gif" alt="Loading..." width="32" height="32" /></div>
+                            </div>
+
+                            <div id="account_phrase_generator_stop" style="display:none">
+                                <p data-i18n="automatically_generated_passphrase_is">Your automatically generated passphrase is:</p><br />
+
+                                <textarea style="width:100%;height:50px;margin-bottom:10px;padding:3px;" rows="2" readonly></textarea>
+
+                                <p data-i18n="memorize_passphrase_help_spn">Please write down or memorize these 12 words (their order and capitalization matters - always lowercase). This passphrase is needed in order to access your SuperNET account.</p><br />
+
+                                <div class="callout callout-danger" data-i18n="[html]assphrase_disclosure_warning"><strong>Attention</strong>: Don't ever disclose your passphrase. If you lose it you lose access to your account!</div>
+
+                                <div style="text-align:right">
+                                    <input type="submit" class="btn btn-spn btn-sm" value="Next" data-i18n="[value]next" onclick="$('.step_2').hide(); $('.step_3').show(); setTimeout(function () { $('#account_phrase_generator_panel .step_3 textarea').focus(); }, 10); return false;" />&nbsp;&nbsp;<button class="btn btn-sm btn-default" id="registration_cancel" onclick="    NRS.showLoginOrWelcomeScreen(); return false;" data-i18n="cancel">Cancel</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="step_3 account_phrase_generator_steps">
+                            <p data-i18n="passphrase_write_below">Your passphrase is very important! In order to be sure that you have saved it, please write your passphrase below:</p><br />
+
+                            <div class="callout callout-danger" style="display:none" data-i18n="incorrectly_typed_passphrase">You have not typed the passphrase correctly, please try again!</div>
+
+                            <textarea style="width:100%;height:50px;margin-bottom:10px;" rows="2"></textarea>
+
+                            <div id="register_pin_number_div" class="form-group">
+                                <label for="register_login_pin">Pin Number</label>
+                                <input id="register_login_pin" type="password" class="spn fontOS" data-i18n="[placeholder]enter_pin_number_here" />
+                            </div>
+
+                            <div style="text-align:right">
+                                <input id="import_jay_account" data-loading-text="Signing in. Please wait..." type="submit" class="btn btn-spn btn-sm" value="Next" data-i18n="[value]next;[data-loading-text]loading_login" onclick="NRS.verifyGeneratedPassphrase();return false;" />&nbsp;&nbsp;<button class="btn btn-sm btn-default" id="registration_cancel" onclick="NRS.showLoginOrWelcomeScreen();return false;" data-i18n="cancel">Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--<div id="custom_passphrase_link" style="margin-top:30px;margin-bottom:20px;text-align:center;display:none;">
+                <a href="#" onclick="NRS.registerUserDefinedAccount();" data-i18n="choose_own_passphrase">Want to choose your own passphrase? Click here.</a>
+            </div>-->
+
+            <!------------------------- Import nxt passphrase ------------------------->
+            <div class="panel panel-default fontOS" id="import_nxt_phrase_panel" style="display:none;max-width:500px">
+                <div class="snPanelHead"><span data-i18n="import_nxt_passphrase">Import Nxt Passphrase</span></div>
+                <div class="snPanelBody" style="width:350px">
+                    <div style="padding:15px">
+                        <div class="form-group">
+                            <label for="import_login_password">Passphrase</label>
+                            <input id="import_login_password" type="password" class="spn fontOS" data-i18n="[placeholder]enter_passphrase_here" />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="import_login_password">Pin Number</label>
+                            <input id="import_login_pin" type="password" class="spn fontOS" data-i18n="[placeholder]enter_pin_number_here" />
+                        </div>
+
+                        <div style="text-align:right">
+                            <input id="register_new_account" data-loading-text="Signing in. Please wait..." type="submit" class="btn btn-spn btn-sm" value="Import" data-i18n="[value]import;[data-loading-text]loading_import" onclick="NRS.importJayAccount(); return false;" />&nbsp;&nbsp;<button class="btn btn-sm btn-default" id="registration_cancel" onclick="    NRS.showLoginOrWelcomeScreen(); return false;" data-i18n="cancel">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </td>
+    </tr>
+</table>

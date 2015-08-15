@@ -1,0 +1,7 @@
+Rename download package to version 2 to avoid further confusion
+
+Added loading indicator after login
+
+Added Opal Drive in Services (Required Opal wallet runnning)
+
+Fixed a bug where widget in (Projects,Services,Community,Help) will not triggered if click at blank panel space

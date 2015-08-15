@@ -1,0 +1,97 @@
+/* General Demo Style */
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);
+
+*, *:after, *:before { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
+body, html { font-size: 100%; padding: 0; margin: 0; }
+
+/* Clearfix hack by Nicolas Gallagher: http://nicolasgallagher.com/micro-clearfix-hack/ */
+.clearfix:before, .clearfix:after { content: " "; display: table; }
+.clearfix:after { clear: both; }
+
+body {
+	font-family: 'Lato', Calibri, Arial, sans-serif;
+	color: #fff;
+	background: white;
+	text-align: center;
+}
+
+/* Buttons style */
+button {
+	border: none;
+	padding: 0.6em 1.2em;
+	background: rgba(150,150,150,1);
+	color: #fff;
+	font-family: 'Lato', Calibri, Arial, sans-serif;
+	font-size: 1em;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	cursor: pointer;
+	display: inline-block;
+	margin: 3px 2px;
+	border: thick solid orange;
+	border-radius: 4px;
+	-webkit-border-radius: 4px;
+	transition: all .6s ease;
+	-webkit-transition: all .6s ease;
+	
+	/* Temporary button position, for demo only */
+	margin-top: 200px;
+}
+
+button:hover {
+	background: orange; /* superNET orange */
+	border-color: rgba(150,150,150,1);
+	transition: all .2s ease;
+	-webkit-transition: all .2s ease;
+}
+
+.md-close {
+	float: left;
+	margin-left: 5%;
+	border: thick solid orange;
+	border-radius: 4px;
+	-webkit-border-radius: 4px;
+}
+
+.md-submit {
+	float: right;
+	margin-right: 5%;
+	border: thick solid orange;
+	border-radius: 4px;
+	-webkit-border-radius: 4px;
+}
+
+
+/* END OF Buttons style */
+
+
+/* Text Boxes Style */
+.input_type {
+	font-family: 'Lato', Calibri, Arial, sans-serif;
+	font-size: .8em;
+	letter-spacing: 1px;
+	font-weight: 200;
+	width: 100%;
+}
+/* END OF Text Boxes Style */
+
+
+@media screen and (max-width: 46.0625em) {
+	.column {
+		width: 100%;
+		min-width: auto;
+		min-height: auto;
+		padding: 1em; 
+	}
+
+	.column p {
+		text-align: left;
+		font-size: 1.5em;
+	}
+
+	.column:nth-child(2) {
+		box-shadow: 0 -1px 0 rgba(0,0,0,0.1);
+	}
+
+}
+

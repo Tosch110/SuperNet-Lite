@@ -1,0 +1,13 @@
+Add Spanish localization
+
+Change first coin deposit message to alert, avoiding blocking interface on mobile
+
+Add supernet tutorial
+
+Embed download link to opal error message
+
+Add Nxt server indicator light
+
+Store multigateway deposit address with token to avoid unauthorized changes
+
+Merged eth style.css for user interface enhancement

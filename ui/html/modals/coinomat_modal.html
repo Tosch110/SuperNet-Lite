@@ -1,0 +1,48 @@
+<div class="modal fade" id="spn_coinomat_exchanger_modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Coinomat Exchanger</h4>
+            </div>
+            <div id="spn_coinomat_exchanger_content" class="modal-body">
+                <img id="spn_coinomat_exchanger_loading" src="img/loading_indicator.gif" alt="Loading..." width="32" height="32" />
+                <div class="alert-danger alert alert-no-icon" id="spn_coinomat_exchanger_error_message" style="display:none;padding: 5px; margin-bottom: 15px;"></div>
+                <div class="alert-success alert alert-no-icon" id="spn_coinomat_exchanger_pubkey_message" style="display:none;padding: 5px; margin-bottom: 15px;"></div>
+                <div class="alert-success alert alert-no-icon" id="spn_coinomat_exchanger_message" style="display:none;padding: 5px; margin-bottom: 15px;"></div>
+                <div class="form-group" style="display:none">
+                    <label for="spn_coinomat_in_address" id="spn_coinomat_in_address_label">
+                    </label>
+                    <p id="spn_coinomat_in_address"></p>
+                    <div id="spn_coinomat_in_address_qr_code" style="display:none"></div>
+                    <div id="spn_coinomat_in_address_note_div" style="display:none">
+                        <label for="spn_coinomat_in_address_note">
+                            Include the following as message in your Nxt transaction
+                        </label>
+                        <p id="spn_coinomat_in_address_note"></p>
+                    </div>
+                </div>
+                <div class="form-group" style="display:none">
+                    <label for=" spn_coinomat_out_address" id="spn_coinomat_out_address_label">
+                    </label>
+                    <p id="spn_coinomat_out_address"></p>
+                </div>
+                <div id="spn_coinomat_send_nxt_div" class="form-group" style="display:none">
+                    <a href="#" class="btn btn-primary" role="button" onclick="SPN.coinomatSendNxt()">Send NXT</a>
+                </div>
+                <div id="spn_coinomat_send_coinousd_div" class="form-group" style="display:none">
+                    <a id="btn_send_coinousd" href="#" class="btn btn-primary" role="button" data-toggle="modal" data-target="#transfer_asset_modal" data-asset="12982485703607823902" data-name="CoinoUSD" data-decimals="2">Send CoinoUSD</a>
+                </div>
+                <div id="spn_coinomat_open_web_div" class="form-group" style="display:none">
+                    <label for="spn_coinomat_in_address_note">
+                        You need to complete your transaction on Coinomat website
+                    </label>
+                    <a id="spn_coinomat_open_web_a" href="#" class="btn btn-primary" role="button" onclick="SPN.openCoinomatWebsite()">Open Coinomat website</a>
+                </div>
+                <div id="spn_coinomat_usd_div" class="form-group" style="display:none">
+                    <a id="spn_coinomat_pay_USD" href="#" class="btn btn-primary" role="button" data-loading-text="Loading...">Pay USD</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

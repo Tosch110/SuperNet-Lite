@@ -1,0 +1,3 @@
+Fix signature verification when sending supernet coin to coin address
+
+Avoid lite version control to clash with version 1

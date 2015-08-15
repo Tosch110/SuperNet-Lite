@@ -1,0 +1,13 @@
+Implemented password manager, you only need to import nxt passphrase once and subsequent login required only pin number
+
+Only show connected node ip if it is user defined
+
+Only show server error message if it is predefined server ip
+
+Retry in 10 minutes if fail to get deposit address
+
+Remove 'under development' wording for active coin
+
+Do not enforce minimum withdraw for nxt recipient
+
+Auto login into advance view

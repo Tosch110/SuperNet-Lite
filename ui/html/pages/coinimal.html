@@ -1,0 +1,127 @@
+<div id="spn_coinimal_page" class="page">
+    <section class="content-header">
+        <h1>Coinimal <small id="coinimalFoundUserEmail"></small></h1>
+        <div style="position:absolute;top:15px;right:9px;">
+            <i class="fa fa-envelope"></i> <a href="mailto:support@coinimal.com">support@coinimal.com</a>
+        </div>
+    </section>
+    <section class="content">
+        <ol class="breadcrumb">
+            <li><a href="#" class="goto-page" data-page="supernet">SuperNET</a></li>
+            <li class="active">Coinimal</li>
+        </ol>
+
+        <div class="row" id="coinimalDivFindingUser">
+            <div class="col-md-6 col-md-offset-3">
+                <p class="alert alert-info" style="margin-top: 100px; text-align: center;">Fetching connected Coinimal Account...</p>
+            </div>
+        </div>
+
+        <div class="row" id="coinimalDivRegisterUser" style="display: none;">
+            <div class="col-md-6 col-md-offset-3">
+                <p class="lead">
+                    There is no Coinimal User Account connected to this NXT Account! You need to register an Account at Coinimal and connect it with your NXT Account to use our service.
+                </p>
+                <div class="row">
+                    <div class="col-md-6"><a href="https://www.coinimal.com/users/register" class="btn btn-primary btn-block" target="_blank">1. Please create your Coinimal Account now!</a></div>
+                    <div class="col-md-6"><a href="https://www.coinimal.com/users/settings" class="btn btn-default btn-block" target="_blank">2. Login to your Coinimal Account and connect it with your NXT Account under "Settings"!</a></div>
+                </div>
+                <hr />
+                <p>After registration use this token to connect your NXT account! Paste it here: <a href="https://www.coinimal.com/users/settings" target="_blank">https://www.coinimal.com/users/settings</a> (This token is only valid for some short time. If the token expired please Logout and Login to get a new token.)</p>
+                <form><textarea id="coinimalTokenTextarea" class="form-control"></textarea></form>
+                <hr />
+
+                <a href="#" id="btnCoinimalRefreshInit" class="btn btn-default btn-block">3. Refresh - Check connection after you linked your account successfully.</a>
+            </div>
+        </div>
+
+        <div class="row" id="coinimalDivUI" style="display: none;">
+            <div class="col-md-6 col-sm-6 col-xs-6">
+
+                <div class="well" id="divCoinimalOrderInputs" style="margin-bottom: 20px;">
+                    <h4>Buy NXT from Coinimal with EUR</h4>
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon">EUR</span>
+                                    <input type="text" id="CoinimalTradeAmountFiat" value="100" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2" style="line-height: 30px; text-align: center;">
+                            pay with
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <select id="CoinimalTradePaymentProviderId" class="form-control" style="width: 100%;">
+                                    <option value="0">Loading...</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a class="btn btn-primary btn-block" id="btnCoinimalOrderSummary" data-pid="0">
+                        <span class="glyphicon glyphicon-shopping-cart"></span>
+                        Show order summary and final price
+                    </a>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div id="divCoinimalTradingEnabled" data-price="0" class="alert alert-info">
+                            Current price of one NXT is <span class="coinimalCryptocoinPrice"></span> EUR.
+                            You want to buy NXTs for <span id="coinimalAmountOfFiat">---</span> EUR so you will get <span id="coinimalYouGetCryptocoin">---</span> NXT!
+                        </div>
+
+                        <div id="divCoinimalTradingDisabled" class="alert alert-danger" style="display: none;">
+                            We are very sorry, but buying is disabled right now. Please come back later!
+                        </div>
+                    </div>
+                </div>
+
+                <div id="coinimalPriceChart" style="width: 100%; height: 300px; margin-top: 30px;"></div>
+
+                <hr />
+                <p class="alert alert-warning">Want to buy Bitcoin or other Cryptocoins? Visit our website at <a href="https://www.coinimal.com" target="_blank">https://www.coinimal.com</a></p>
+            </div>
+            <div class="col-md-6 col-xs-6 col-xs-6">
+
+                <div id="coinimalPaymentProviders">
+                    Loading payment providers...
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="modal fade" id="coinimalModalOrderSummary" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title">Coinimal Order Summary</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div id="divCoinimalOrderSummary"></div>
+
+                        <div class="row" id="divCoinimalTradeButtons" style="display: none;">
+                            <div class="col-xs-6">
+                                <a class="btn btn-default btn-block" id="btnCoinimalRefreshRate">
+                                    <span class="glyphicon glyphicon-refresh"></span> Get new rate
+                                </a>
+                            </div>
+                            <div class="col-xs-6">
+                                <a class="btn btn-primary btn-block" id="btnCoinimalOrderNow">
+                                    <span class="glyphicon glyphicon-shopping-cart"></span> Buy now <span id="coinimalInfoPriceTimeLocked">---</span> sec left...
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+</div>

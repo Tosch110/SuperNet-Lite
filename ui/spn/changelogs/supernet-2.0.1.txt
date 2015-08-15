@@ -1,0 +1,12 @@
+Add token check on msig deposit address
+
+Add Russian localization
+
+Lite Wallet :
+Add missing component that causes bug on send nxt and cancel AE order
+
+Hide forging indicator
+
+Allow predefined server ip to be used
+
+Change generateToken to client side, avoid sending passphrase to server

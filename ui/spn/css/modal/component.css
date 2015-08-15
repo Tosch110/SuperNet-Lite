@@ -1,0 +1,413 @@
+
+.md-modal {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	width: 50%;
+	max-width: 630px;
+	min-width: 320px;
+	height: auto;
+	z-index: 1028;
+	visibility: hidden;
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
+	backface-visibility: hidden;
+	-webkit-transform: translateX(-50%) translateY(-50%);
+	-moz-transform: translateX(-50%) translateY(-50%);
+	-ms-transform: translateX(-50%) translateY(-50%);
+	transform: translateX(-50%) translateY(-50%);
+}
+
+.md-modal.md-full {
+	z-index: 1027;
+	width:99.9%;
+	max-width:99.9%;
+	max-height: 100%;
+}
+
+.md-content-inner {
+	overflow: auto;
+}
+
+.md-show {
+	visibility: visible;
+}
+
+
+/* Overlay */
+.md-overlay {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	visibility: hidden;
+	top: 0;
+	left: 0;
+	z-index: 1000;
+	opacity: 0;
+	background: rgba(0,0,0,0.5);
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	transition: all 0.3s;
+}
+
+.md-show:not(.md-full) ~ .md-overlay {
+	opacity: 1;
+	visibility: visible;
+}
+/* End of Overlay */
+
+/* Overlay Full Screen */
+.md-overlayfull {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	visibility: hidden;
+	top: 0;
+	left: 0;
+	z-index: 1000;
+	opacity: 0;
+	background: rgba(0,0,0,0.5);
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	transition: all 0.3s;
+}
+
+.md-show ~ .md-overlayfull {
+	opacity: 1;
+	visibility: visible;
+}
+/* End of Overlay */
+
+
+/* Modal Content styles */
+.md-content {
+	color: rgba(150,150,150,1); /* superNET grey */
+	background: white;
+	position: relative;
+	/*border-radius: 6px;
+	-webkit-border-radius: 6px;*/
+	margin: 0 auto;
+	padding-bottom: 40px;
+}
+
+.md-content h3 {
+	margin: 0 0 10px 0;
+	padding: 0.4em;
+	text-align: center;
+	font-size: 1.75em;
+	font-weight: 300;
+	opacity: 0.8;
+	color: white;
+	background: rgba(240,130,50,1); /* superNET orange */
+	/*border-radius: 3px 3px 0 0;*/
+}
+
+.md-content > div {
+	padding: 5px 20px 10px;
+	margin: 0;
+	font-weight: 300;
+	font-size: 1.15em;
+}
+
+.md-content > div p {
+	text-align: left;
+	margin: 0;
+	padding: 10px 0;
+}
+
+.modal-body > ul {
+	text-align: left;
+	margin: 0;
+	padding: 0 0 30px 0;
+}
+
+.modal-body > ul li {
+	padding: 5px 0;
+    display: block;
+    clear: both;
+}
+
+.md-content button {
+	display: block;
+	margin-top: 3px;
+	font-size: 0.8em;
+}
+
+.md-head {
+	width: 100%;
+}
+
+.md-headFS {
+	width: 100%;
+	height: 60px;
+	background: rgba(240,130,50,1);
+}
+/* END OF Modal Content Styles */
+
+
+/* Modal effect */
+.md-effect .md-content {
+	-webkit-transform: scale(2);
+	-moz-transform: scale(2);
+	-ms-transform: scale(2);
+	transform: scale(2);
+	opacity: 0;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	transition: all 0.3s;
+}
+
+.md-show.md-effect .md-content {
+	-webkit-transform: scale(1);
+	-moz-transform: scale(1);
+	-ms-transform: scale(1);
+	transform: scale(1);
+	opacity: 1;
+}
+/* End of Modal effect*/
+
+@-webkit-keyframes OpenTop {
+	50% { 
+		-webkit-transform: rotateX(10deg); 
+		-webkit-animation-timing-function: ease-out; 
+	}
+}
+
+@-moz-keyframes OpenTop {
+	50% { 
+		-moz-transform: rotateX(10deg); 
+		-moz-animation-timing-function: ease-out; 
+	}
+}
+
+@keyframes OpenTop {
+	50% { 
+		transform: rotateX(10deg); 
+		animation-timing-function: ease-out; 
+	}
+}
+
+/* Buttons style */
+button {
+	display: inline-block;
+	border: none;
+	padding: 0.42em 1.8em;
+	background: rgba(150,150,150,1);
+	color: #fff;
+	
+	font-family: 'open_sanslight', "Open Sans", sans-serif;
+	font-weight: 200;
+	font-size: 1.25rem;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	cursor: pointer;
+	
+	transition: all .3s ease;
+	-webkit-transition: all .3s ease;
+}
+
+button:hover {
+	background: #F58634;
+}
+
+/* ---------------- CUSTOM CLOSE BUTTON ---------------- */
+
+.md-close-1 {
+	position: absolute;
+    left: 35px;
+}
+
+.md-close-img {
+	position: absolute;
+    top: 0%;
+	right: 0;
+	/*height: 65px;
+	width: 45px;*/
+	background: none;
+}
+
+.md-close-img-2 {
+    top: 1%;
+    right: 3px;
+}
+
+@media (max-width: 700px) {
+    .md-close-img {
+        top: -1%;
+    }
+    
+    .md-close-img-2 {
+        top: 1%;
+    }
+}
+
+@media (max-width: 400px) {
+    .md-close-img {
+        top: -1.5%;
+    }
+    
+    .md-close-img-2 {
+        top: 1%;
+    }
+}
+
+.md-close-img:hover {
+	background: none;
+}
+
+.md-close-img img {
+	width: 2.5vw;
+	transition: 0.3s ease;
+}
+
+.md-close-img-2 img {
+    width: 20px;
+}
+
+.md-close-img img:hover {
+	-webkit-transform: scale(0.85);
+	-ms-transform: scale(0.85);
+	transform: scale(0.85);
+	transition: 0.3s ease;
+}
+
+.md-close-img:focus {
+    outline: none;
+	-webkit-transform: scale(0.35);
+	-ms-transform: scale(0.35);
+	transform: scale(0.35);;
+	transition: 0.2s ease-in;
+}
+
+/* ---------------- OTHERS ---------------- */
+
+.md-submit {
+	position: absolute;
+    right: 37px;
+}
+
+.md-clear {
+    position: absolute;
+    right: 40%;
+}
+
+.full-wrapper {
+	margin-top: 20px;
+	text-align: center;
+}
+
+
+/* ---------------- RESPONSIVE DESIGN ---------------- */
+
+
+@media (max-width: 1100px) {
+	.md-clear {
+		left: 40%;
+	}
+}
+
+@media (max-width: 900px) {
+    .md-close-1, .md-clear, .md-submit {
+        padding: 0.3em 1.2em;
+    }
+}
+
+@media (max-width: 800px) {
+    .md-close-1, .md-clear, .md-submit {
+        padding: 0.15em 0.8em;
+        font-size: 75%;
+    }
+    
+    .md-content h3 {
+        font-size: 175%;
+    }
+}
+
+@media (max-width: 750px) {
+	.md-content {
+		padding-bottom: 60px;
+	}
+	
+	.md-button-wrapper {
+		text-align: center;
+		margin-left: auto;
+		margin-right: auto;
+		width: 100px;
+	}
+	
+	.md-close-1, .md-clear, .md-submit {
+		width: 100%;
+		float: left;
+		position: inherit;
+	}
+}
+
+
+/* ---------------- Text Boxes Style ---------------- */
+
+.input_type {
+	font-size: .8em;
+	font-family: "Open Sans",sans-serif;
+	letter-spacing: 1px;
+	font-weight: 200;
+	width: 100%;
+    height:28px;
+}
+
+
+/* ---------------- FORMS ---------------- */
+
+.input_label {
+    width: 40%;
+    float: left;
+	
+	font-family: 'open_sanslight', "Open Sans", sans-serif;
+	font-weight: 400;
+	font-size: 1.25rem;
+	color: black;
+	text-transform: uppercase;
+}
+
+.input_field {
+    width: 60%;
+    float: left;
+    margin-bottom: 10px;
+	
+	font-family: 'open_sanslight', "Open Sans", sans-serif;
+	font-weight: 200;
+	font-size: 1.5rem;
+	color: black;
+}
+
+.input_span {
+    width: 100%;
+    min-height: 100px;
+    resize: none;
+}
+
+@media (max-width: 900px) {
+    .input_label,.input_field {
+        font-size: 1.25rem;
+    }
+}
+
+@media (max-width: 750px) {
+    /*.input_label {
+        width: 100%;
+        float: none;
+        margin-bottom: 5px;
+    }
+    
+    .input_field {
+        width: 100%;
+        float: none;
+		margin-bottom: 3px;
+    }*/
+	.input_label,.input_field {
+        font-size: 65%;
+    }
+	
+	.input_span {
+		min-height: 50px;
+	}
+}

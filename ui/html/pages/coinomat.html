@@ -1,0 +1,156 @@
+<div id="spn_coinomat_page" class="page">
+    <section class="content-header">
+        <h1>Coinomat</h1>
+        <div style="position:absolute;top:15px;right:9px;">
+            <i class="fa fa-envelope"></i> <a href="mailto:support@coinomat.com">support@coinomat.com</a>
+        </div>
+    </section>
+    <section class="content">
+        <ol class="breadcrumb">
+            <li><a href="#" class="goto-page" data-page="supernet">SuperNET</a></li>
+            <li class="active">Coinomat</li>
+        </ol>
+        <div class="jumbotron">
+            <div class="row">
+                <div class="col-md-6 col-sm-6 col-xs-6">
+                    <form role="form" class="form-horizontal">
+                        <div>
+                            <div id="div_spn_coinomat_amount_fr" class="form-group">
+                                <label for="spn_coinomat_amount_fr" class="col-sm-4 control-label">You Give</label>
+                                <div class="col-sm-8">
+                                    <input id="spn_coinomat_amount_fr" type="text" class="form-control" />
+                                    <span id="spn_coinomat_amount_fr_fail" class="glyphicon glyphicon-remove form-control-feedback show_popover" style="color:Red;display:none" data-html="true" data-content="" data-container="body" data-original-title="" title=""></span>
+                                    <span id="spn_coinomat_amount_fr_success" class="glyphicon glyphicon-ok form-control-feedback" style="display:none"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-md-3 col-xs-6">
+                    <div style="display:table-cell; vertical-align:middle">
+                        <select id="spn_coinomat_fr" style="width:300px">
+                            <option value="BTC">BTC - Bitcoin</option>
+                            <option value="LTC">LTC - Litecoin</option>
+                            <option value="PPC">PPC - Peercoin</option>
+                            <option value="NXT">NXT - NXT</option>
+                            <option value="PERFECT">PERFECT - Perfect Money USD</option>
+                            <option value="EGOPAY">EGOPAY - Ego Pay USD</option>
+                            <option value="OKPAY">OKPAY - OK Pay USD</option>
+                            <option value="VISAMASTER">VISAMASTER - withdrawal to Visa/Mastercard</option>
+                            <option value="COINO">COINO - CoinoUSD NXT asset</option>
+                            <option value="USD">USD - Bank Wire</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <p class="text-center">
+                <i class="fa fa-arrows-v" onclick="SPN.reverseCoin();" style="cursor:pointer"></i>
+            </p>
+            <div class="row show-grid">
+                <div class="col-md-6 col-sm-6 col-xs-6">
+                    <form role="form" class="form-horizontal">
+                        <div>
+                            <div class="form-group">
+                                <label for="spn_coinomat_amount_to" class="col-sm-4 control-label">You Receive</label>
+                                <div class="col-sm-8">
+                                    <input id="spn_coinomat_amount_to" type="text" class="form-control" readonly />
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-md-3 col-xs-6">
+                    <div style="display:table-cell; vertical-align:middle">
+                        <select id="spn_coinomat_to" style="width:300px">
+                            <option value="BTC">BTC - Bitcoin</option>
+                            <option value="LTC">LTC - Litecoin</option>
+                            <option value="PPC">PPC - Peercoin</option>
+                            <option value="NXT">NXT - NXT</option>
+                            <option value="PERFECT">PERFECT - Perfect Money USD</option>
+                            <option value="EGOPAY">EGOPAY - Ego Pay USD</option>
+                            <option value="OKPAY">OKPAY - OK Pay USD</option>
+                            <option value="VISAMASTER">VISAMASTER - withdrawal to Visa/Mastercard</option>
+                            <option value="COINO">COINO - CoinoUSD NXT asset</option>
+                            <option value="USD">USD - Bank Wire</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div id="spn_coinomat_wallet_addr_fr_div" class="row show-grid" style="display:none">
+                <div class="col-md-6 col-sm-6 col-xs-6">
+                    <form role="form" class="form-horizontal">
+                        <div class="form-group" id="spn_coinomat_usd_balance_div">
+                            <label class="col-sm-4 control-label">USD Balance</label>
+                            <div class="col-sm-8">
+                                <h5 id="spn_coinomat_usd_balance"></h5>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div id="spn_coinomat_usd_verify_div" class="col-md-3 col-xs-6" style="display:none">
+                    <div>
+                        <h5 style="display:inline-block"></h5>
+                        <a id="usd_verify" href="#" class="btn btn-primary" role="button" style="margin-left:10px" onclick="SPN.verifyUSD();">Verify</a>
+                        <a id="usd_add" href="#" class="btn btn-primary" role="button" style="margin-left:10px" onclick="SPN.addUSD();">Add USD</a>
+                    </div>
+                </div>
+            </div>
+            <div id="spn_coinomat_wallet_addr_to_div" class="row show-grid" style="display:none">
+                <div class="col-md-6 col-sm-6 col-xs-6">
+                    <form role="form" class="form-horizontal">
+                        <div class="form-group" id="spn_coinomat_wallet_addr_to_label_div">
+                            <label id="spn_coinomat_wallet_addr_to_label" for="spn_coinomat_wallet_addr_to" class="col-sm-4 control-label"></label>
+                            <div class="col-sm-8">
+                                <input id="spn_coinomat_wallet_addr_to" type="text" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="form-group has-feedback" id="spn_coinomat_perfect_code_div">
+                            <label id="spn_coinomat_perfect_code" for="spn_coinomat_perfect_code_input" class="col-sm-4 control-label">Confirmation Code</label>
+                            <div class="col-sm-8">
+                                <input id="spn_coinomat_perfect_code_input" type="text" class="form-control" />
+                                <span class="glyphicon glyphicon-question-sign form-control-feedback show_popover" style="color:Green" data-html="true" data-content="Leave this field empty if you do not want to use Perfect Money transaction protection." data-container="body" data-original-title="" title=""></span>
+                            </div>
+                        </div>
+                        <div class="form-group" id="spn_coinomat_visamaster_to_div">
+                            <label for="spn_coinomat_visamaster_bankcard" class="col-sm-4 control-label">Bank Card</label>
+                            <div class="col-sm-8" id="spn_coinomat_visamaster_bankcard">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div id="spn_coinomat_manage_bankcards_div" class="col-md-3 col-xs-6">
+                    <a href="#" class="btn btn-primary" role="button" onclick="SPN.manageBankCards()">Manage Bank Cards</a>
+                </div>
+            </div>
+            <img id="spn_coinomat_loading" src="img/loading_indicator.gif" alt="Loading..." width="32" height="32" />
+            <div class="alert-success alert alert-no-icon" id="spn_coinomat_exchange_message" style="padding: 5px; margin-bottom: 15px;"></div>
+            <div class="box-footer show-grid"><a id="spn_coinomat_main_exchange" href="#" class="btn btn-primary disabled" role="button" onclick="SPN.coinomatExchange()">Exchange</a></div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="box box-primary">
+                    <div class="box-header"><h3 id="spn_coinomat_tx_history_header" class="box-title"></h3></div>
+                    <div class="box-body">
+                        <div id="spn_coinomat_history" class="data-container data-loading" data-no-padding="true">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Transaction ID</th>
+                                        <th>Date</th>
+                                        <th id="spn_coinomat_history_in"></th>
+                                        <th>Exchange Rate</th>
+                                        <th id="spn_coinomat_history_out"></th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                            <div class="data-loading-container"><img src="img/loading_indicator.gif" alt="Loading..." width="32" height="32" /></div>
+                            <div class="data-empty-container"><p data-i18n="no_transactions_yet">No transactions yet.</p></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

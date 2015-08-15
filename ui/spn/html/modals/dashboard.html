@@ -1,0 +1,937 @@
+
+<!--  MODAL WINDOW  -->
+<!--  coin operation  -->
+<div class="md-modal md-effect" id="modal-11">
+    <div class="md-content">
+        <img class="md-head">
+        <div class="modal-body">
+            <ul>
+                <li>
+                    <div id="coinops_balance" class="alert alert-no-icon alert-success fontOS" style="padding: 5px; margin-bottom: 15px;"></div>
+                    <div class="callout account_info callout-info fontOS" style="display:none"></div>
+                    <div class="alert alert-no-icon alert-danger fontOS" style="padding: 5px; margin-bottom: 15px; display: none"></div>
+                </li>
+                <li>
+                    <div class="input_label">
+                        <p data-i18n="select_operation">Select operation</p>
+                    </div>
+                    <div class="input_field">
+                        <select class="input_type" id="field111cont" autofocus>
+                            <!--<option value=1>Buy this coin with another coin</option>
+                <option value=2>Trade this coin for other coin</option>-->
+                            <option value=3 data-i18n="send_coin">Send coin</option>
+                        </select>
+                    </div>
+                </li>
+                <!--
+    <li>
+        <div class="input_label">
+            <p>Select pair coin</p>
+        </div>
+        <div class="input_field">
+            <select class="input_type" id="field112cont" autofocus>
+                <option value=1>Coin to buy</option>
+                <option value=2>Coin to sell</option>
+            </select>
+        </div>
+    </li>
+    -->
+                <li>
+                    <div class="input_label">
+                        <span data-i18n="recipient_account">Recipient Account</span>
+                        <i id="recpHelp" class="fa fa-question-circle show_popover" data-container="body" style="color:#4CAA6E"></i>
+                    </div>
+                    <div class="input_field">
+                        <input type="text" class="input_type" id="field114cont" name="recipient" onclick="select()">
+                    </div>
+                </li>
+                <li>
+                    <div class="input_label">
+                        <p data-i18n="amount">Amount</p>
+                    </div>
+                    <div class="input_field input-group">
+                        <input type="text" class="input_type" id="field113cont">
+                        <span class="input-group-addon"></span>
+                    </div>
+                </li>
+                <li>
+                    <div class="input_label">
+                        <p data-i18n="fees">Fees</p>
+                    </div>
+                    <div class="input_field" style="padding-top: 5px">
+                        <span>1 NXT</span>
+                    </div>
+                </li>
+                <li>
+                    <textarea class="input_span" id="field115cont"></textarea>
+                </li>
+            </ul>
+            <div class="md-button-wrapper">
+                <button class="md-close md-close-1" data-i18n="close">CLOSE</button>
+                <button class="md-clear" onclick="z.clearForm(11,5)" data-i18n="clear">CLEAR</button>
+                <button id="coinops_submit" class="md-submit" data-loading-text="Submitting..." data-i18n="submit">SUBMIT</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--  cash operation  -->
+<div class="md-modal md-effect" id="modal-12">
+    <div class="md-content">
+        <img class="md-head">
+        <div>
+            <ul>
+                <li>
+                    <div class="alert alert-no-icon alert-danger" style="padding: 5px; margin-bottom: 15px;" data-i18n="incomplete_operation">This operation has not been implemented yet!</div>
+                </li>
+                <li>
+                    <div class="input_label">
+                        <p data-i18n="select_operation">Select operation</p>
+                    </div>
+                    <div class="input_field">
+                        <select class="input_type" id="field121cont" autofocus>
+                            <option value=1 data-i18n="buy_coin_with_cash">Purchase coin with cash</option>
+                            <option value=2 data-i18n="convert_coin_to_cash">Convert coin to cash</option>
+                            <option value=3 data-i18n="other_question">Other?</option>
+                        </select>
+                    </div>
+                </li>
+                <li>
+                    <div class="input_label">
+                        <p data-i18n="select_currency">Select currency</p>
+                    </div>
+                    <div class="input_field">
+                        <select class="input_type" id="field122cont" autofocus>
+                            <option value=1 data-i18n="usd">USD</option>
+                            <option value=2 data-i18n="euro">EURO</option>
+                        </select>
+                    </div>
+                </li>
+                <li>
+                    <div class="input_label">
+                        <p data-i18n="select_service">Select service</p>
+                    </div>
+                    <div class="input_field">
+                        <select class="input_type" id="field123cont" autofocus>
+                            <option value=1>Coinomat</option>
+                            <option value=2>Coinimal</option>
+                            <option value=3 data-i18n="other_question">Other?</option>
+                        </select>
+                    </div>
+                </li>
+                <li>
+                    <div class="input_label">
+                        <p data-i18n="amount">Amount</p>
+                    </div>
+                    <div class="input_field">
+                        <input type="text" class="input_type" id="field124cont">
+                    </div>
+                </li>
+                <li>
+                    <textarea class="input_span" id="field125cont"></textarea>
+                </li>
+            </ul>
+            <div class="md-button-wrapper">
+                <button class="md-close md-close-1" data-i18n="close">CLOSE</button>
+                <button class="md-clear" onclick="z.clearForm(12,5)" data-i18n="clear">CLEAR</button>
+                <button class="md-submit" onclick="alert('Submission action placeholder')" data-i18n="submit">SUBMIT</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--  email  -->
+<div class="md-modal md-effect" id="modal-13">
+    <div class="md-content">
+        <img class="md-head">
+        <div>
+            <ul>
+                <li>
+                    <div class="alert alert-no-icon alert-danger" style="padding: 5px; margin-bottom: 15px;" data-i18n="incomplete_operation">This operations is not implemented yet !</div>
+                </li>
+                <li>
+                    <div class="input_label">
+                        <p data-i18n="target_email">Target eMail</p>
+                    </div>
+                    <div class="input_field">
+                        <input type="text" class="input_type" id="field131cont">
+                    </div>
+                </li>
+                <li>
+                    <div class="input_label">
+                        <p data-i18n="amount">Amount</p>
+                    </div>
+                    <div class="input_field input-group">
+                        <input type="text" class="input_type" id="field132cont">
+                        <span class="input-group-addon"></span>
+                    </div>
+                </li>
+                <li>
+                    <div class="input_label">
+                        <p data-i18n="message">Message</p>
+                    </div>
+                    <div class="input_field">
+                        <textarea class="input_span" id="field133cont"></textarea>
+                    </div>
+                </li>
+            </ul>
+            <div style="clear: both;height:20px;"></div>
+            <div class="md-button-wrapper">
+                <button class="md-close md-close-1" data-i18n="close">CLOSE</button>
+                <button class="md-clear" onclick="z.clearForm(13,3)" data-i18n="clear">CLEAR</button>
+                <button class="md-submit" onclick="alert('Submission action placeholder')" data-i18n="submit">SUBMIT</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="md-modal md-effect" id="modal-15">
+    <div class="md-content">
+        <img class="md-head">
+        <div>
+            <h3>Email</h3>
+        </div>
+        <div>
+            <ul>
+                <li>
+                    <div class="input_label">
+                        <p>eMail</p>
+                    </div>
+                    <div class="input_field">
+                        <input type="text" class="input_type" id="field151cont">
+                    </div>
+                </li>
+            </ul>
+            <div style="clear: both;height:20px;"></div>
+            <div class="md-button-wrapper">
+                <button class="md-close md-close-1" onclick="z.clearForm('15',1)">CLOSE</button>
+                <button class="md-clear" onclick="z.clearForm('15',1)">CLEAR</button>
+                <button class="md-submit" onclick="alert('Email Sent')">SUBMIT</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="md-modal md-effect" id="modal-16">
+    <div class="md-content">
+        <h3 data-i18n="basic_gui_tutorial">Basic GUI Tutorial</h3>
+        <div id="tutorial_iframe_div">
+            <div style="clear: both;height:20px;"></div>
+            <div class="md-button-wrapper">
+                <button class="md-close md-close-1" id="tutorial_iframe_close" data-i18n="close">CLOSE</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="md-modal md-effect" id="modal-17">
+    <div class="md-content">
+        <h3 data-i18n="jay_wallet">Jay Wallet</h3>
+        <div>
+            <iframe src="spn/jay/jay.html?popout=true" width="590" height="320"></iframe>
+            <div style="clear: both;height:20px;"></div>
+            <div class="md-button-wrapper">
+                <button class="md-close md-close-1"data-i18n="close">CLOSE</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--  / MODAL WINDOW  -->
+
+<!--  MODAL WINDOW FULL WIDTH  -->
+<div class="md-modal md-effect md-full" id="modal-21">
+    <div class="md-content">
+        <h3>ADVANCED</h3>
+        <div>
+            <div class="md-content-inner">
+                Content Advanced
+            </div>
+            <div class="md-button-wrapper full-wrapper">
+                <button class="md-close md-close-1">CLOSE</button>
+            </div>
+            <!--<button class="md-close md-close-1">EXIT</button>-->
+        </div>
+    </div>
+</div>
+
+<div class="md-modal md-effect md-full" id="modal-22">
+    <div class="md-content">
+        <img class="md-head">
+        <div>
+            <div class="md-content-inner">
+                <!--BOX 1 - Pangea -->
+
+                <div class="commBox">
+                    <div class="innerbox"></div>
+                    <img src="spn/img/proj_pangea.svg" align="center" />
+                    <a href="http://pangeapoker.net/" target="_blank">
+                        <div class="overBox">
+                            <div class="title overText">
+                                Pangea
+                            </div>
+                            <div class="tagline overText" data-i18n="[html]pangea_desc">
+                                Pangea Poker is using the latest advances in mental poker and second generation cryptocurrency to create the first decentralized poker platform. In development.<br><br>Click here to visit their website.
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!--BOX 2 - skyNET -->
+
+                <div class="commBox">
+                    <div class="innerbox"></div>
+                    <img src="spn/img/proj_skynet.svg" align="center" />
+                    <a href="http://www.finhive.com/" target="_blank">
+                        <div class="overBox">
+                            <div class="title overText">
+                                skyNET
+                            </div>
+                            <div class="tagline overText" data-i18n="[html]skynet_desc">
+                                Transforming complex financial data on a large scale into meaningful trade strategies using advanced statistics, technical analysis, machine learning and distributed computation.<br><br>Click on this box for website access.
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!--BOX 3 - CryptoPanels -->
+
+                <div class="commBox">
+                    <div class="innerbox"></div>
+                    <img src="spn/img/proj_cryptopanels.svg" align="center" />
+                    <a href="http://cryptopanels.com" target="_blank">
+                        <div class="overBox">
+                            <div class="title overText" data-i18n="cryptopanels">
+                                CryptoPanels
+                            </div>
+                            <div class="tagline overText" data-i18n="[html]cryptopanels_desc">
+                                Stylish, easy to read and flexible GUI for those that want to supervise their crypto portfolio of coins or other assets at a glance.<br><br>Sleek, upgradeable, elegant. Website under construction.
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!--BOX 4 - FreeMarket -->
+
+                <div class="commBox">
+                    <div class="innerbox"></div>
+                    <img src="spn/img/proj_freemarket.svg" align="center" />
+                    <a href="http://www.nxtfreemarket.com" target="_blank">
+                        <div class="overBox">
+                            <div class="title overText" data-i18n="freemarket">
+                                FreeMarket
+                            </div>
+                            <div class="tagline overText" data-i18n="[html]freemarket_desc">
+                                NXT FreeMarket is a censorship-resistant market that enables you to trade physical goods freely, globally, and privately. Trade what you want with extremely low fees and no interference.<br><br>Click to access to their website.
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!--BOX 5 - NXTvault -->
+
+                <div class="commBox">
+                    <div class="innerbox"></div>
+                    <img src="spn/img/proj_nxtvaultPH.svg" align="center" />
+                    <div class="overBox">
+                        <div class="title overText">
+                            NXTvault
+                        </div>
+                        <div class="tagline overText" data-i18n="[html]nxtvault_desc">
+                            Decentralized 2-factor authentication service for securing Nxt transactions on Android devices.<br><br>
+                            Using Nxt's innovative phasing and account control features to protect your account.<br><br>Work in progress
+                        </div>
+                    </div>
+                </div>
+
+                <!--BOX 6 - Atomic -->
+
+                <div class="commBox">
+                    <div class="innerbox"></div>
+                    <img src="spn/img/proj_atomic.svg" align="center" />
+                    <a href="http://atomicdac.org/" target="_blank">
+                        <div class="overBox">
+                            <div class="title overText">
+                                Atomic
+                            </div>
+                            <div class="tagline overText" data-i18n="[html]atomic_desc">
+                                ATOMIC, the cross chain ledger DAC (Decentralized Autonomous Corporation) will facilitate cross-chain exchanges in a decentralized way by recording and verifying them on the ATOMIC ledger.<br><br>Click here to open their website.
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+
+                <!--BOX 7 - Omnigames -->
+
+                <div class="commBox">
+                    <div class="innerbox"></div>
+                    <img src="spn/img/proj_omnigamesPH.svg" align="center" />
+                    <div class="overBox">
+                        <div class="title overText">
+                            Omnigames
+                        </div>
+                        <div class="tagline overText" data-i18n="[html]omnigames_desc">
+                            Omnigames is a project developing cross-platform mobile games which leverage cryptocurrency for in-game payments, as well as building a social layer that will help introduce cryptocurrencies to the mass market.<br><br>Work in progress.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="md-button-wrapper full-wrapper">
+                <button class="md-close md-close-img"><img src="spn/img/md-close_btn.svg" /></button>
+            </div>
+            <!--<button class="md-close md-close-1">EXIT</button>-->
+        </div>
+    </div>
+</div>
+
+<div class="md-modal md-effect md-full" id="modal-23">
+    <div class="md-content">
+        <img class="md-head">
+        <div>
+            <div class="md-content-inner">
+                <!--BOX 1 - Coinimal-->
+
+                <div class="commBox">
+                    <div class="innerbox"></div>
+                    <img src="spn/img/serv_coinimal.svg" align="center" />
+                    <div class="overBox">
+                        <div class="title overText">
+                            Coinimal
+                        </div>
+                        <div class="tagline overText" data-i18n="[html]coinimal_desc">
+                            Vienna based Cryptocoin Gateway service, that allows you to directly buy and sell your Coins with EUR using your European bank account.<br><br>Access to their services via the FIAT OPERATIONS icon in the Balance Boxes.
+                        </div>
+                    </div>
+                </div>
+
+                <!--BOX 2 - Coinomat -->
+
+                <div class="commBox">
+                    <div class="innerbox"></div>
+                    <img src="spn/img/serv_coinomatPH2.svg" align="center" />
+                    <div class="overBox">
+                        <div class="title overText">
+                            Coinomat
+                        </div>
+                        <div class="tagline overText" data-i18n="[html]coinomat_desc">
+                            Coinomat allows you to convert between various cryptocurrencies and national currencies without the hassle of opening an account at an cryptocurrency exchange.<br><br>Access to their services via the FIAT OPERATIONS icon in the Balance Boxes.
+                        </div>
+                    </div>
+                </div>
+
+                <!--BOX 3 - NEOdice -->
+
+                <div class="commBox">
+                    <div class="innerbox"></div>
+                    <img src="spn/img/serv_neodice.svg" align="center" />
+                    <a href="javascript:$.growl($.t('service_under_maintenance'), { 'type': 'danger' });">
+                        <div class="overBox">
+                            <div class="title overText">
+                                NEOdice
+                            </div>
+                            <div class="tagline overText" data-i18n="[html]neodice_desc">
+                                Realtime DICE game running on NXT blockchain. Provably fair, playable via any NXT client.<br><br>Roll NeoDICE, beat the odds, support NXT.<br><br>Access to the service soon by clicking this box.
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!--BOX 4 - Opal Drive -->
+
+                <div class="commBox">
+                    <div class="innerbox"></div>
+                    <img src="spn/img/serv_opaldrive.svg" class="centerImg"/>
+                    <a href="javascript:checkServerStatus('http://localhost:8080')">
+                        <div class="overBox">
+                            <div class="title overText">
+                                Opal Drive
+                            </div>
+                            <div class="tagline overText" data-i18n="[html]opaldrive_desc">
+                                Opal drive is a decentralized storage and file transfer service
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!--BOX 5 - Syncthing -->
+
+                <div class="commBox">
+                    <div class="innerbox"></div>
+                    <img src="spn/img/serv_syncthing.svg" class="centerImg"/>
+                    <a href="javascript:checkServerStatus('http://localhost:8384')">
+                        <div class="overBox">
+                            <div class="title overText">
+                                Syncthing
+                            </div>
+                            <div class="tagline overText" data-i18n="[html]syncthing_desc">
+                                Open Source Continuous File Synchronization
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!--BOX 6 - Jay -->
+
+                <div class="commBox">
+                    <div class="innerbox"></div>
+                    <img src="spn/img/serv_jay.svg" class="centerImg"/>
+                    <a id="jay_wallet" href="#" class="md-trigger" data-modal="modal-17">
+                        <div class="overBox">
+                            <div class="title overText">
+                                Jay Wallet
+                            </div>
+                            <div class="tagline overText" data-i18n="[html]jay_wallet_desc">
+                                A fast, easy, and safe Nxt web wallet experience
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="md-button-wrapper full-wrapper">
+                <button class="md-close md-close-img"><img src="spn/img/md-close_btn.svg" /></button>
+            </div>
+            <!--<button class="md-close md-close-1">EXIT</button>-->
+        </div>
+    </div>
+</div>
+
+<div class="md-modal md-effect md-full" id="modal-24">
+    <div class="md-content">
+        <img class="md-head">
+        <div>
+            <div class="md-content-inner">
+                <!--BOX 1 - superNET website -->
+                <div class="commBox">
+                    <div class="innerbox"></div>
+                    <img src="spn/img/comm_snwebsite.svg" align="center" />
+                    <a href="https://supernet.org" target="_blank">
+                        <div class="overBox">
+                            <div class="title overText" data-i18n="supernet_official_website">
+                                SuperNET official website
+                            </div>
+                            <div class="tagline overText" data-i18n="[html]snwebsite_desc">
+                                Home of the superNET, our website will keep you updated with all the news and happenings that ocur in cypto and more specifically, our superNET environment.<br><br>Click on this box to access.
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!--BOX 2 - superNET forum-->
+                <div class="commBox">
+                    <div class="innerbox"></div>
+                    <img src="spn/img/comm_snforum.svg" align="center" />
+                    <a href="https://forum.thesupernet.org/index.php" target="_blank">
+                        <div class="overBox">
+                            <div class="title overText" data-i18n="supernet_official_forum">
+                                SuperNET official forum
+                            </div>
+                            <div class="tagline overText" data-i18n="[html]snforum_desc">
+                                Read and discuss, express your ideas and learn from others. Our forum is hub for a number of resources. Happy reading!<br><br>Click on this box to access.
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!--BOX 3 - superNET IRC -->
+                <div class="commBox">
+                    <div class="innerbox"></div>
+                    <img src="spn/img/comm_snirc.svg" align="center" />
+                    <a href="http://chat.supernet.org/" target="_blank">
+                        <div class="overBox">
+                            <div class="title overText">
+                                superNET IRC
+                            </div>
+                            <div class="tagline overText" data-i18n="[html]snirc_desc">
+                                For those wanting to know more about superNET or even getting involved in the project, our freeNode IRC is the perfect place for casual hangout, chat, and getting to know the team.<br><br>Access to the web version of our IRC by clicking on this box.
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!--BOX 4 - superNET Slack -->
+                <div class="commBox">
+                    <div class="innerbox"></div>
+                    <img src="spn/img/comm_snslack.svg" align="center" />
+                    <div class="overBox">
+                        <div class="title overText">
+                            superNET Slack
+                        </div>
+                        <div class="tagline overText" data-i18n="[html]snslack_desc">
+                            Slack is becoming a standard for communications and briefs nowadays. <br><br>Request access clicking on this box and submitting your email for deeper information about what happens behind the scenes in superNET.
+                        </div>
+                    </div>
+                </div>
+
+                <!--BOX 5 - superNET Radio -->
+                <div class="commBox">
+                    <div class="innerbox"></div>
+                    <img src="spn/img/comm_snradio.svg" align="center" />
+                    <a href="http://supernetradio.com/" target="_blank">
+                        <div class="overBox">
+                            <div class="title overText" data-i18n="snradio">
+                                SuperNET Radio
+                            </div>
+                            <div class="tagline overText" data-i18n="[html]snradio_desc">
+                                SuperNET Radio Network (SNRN) is an Internet Broadcasting Solution encompassing news about all Supernet related coins, assets, and entities. That, of course in addition to an awesome music themes selection.<br><br>Click on this box to access.
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!--BOX 6 - NXTer.org -->
+                <div class="commBox">
+                    <div class="innerbox"></div>
+                    <img src="spn/img/comm_nxter.svg" align="center" />
+                    <a href="http://www.nxter.org" target="_blank">
+                        <div class="overBox">
+                            <div class="title overText">
+                                NXTer.org
+                            </div>
+                            <div class="tagline overText" data-i18n="[html]nxter_desc">
+                                Enjoy the superNET newsletters loaded with useful information plus the latest news related with crypto scene in general in the most complete and prestigious NXT publication out there.<br><br>Click on this box to access.
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+
+                <!--BOX 7 - NXTforum.org -->
+                <div class="commBox">
+                    <div class="innerbox"></div>
+                    <img src="spn/img/comm_nxtforum.svg" align="center" />
+                    <a href="https://nxtforum.org/index.php" target="_blank">
+                        <div class="overBox">
+                            <div class="title overText">
+                                NXTforum.org
+                            </div>
+                            <div class="tagline overText" data-i18n="[html]nxtforum_desc">
+                                Meeting place for the NXT community and its enormous Assets Exchange (AE), is the second largest crypto forum today. Find all kind of information or start your own project supporterd by the NXT cutting edge tech.<br><br>Click on this box to access.
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!--BOX 8 - superNET Twitter -->
+                <div class="commBox">
+                    <div class="innerbox"></div>
+                    <img src="spn/img/comm_sntwitter.svg" align="center" />
+                    <a href="https://twitter.com/supernetorg" target="_blank">
+                        <div class="overBox">
+                            <div class="title overText">
+                                superNET Twitter
+                            </div>
+                            <div class="tagline overText" data-i18n="[html]sntwitter_desc">
+                                Do not miss a single event or happening about superNET or its affiliates. With our twitters you will be always up to date.<br><br>Click on this box to explore our handles and do not forget to follow!
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!--BOX 9 - SNN SuperNET News -->
+                <div class="commBox">
+                    <div class="innerbox"></div>
+                    <img src="spn/img/comm_snnews.svg" align="center" />
+                    <div class="overBox">
+                        <div class="title overText" data-i18n="snnews">
+                            SNN - SuperNET News
+                        </div>
+                        <div class="tagline overText" data-i18n="[html]snnews_desc">
+                            Community driven media outlet forcused on the Business, Blockchain, and FinTech markets.<br><br>Click on this box to explore their website and news hub!
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="md-button-wrapper full-wrapper">
+                <button class="md-close md-close-img"><img src="spn/img/md-close_btn.svg" /></button>
+            </div>
+            <!--<button class="md-close md-close-1">EXIT</button>-->
+        </div>
+    </div>
+</div>
+
+<div class="md-modal md-effect md-full" id="modal-25">
+    <div class="md-content">
+        <img class="md-head">
+        <div>
+            <div class="md-content-inner">
+                <!--BOX 1 - Tutorial-->
+                <div class="commBox">
+                    <div class="innerbox"></div>
+                    <img src="spn/img/help_tutorial.svg" align="center" />
+                    <a id="basic_gui_tutorial" href="#" class="md-trigger" data-modal="modal-16">
+                        <div class="overBox">
+                            <div class="title overText" data-i18n="basic_gui_tutorial">
+                                Basic GUI Tutorial
+                            </div>
+                            <div class="tagline overText" data-i18n="[html]basic_gui_tutorial_desc">
+                                <!--<a id="basic_gui_tutorial" class="md-trigger" data-modal="modal-16">Simple, easy to understand tutorial that will guide those newcomers that are finding any problems learning how to use the BASIC superNET GUI.<br><br>Still in development, keep tuned!</a>-->
+                                Simple, easy to understand tutorial that will guide those newcomers that are finding any problems learning how to use the BASIC superNET GUI.<br><br>Click here to launch it.
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!--BOX 2 - Wiki -->
+                <div class="commBox">
+                    <div class="innerbox"></div>
+                    <img src="spn/img/help_wiki.svg" align="center" />
+                    <a href="http://wiki.supernet.org/wiki/Main_Page" target="_blank">
+                        <div class="overBox">
+                            <div class="title overText" data-i18n="help_wiki">
+                                SuperNET WIKI
+                            </div>
+                            <div class="tagline overText" data-i18n="[html]help_wiki_desc">
+                                Interested in learning more about superNET? Hundreds of topics, questions and answers, detailed descriptions and much more in our fantastic superNET WIKI.<br><br>Access by clicking on this box.
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="md-button-wrapper full-wrapper">
+                <button class="md-close md-close-img"><img src="spn/img/md-close_btn.svg" /></button>
+            </div>
+            <!--<button class="md-close md-close-1">EXIT</button>-->
+        </div>
+    </div>
+</div>
+
+<div class="md-modal md-effect md-full" id="modal-tx-history">
+    <div class="md-content">
+        <h3></h3>
+        <div>
+            <div class="md-content-inner">
+                <div>
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs" role="tablist" id="tab_tx_history">
+                        <li role="presentation" class="active"><a href="#txDeposit" aria-controls="txDeposit" role="tab" data-toggle="tab" data-type="deposit" data-i18n="deposits">Deposits</a></li>
+                        <li role="presentation"><a href="#txWithdraw" aria-controls="txWithdraw" role="tab" data-toggle="tab" data-type="withdraw" data-i18n="withdrawals">Withdrawals</a></li>
+                    </ul>
+
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane active" id="txDeposit">
+                            <div class="data-container data-loading" style="max-height:350px;overflow:auto;">
+                                <table class="table table-striped" id="tx_deposit_table">
+                                    <thead>
+                                    <tr>
+                                        <th data-i18n="transaction_id">Transaction ID</th>
+                                        <th data-i18n="Date">Date</th>
+                                        <th id="coin_fr" data-i18n="from">From</th>
+                                        <th id="column_debit"></th>
+                                        <th data-i18n="net_amount">Net Amount</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody></tbody>
+                                </table>
+                                <div class="data-loading-container"><img src="img/loading_indicator.gif" alt="Loading..." width="32" height="32" /></div>
+                                <div class="data-empty-container" style="padding-top:10px" data-i18n="no_transactions_found">No transactions found</div>
+                            </div>
+                        </div>
+                        <div role="tabpanel" class="tab-pane" id="txWithdraw">
+                            <div class="data-container data-loading" style="max-height:350px;overflow:auto;">
+                                <table class="table table-striped" id="tx_withdraw_table">
+                                    <thead>
+                                    <tr>
+                                        <th data-i18n="transaction_id">Transaction ID</th>
+                                        <th data-i18n="Date">Date</th>
+                                        <th id="coin_to" data-i18n="to">To</th>
+                                        <th id="column_credit"></th>
+                                        <th data-i18n="net_amount">Net Amount</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody></tbody>
+                                </table>
+                                <div class="data-loading-container"><img src="img/loading_indicator.gif" alt="Loading..." width="32" height="32" /></div>
+                                <div class="data-empty-container" style="padding-top:10px" data-i18n="no_transactions_found">No transactions found</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="md-button-wrapper full-wrapper">
+                <button class="md-close md-close-img md-close-img-2"><img src="spn/img/md-close_btn.svg" /></button>
+            </div>
+            <!--<button class="md-close md-close-1">EXIT</button>-->
+        </div>
+    </div>
+</div>
+<!--  / MODAL WINDOW FULL WIDTH -->
+
+<div class="md-overlay"></div><!-- the overlay element -->
+<div class="md-overlayfull"></div><!-- the overlay element -->
+<a class="md-trigger" data-modal="modal-jay-code" style="visibility:hidden"></a>
+</div>
+
+<table id="spn_newbie" style="width:100%;height:100%;display:none">
+    <tr>
+        <td style="text-align:center;vertical-align:middle">
+            <center>Generating your deposit addresses <span class="loading_dots"><span>.</span><span>.</span><span>.</span></span></center><br />
+            <center class="loading"><div style="text-align:center;"><img src="img/loading_indicator.gif" alt="Loading..." width="32" height="32" /></div></center><br />
+            <button type="button" class="btn btn-spn" onclick="window.location.reload();">Reload</button>
+
+            <div class="col-md-6 col-md-offset-3 content" style="display:none">
+                <section class="content">
+                    <div class="alert alert-no-icon alert-success" style="padding: 5px; margin-bottom: 15px;">Welcome to your new NXT account. The following form is OPTIONAL. <br /><br /> Your initial coin deposit will auto-converted into 10 NXT</div>
+
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Email</label>
+                            <div class="col-sm-8">
+                                <input id="newbie_email" type="text" class="form-control" placeholder="Email">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Auto-Convert NXT</label>
+                            <div class="input-group col-sm-8">
+                                <input id="newbie_nxt" type="text" class="form-control" placeholder="Amount" value="10">
+                                <span class="input-group-addon">NXT</span>
+                            </div>
+                        </div>
+                    </form>
+                    <button id="spn_newbie_submit" type="button" class="btn btn-spn" data-loading-text="Submiting...">Submit</button>
+                </section>
+            </div>
+        </td>
+    </tr>
+</table>
+
+<div class="modal fade" id="tx_history_modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-wider">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Transactions history</h4>
+            </div>
+            <div class="modal-body">
+                <i id="tx_history_refresh" class="fa fa-refresh" onclick="NRS.getTxHistory();" style="cursor:pointer;float:right"></i>
+                <div class="data-container data-loading tx_history_modal_content" id="tx_history_modal_transactions" style="max-height:350px;overflow:auto;">
+                    <table class="table table-striped" id="tx_history_modal_transactions_table">
+                        <thead>
+                        <tr>
+                            <th>Value</th>
+                            <th>Status</th>
+                        </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                    API : <input id="txt_tx_API" />
+                    Log : <textarea id="txt_tx_log" rows="7" cols="100"></textarea>
+                    <div class="data-loading-container"><img src="img/loading_indicator.gif" alt="Loading..." width="32" height="32" /></div>
+                    <div class="data-empty-container" style="padding-top:10px">There are no transactions.</div>
+                </div>
+            </div>
+            <div class="modal-footer" style="margin-top:0;">
+                <button type="button" class="btn btn-spn" data-dismiss="modal" data-i18n="close">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="mgw_withdraw_modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">BTCD Withdrawal Confirmation</h4>
+            </div>
+            <div class="modal-body">
+                <form role="form" autocomplete="off">
+                    <div class="callout callout-danger error_message" style="display:none"></div>
+                    <div class="form-group">
+                        <label>WITHDRAW ADDRESS</label>
+                        <input type="text" id="mgw_withdraw_modal_address" class="form-control" placeholder="" tabindex="1">
+                        <input type="checkbox" style="display:none" name="add_message" class="add_message" checked="checked" id="mgw_withdraw_modal_add_message" />
+                        <input type="hidden" name="message" id="mgw_withdraw_modal_message" value="" />
+                        <input type="hidden" name="comment" id="mgw_withdraw_modal_comment" value="" />
+                        <input type="hidden" name="recipient" id="mgw_withdraw_modal_recipient" value="" />
+                        <input type="hidden" name="asset" id="mgw_withdraw_modal_asset" value="" />
+                        <input type="hidden" name="quantityQNT" id="mgw_withdraw_modal_quantityQNT" value="" />
+                        <input type="hidden" name="deadline" id="mgw_withdraw_modal_deadline" value="24" />
+                        <input type="hidden" name="merchant_info" value="" data-default="" />
+                    </div>
+                    <div class="form-group">
+                        <label>AMOUNT (min 0.05)</label>
+                        <input type="number" id="mgw_withdraw_modal_total_amount" class="form-control" placeholder="" tabindex="2" min="0.05" step="any">
+                    </div>
+                    <div class="row advanced">
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                            <div class="form-group">
+                                <label for="mgw_withdraw_modal_feeNXT">FEE</label>
+                                <div class="input-group">
+                                    <input type="number" name="feeNXT" id="mgw_withdraw_modal_feeNXT" class="form-control" step="any" min="1" placeholder="Fee" data-default="1" value="1" tabindex="1">
+                                    <span class="input-group-addon">NXT</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                            <div class="form-group">
+                                <label for="mgw_withdraw_modal_deadline">DEADLINE (HOURS)</label>
+                                <input type="number" name="deadline" id="mgw_withdraw_modal_deadline" class="form-control" placeholder="Deadline" min="1" data-default="24" value="1" tabindex="2">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group secret_phrase">
+                        <label for="mgw_withdraw_modal_password">PASSPHRASE</label>
+                        <input type="password" name="secretPhrase" id="mgw_withdraw_modal_password" class="form-control" placeholder="" tabindex="3">
+                    </div>
+                    <div class="callout account_info" style="display:none;margin-bottom: 0;"></div>
+                    <input type="hidden" name="success_message" value="Your withdrawal has been submitted." />
+                    <input type="hidden" name="error_message" value="An unknown error occured! Your withdrawal may or may not have gone through." />
+                    <input type="hidden" name="request_type" value="mgwTransferAsset" data-default="mgwTransferAsset" />
+                    <input type="hidden" name="converted_account_id" value="" />
+                </form>
+            </div>
+            <div class="modal-footer" style="margin-top:0;">
+                <div class="advanced_info"><p>Fee:</p> <span class="advanced_fee">1 NXT</span> - <a href="#">advanced</a></div>
+
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary" data-loading-text="Submitting...">Withdraw</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--
+<div class="md-modal md-effect md-full" id="modal-server-status">
+    <div class="md-content">
+        <h3 data-i18n="servers_status">SERVERS STATUS</h3>
+        <div>
+            <div class="md-content-inner">
+                <div class="data-container data-loading" style="overflow:auto;">
+                    <table class="table table-striped" id="server_status_table">
+                        <thead>
+                        <tr>
+                            <th data-i18n="coin">Coin</th>
+                            <th data-i18n="server_1">Server 1</th>
+                            <th data-i18n="server_2">Server 2</th>
+                            <th data-i18n="server_3">Server 3</th>
+                        </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                    <div class="data-loading-container"><img src="img/loading_indicator.gif" alt="Loading..." width="32" height="32" /></div>
+                    <div class="data-empty-container"><p data-i18n="nxt_not_connected">Nxt is not connected</p></div>
+                </div>
+            </div>
+            <div class="md-button-wrapper full-wrapper">
+                <button class="md-close md-close-img"><img src="spn/img/md-close_btn.svg"/></button>
+            </div>
+        </div>
+    </div>
+</div>
+ -->
+<div class="md-modal md-effect md-full" id="modal-jay-code">
+    <div class="md-content">
+        <h3 data-i18n="jay_wallet_code">Jay Wallet Code</h3>
+        <div>
+            <div class="md-content-inner" style="text-align: center">
+                <div id="jay_code_qr" style="display:none"></div>
+                <br />
+                <span id="jay_code"></span>
+            </div>
+            <div class="md-button-wrapper full-wrapper">
+                <button class="md-close md-close-img"><img src="spn/img/md-close_btn.svg" /></button>
+            </div>
+        </div>
+    </div>
+</div>
