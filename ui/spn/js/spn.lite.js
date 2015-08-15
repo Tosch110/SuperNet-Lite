@@ -36,7 +36,7 @@ var NRS = (function (NRS, $, undefined) {
                 },
                 error: function (data) {
                     if (hasUserServer) {
-                        console.log("Server " + server + " doesn't have CORS enabled! Activate in your Nxt (nxt/conf) config file.", { "type": "danger" });
+                        console.log("Server " + server + " doesn't have CORS enabled! Activate in your Nxt (nxt/conf) config file. 1) Set nxt.apiServerCORS=true and nxt.uiServerCORS=true 2) restart your Nxt 3) reload this page");
                     }
                     
                     server = "";
