@@ -421,6 +421,9 @@ var NRS = (function(NRS, $, undefined) {
 			if (NRS.isSuperNETPage())
 			{
 			    if (NRS.serverConnect) {
+                    //Look for missing msig signatures
+                    NRS.updateMissingMsig();
+
 			        if (NRS.state.lastBlockchainFeederHeight) {
 			            NRS.getServerStatus(NRS.state.lastBlockchainFeederHeight);
 			        }

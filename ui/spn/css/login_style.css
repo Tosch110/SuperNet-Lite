@@ -4,14 +4,19 @@
 }
 */
 #lockscreen {
-  background: url(../img/blur-background.jpg) repeat center center fixed !important;
+    background: url(../img/blur-background.jpg) repeat center center fixed !important;
+    background-color: #fff7e0;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
-.fontOS {
-	font-family: 'open_sanslight',
+.fontOS @font-face {
+	font-family: 'open_sanslight';
+    src:
 	url('font/opensans-light-webfont.eot'),
 	url('font/opensans-light-webfont.eot?#iefix'),
-	format('embedded-opentype'),     
 	url('font/opensans-light-webfont.woff2') format('woff2'),     
 	url('font/opensans-light-webfont.woff') format('woff'),      
 	url('font/opensans-light-webfont.ttf') format('truetype'),      
