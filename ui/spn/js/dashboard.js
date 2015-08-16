@@ -260,10 +260,14 @@ var NRS = (function (NRS, $, undefined) {
 
         //console.log('URL: '+url);
 
+        //Search for "coin" in the url string
         var searchcoin = url.search("coin")+5;
+        //Find a max 4-letter coin
         var endstring = searchcoin + 4;
+        //get element
         var coin = url.substring(searchcoin,endstring);
 
+        //Subtract 1 if coin has 3 Character
         if(coin.substr(coin.length - 1) === '&') {
             coin = coin.substring(0, coin.length - 1);
         }
@@ -285,7 +289,6 @@ var NRS = (function (NRS, $, undefined) {
 
         if (tries > 2) {
 
-
             hasCoinAddressFail = true;
 
             $(".bg" + coin.toLowerCase() + " h4").removeAttr("data-i18n");
@@ -301,13 +304,11 @@ var NRS = (function (NRS, $, undefined) {
 
             if (index + 1 < _bridge.length) {
 
-                sendNewbieInitRequest(++index, 1)
+                sendNewbieInitRequest(++index, 1);
             }
             else {
                 if (hasCoinAddressFail) {
                     setTimeout(function () { sendNewbieInitRequest(0, 1); }, 600000); // 10 minutes
-
-
                 }
             }
             return;
@@ -320,6 +321,7 @@ var NRS = (function (NRS, $, undefined) {
 
         $(".bg" + coin.toLowerCase() + " h4").attr("data-i18n", "generating_deposit_address");
         $(".bg" + coin.toLowerCase() + " h4").html($.t("generating_deposit_address") + ' <span class="loading_dots"><span>.</span><span>.</span><span>.</span></span>');
+
 
         $.ajax({
             url: url,
@@ -338,10 +340,21 @@ var NRS = (function (NRS, $, undefined) {
                     $.growl("data return : " + JSON.stringify(data), { "type": "success" });
                 }
 
+                if(coin === 'LTC' || coin === 'BTC' || coin === 'DOGE') {
+                    if(data[0].address === undefined) {
+                        sendNewbieInitRequest(index, tries++);
+                    }
+
+                    if (data[0].address.charAt(0) !== '3' && data[0].address.charAt(0) !== 'A') {
+                        sendNewbieInitRequest(index, tries++);
+                    }
+                }
+
                 if (processMsigJson(data, coin)) {
                     if (localStorage) {
                         localStorage["mgw-" + NRS.accountRS + "-" + coin] = JSON.stringify(data);
                     }
+
                     showDepositAddr(data, coin);
 
                     if (index + 1 < _bridge.length) {
@@ -412,11 +425,8 @@ var NRS = (function (NRS, $, undefined) {
             error = 'error: '+data[0].error;
 
         }
-        //console.log(coin +' '+error+' and '+data);
-
 
         if(data[0].error !== 'timeout') {
-
 
             if (data[0][0]) {
 
@@ -432,19 +442,14 @@ var NRS = (function (NRS, $, undefined) {
               coin = data[0].coin;
 
                 var address = '';
-                if(data[0].pubkeys !== undefined) {
-                    var these_pubkeys = data[0].pubkeys[0];
-                    address = these_pubkeys.coinaddr;
-                } else {
-                    address = data[0].address;
-                }
+                address = data[0].address;
 
               var coinBridge = $.grep(_bridge, function (coinD) { return coinD.coin == coin });
               $(".bg" + data[0].coin.toLowerCase() + " h4").text(address);
               $(".bg" + data[0].coin.toLowerCase() + " h4").removeAttr("data-i18n");
               coinBridge[0].msigAddr = address;
 
-              onSuccessShowMsig(data[0].coin);
+              onSuccessShowMsig(coin);
             }
 
         } else {
@@ -1018,7 +1023,6 @@ var NRS = (function (NRS, $, undefined) {
                 success: function (data) {
 
                     var result = JSON.parse(data);
-                    console.log(result);
 
                     if(result[0].coin !== undefined) {
                         $("#"+value.coin+"_server_status").html('Online');
@@ -1302,7 +1306,7 @@ var NRS = (function (NRS, $, undefined) {
                           }
 
                           if (Object.keys(validTokenAddr).length == length) {
-                              var noOfValidToken = 0
+                              var noOfValidToken = 0;
                               for (x = 0; x < length; x++) {
                                   if (validTokenAddr[x] == v[0].address) {
                                       noOfValidToken++;
@@ -1341,7 +1345,7 @@ var NRS = (function (NRS, $, undefined) {
                   }
 
                       if (Object.keys(validTokenAddr).length == length) {
-                      var noOfValidToken = 0
+                      var noOfValidToken = 0;
                       for (x = 0; x < length; x++) {
                           if (validTokenAddr[x] == data[0].address) {
                               noOfValidToken++;
