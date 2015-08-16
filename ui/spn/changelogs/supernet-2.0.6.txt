@@ -1,0 +1,15 @@
+Add Bitcoin, Litecoin, Dogecoin to supported MGW coins
+New MGW Server API implemented, for this special server.
+
+Added more reliable peers for the Jay service via http://nxtpeers.com/api/cors/jsonp.php
+This improves the list of nodes available, as on peerexplorer they don't necessarily support CORS.
+
+Choice of nodes to generate Msig addresses are now random from the list in dashboard.js
+4 tries each coin, if not successfull it will retry to generate deposit addresses after 10 minutes.
+Msig address generation now more efficient filtering for first character in address.
+
+Changed Lockscreen Background, Nxt Account Information and publicKey Modal.
+Fixed deposit status display. More error/success messages. Disabled view of advertisement boxes.
+General code improvement.
+
+Introducing new coins under development SYS and FIBRE.

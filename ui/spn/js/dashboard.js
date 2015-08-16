@@ -70,10 +70,6 @@ var NRS = (function (NRS, $, undefined) {
                 msig_minutes++;
             } else {
 
-                var amount_maintenance = under_maintenance.length;
-
-                var coins = [];
-
                 under_maintenance.each(function( index ) {
                     var coin = $( this ).closest("div").attr("id");
 
