@@ -60,11 +60,12 @@ var NRS = (function (NRS, $, undefined) {
     //{ "coin": "VPN", "server": ["NXT-M3PZ-B7U2-359G-4VXAJ", "NXT-4R55-GPLW-DRYV-HMVEK", "NXT-PPPK-GBAU-6U4V-9NSMX", "NXT-XXQB-S9RV-AZB4-9N4BB"] }
     ];
 
+    //Workaround check for BTC/LTC/DOGE to have all three MGW servers checked for multisig address.
     var gateWayBTC = [false, false, false];
     var gateWayLTC = [false, false, false];
     var gateWayDOGE = [false, false, false];
 
-
+    //If no address has been created, check every 10 minutes and create a new one if not exists.
     NRS.updateMissingMsig = function () {
 
         var under_maintenance = $('.coin_under_maintenance');
@@ -1290,6 +1291,13 @@ var NRS = (function (NRS, $, undefined) {
         /*if (NRS.isCopyFeature)
             $(".bg" + coin + " .coinaddr").addClass("dropdown");
         */
+
+        var coinLight = $(".bg" + coin + " .led-div");
+        if (coinLight.hasClass("led-red")) {
+            coinLight.removeClass("led-red").addClass("led-green");
+            coinLight.tooltipster('content', $.t("online"));
+            coinLight.attr("data-i18n-tooltip", "online");
+        }
 
         $(".bg" + coin + " h4").tooltipster('content', $.t("minimum_deposit_is") + " " + coinDetails[0].minDeposit + ' ' + coin.toUpperCase() + '.');
     }
