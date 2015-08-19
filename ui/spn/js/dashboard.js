@@ -1,6 +1,6 @@
 var NRS = (function (NRS, $, undefined) {
     var isDebug = false;
-    var initNewbieURL = " http://jnxt.org";
+    //var initNewbieURL = " http://jnxt.org";
     //var mgwServer = ["209.126.70.170", "209.126.70.156", "209.126.70.159"];
     var _password;
     var _token;
@@ -60,6 +60,11 @@ var NRS = (function (NRS, $, undefined) {
     //{ "coin": "VPN", "server": ["NXT-M3PZ-B7U2-359G-4VXAJ", "NXT-4R55-GPLW-DRYV-HMVEK", "NXT-PPPK-GBAU-6U4V-9NSMX", "NXT-XXQB-S9RV-AZB4-9N4BB"] }
     ];
 
+    var gateWayBTC = [false, false, false];
+    var gateWayLTC = [false, false, false];
+    var gateWayDOGE = [false, false, false];
+
+
     NRS.updateMissingMsig = function () {
 
         var under_maintenance = $('.coin_under_maintenance');
@@ -70,10 +75,10 @@ var NRS = (function (NRS, $, undefined) {
                 msig_minutes++;
             } else {
 
-                under_maintenance.each(function( index ) {
+                under_maintenance.each(function () {
                     var coin = $( this ).closest("div").attr("id");
 
-                    //Initiate deposit check if
+                    //Initiate deposit check if coin is under maintenance
                     for(var searchcoin in _bridge) {
 
                         if(_bridge[searchcoin].coin == coin) {
@@ -169,9 +174,10 @@ var NRS = (function (NRS, $, undefined) {
 
     function showDashboard() {
         getBalance();
+        var bgnxt = $(".bgnxt h4");
 
-        $(".bgnxt h4").text(NRS.accountRS);
-        $(".bgnxt h4").removeAttr("data-i18n");
+        bgnxt.text(NRS.accountRS);
+        bgnxt.removeAttr("data-i18n");
 
         showAutoConvertMsg();
         autoCheckCoinRecipient();
@@ -287,23 +293,25 @@ var NRS = (function (NRS, $, undefined) {
         if(coin.substr(coin.length - 1) === '&') {
             coin = coin.substring(0, coin.length - 1);
         }
+
+        var coinTitle = $(".bg" + coin.toLowerCase() + " h4");
+
         //If coin was under maintenance before.
-        $(".bg" + coin.toLowerCase() + " h4").removeClass("coin_under_maintenance");
-        $(".bg" + coin.toLowerCase() + " h4").parent().attr('id', coin);
+        coinTitle.removeClass("coin_under_maintenance");
+        coinTitle.parent().attr('id', coin);
 
         //log creating deposit address.
         //console.log('Coin: '+coin+' Tries: '+tries+ ' Link: '+url);
 
+        //Change server if server does not respond.
         if(tries > 0) {
             if(coin === 'LTC' || coin === 'BTC' || coin === 'DOGE') {
                 //Select another Server
                 randomBTC =  Math.round(Math.random() * (serverBTC.length - 1));
                 _bridge[index].bridge  = 'http://'+serverBTC[randomBTC];
-                //console.log('Server: '+ _bridge[index].bridge +' Random: '+randomBTC);
             } else {
                 randomTwo =  Math.round(Math.random() * (serverTwo.length - 1));
                 _bridge[index].bridge  = 'http://'+serverTwo[randomTwo];
-                //console.log('Server: '+ _bridge[index].bridge);
             }
         }
 
@@ -311,11 +319,11 @@ var NRS = (function (NRS, $, undefined) {
 
             hasCoinAddressFail = true;
 
-            $(".bg" + coin.toLowerCase() + " h4").removeAttr("data-i18n");
-            $(".bg" + coin.toLowerCase() + " h4").removeClass( "generating_address" );
-            $(".bg" + coin.toLowerCase() + " h4").text($.t("node_under_maintenance"));
-            $(".bg" + coin.toLowerCase() + " h4").attr("data-i18n", "node_under_maintenance");
-            $(".bg" + coin.toLowerCase() + " h4").addClass("coin_under_maintenance");
+            coinTitle.removeAttr("data-i18n");
+            coinTitle.removeClass( "generating_address" );
+            coinTitle.text($.t("node_under_maintenance"));
+            coinTitle.attr("data-i18n", "node_under_maintenance");
+            coinTitle.addClass("coin_under_maintenance");
 
             var coinLight = $(".bg" + coin.toLowerCase() + " .led-div");
             if (coinLight.hasClass("led-green")) {
@@ -341,8 +349,8 @@ var NRS = (function (NRS, $, undefined) {
         //return;
         //end dev
 
-        $(".bg" + coin.toLowerCase() + " h4").attr("data-i18n", "generating_deposit_address");
-        $(".bg" + coin.toLowerCase() + " h4").html($.t("generating_deposit_address") + ' <span class="loading_dots"><span>.</span><span>.</span><span>.</span></span>');
+        coinTitle.attr("data-i18n", "generating_deposit_address");
+        coinTitle.html($.t("generating_deposit_address") + ' <span class="loading_dots"><span>.</span><span>.</span><span>.</span></span>');
 
         $.ajax({
             url: url,
@@ -361,14 +369,43 @@ var NRS = (function (NRS, $, undefined) {
                     $.growl("data return : " + JSON.stringify(data), { "type": "success" });
                 }
 
+                //Edge cases / workarounds for new servers.
                 if(coin === 'LTC' || coin === 'BTC' || coin === 'DOGE') {
+
+                    //Get deposit address confirmed by all 3 servers
+                    if(data[0].gatewayid !== undefined) {
+                        switch(coin) {
+                            case 'BTC':
+                                gateWayBTC[data[0].gatewayid] = true;
+                                if (gateWayBTC[0] === false || gateWayBTC[1] === false || gateWayBTC[2] === false) {
+                                    sendNewbieInitRequest(index, 0);
+                                }
+                            break;
+                            case 'LTC':
+                                gateWayLTC[data[0].gatewayid] = true;
+                                if (gateWayLTC[0] === false || gateWayLTC[1] === false || gateWayLTC[2] === false) {
+                                    sendNewbieInitRequest(index, 0);
+                                }
+                            break;
+                            case 'DOGE':
+                                gateWayDOGE[data[0].gatewayid] = true;
+                                if (gateWayDOGE[0] === false || gateWayDOGE[1] === false || gateWayDOGE[2] === false) {
+                                    sendNewbieInitRequest(index, 0);
+                                }
+                            break;
+                        }
+                    }
+
+                    //Try again if no response
                     if(data[0].address === undefined) {
                         sendNewbieInitRequest(index, tries++);
                     }
 
+                    //Check char for Multisignature address
                     if (data[0].address.charAt(0) !== '3' && data[0].address.charAt(0) !== 'A' && data[0].address.charAt(0) !== '9') {
                         sendNewbieInitRequest(index, tries++);
                     }
+
                 }
 
                 if (processMsigJson(data, coin)) {
@@ -385,12 +422,11 @@ var NRS = (function (NRS, $, undefined) {
                     setTimeout(function () { sendNewbieInitRequest(index, ++tries); }, 5000);
                 }
             },
-            error: function (x, t, m) {
+            error: function () {
                 if (isDebug) {
                     $.growl("Error calling " + url + " API", { "type": "danger" });
                 }
 
-                //Error Log
                 setTimeout(function () { sendNewbieInitRequest(index, ++tries); }, 5000);
             }
         });
@@ -399,8 +435,10 @@ var NRS = (function (NRS, $, undefined) {
 
     function showDepositAddr(data, coin) {
 
-        var coinAddr = "";
+        //var coinAddr = "";
+        var coinBridge = '';
         var error = '';
+        var coinTitle = $(".bg" + coin.toLowerCase() + " h4");
 
         if(data[0].error !== undefined) {
 
@@ -412,33 +450,32 @@ var NRS = (function (NRS, $, undefined) {
 
             if (data[0][0]) {
 
-              var coinBridge = $.grep(_bridge, function (coinD) { return coinD.coin == coin });
-              $(".bg" + data[0][0].coin.toLowerCase() + " h4").text(data[0][0].address);
-              $(".bg" + data[0][0].coin.toLowerCase() + " h4").removeAttr("data-i18n");
-              coinBridge[0].msigAddr = data[0][0].address;
+                coinBridge = $.grep(_bridge, function (coinD) { return coinD.coin == coin });
+                coinTitle.text(data[0][0].address);
+                coinTitle.removeAttr("data-i18n");
+                coinBridge[0].msigAddr = data[0][0].address;
 
-              onSuccessShowMsig(data[0][0].coin);
+                onSuccessShowMsig(data[0][0].coin);
 
             } else {
 
               coin = data[0].coin;
 
-                var address = '';
-                address = data[0].address;
+                var address = data[0].address;
 
-              var coinBridge = $.grep(_bridge, function (coinD) { return coinD.coin == coin });
-              $(".bg" + data[0].coin.toLowerCase() + " h4").text(address);
-              $(".bg" + data[0].coin.toLowerCase() + " h4").removeAttr("data-i18n");
-              coinBridge[0].msigAddr = address;
+                coinBridge = $.grep(_bridge, function (coinD) { return coinD.coin == coin });
+                coinTitle.text(address);
+                coinTitle.removeAttr("data-i18n");
+                coinBridge[0].msigAddr = address;
 
-              onSuccessShowMsig(coin);
+                onSuccessShowMsig(coin);
             }
 
         } else {
 
-            $(".bg" + coin.toLowerCase() + " h4").removeAttr("data-i18n");
-            $(".bg" + coin.toLowerCase() + " h4").text($.t("node_under_maintenance"));
-            $(".bg" + coin.toLowerCase() + " h4").attr("data-i18n", "node_under_maintenance");
+            coinTitle.removeAttr("data-i18n");
+            coinTitle.text($.t("node_under_maintenance"));
+            coinTitle.attr("data-i18n", "node_under_maintenance");
         }
     }
 
@@ -605,10 +642,11 @@ var NRS = (function (NRS, $, undefined) {
         var coinDetails = $.grep(_coin, function (coinD) { return coinD.coin == coin.toUpperCase() });
         var result = true;
         var balanceNQT = 0;
+        var balance = "";
 
         if (coin == "NXT") {
             var withdrawAmountNQT = new Big(NRS.convertToNQT($("#field113cont").val()).toString());
-            var balance = NRS.accountInfo.unconfirmedBalanceNQT - 100000000;
+            balance = NRS.accountInfo.unconfirmedBalanceNQT - 100000000;
             balance = new Big(balance.toString());
             if (balance.cmp(withdrawAmountNQT) == -1) {
                 result = false;
@@ -616,7 +654,7 @@ var NRS = (function (NRS, $, undefined) {
         } else {
             if (NRS.accountInfo.unconfirmedAssetBalances) {
                 for (var i = 0; i < NRS.accountInfo.unconfirmedAssetBalances.length; i++) {
-                    var balance = NRS.accountInfo.unconfirmedAssetBalances[i];
+                    balance = NRS.accountInfo.unconfirmedAssetBalances[i];
 
                     if (balance.asset == coinDetails[0].assetID) {
                         balanceNQT = balance.unconfirmedBalanceQNT.toString();
@@ -866,8 +904,9 @@ var NRS = (function (NRS, $, undefined) {
 
 
     NRS.getServerStatus = function (lastBlockchainFeederHeight) {
-        var url = '';
         /*
+        var url = '';
+
         //return;
 
         $.each(_bridge, function (index, node) {
@@ -969,7 +1008,7 @@ var NRS = (function (NRS, $, undefined) {
 
         */
 
-    }
+    };
 
 
     $(".led-div").on("click", function () {

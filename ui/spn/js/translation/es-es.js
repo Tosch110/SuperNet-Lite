@@ -1143,7 +1143,7 @@
   "help_tooltip":"Tutoriales y otros temas de ayuda para entender nuestra interfaz, sitios WIKI, y mucho más.",
   "in_queue":"Connectando.",
   "generating_deposit_address":"Generando dirección para la cartera.",
-  "node_under_maintenance":"Nodos en mantenimiento. Inténtelo de nuevo en unos minutos.",
+  "node_under_maintenance":"Nodos en mantenimiento. Espera unos minutos.",
   "minimum_deposit_is":"El depósito mínimo es",
   "pangea_desc":"Pangea Poker usa la tecnología de moneda digital de segunda generación mas avanzada para crear la primera plataforma de póker descentralizada. En progreso. Haga clic aquí para visitar su sitio web.",
   "skynet_desc":"Transformando datos financieros complejos a grande escala en precisas estrategias usando avanzadas estadísticas, análisis técnicos, inteligencia artificial y computación distribuida. Haga clic aquí para visitar su sitio web.",

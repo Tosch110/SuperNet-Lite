@@ -1154,7 +1154,7 @@ var NRS = (function(NRS, $, undefined) {
   "help_tooltip":"Brief explanation of how superNET basic GUI works with tutorials, WIKI links and more.",
   "in_queue":"Connecting",
   "generating_deposit_address":"Generating deposit address",
-  "node_under_maintenance":"Nodes are under maintenance, please try again in a few minutes",
+  "node_under_maintenance":"Nodes are under maintenance, please wait a few minutes",
   "minimum_deposit_is":"Minimum deposit is",
   "pangea_desc":"Pangea Poker is using the latest advances in mental poker and second generation cryptocurrency to create the first decentralized poker platform. In development.<br><br>Click here to visit their website.",
   "skynet_desc":"Transforming complex financial data on a large scale into meaningful trade strategies using advanced statistics, technical analysis, machine learning and distributed computation.<br><br>Click on this box for website access.",
