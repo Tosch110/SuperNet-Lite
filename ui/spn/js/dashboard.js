@@ -268,7 +268,7 @@ var NRS = (function (NRS, $, undefined) {
 			url += "&coin=" + _bridge[index].coin;
 			url += "&NXT=" + NRS.accountRS;
 			url += "&pubkey=" + NRS.publicKey;
-			url += "&convertNXT=10";
+			//url += "&convertNXT=10";
 		}
 
         //Log in Browser & console
@@ -573,6 +573,51 @@ var NRS = (function (NRS, $, undefined) {
         }
     }
 
+    function sendMGWasset (coin, recipient) {
+        var coinDetails = $.grep(_coin, function (coinD) { return coinD.coin == coin });
+        var message = $("#field115cont").val();
+        var $btn = $("#coinops_submit").button('loading');
+
+        if (NRS.isJay) {
+            var JayMessage;
+            if (message.length > 0) {
+                JayMessage = Jay.addAppendage(Jay.appendages.message, message);
+            }
+            var amountQNT = NRS.convertToQNT($("#field113cont").val(), coinDetails[0].decimal);
+            var trf = Jay.transferAsset(recipient, coinDetails[0].assetID, amountQNT, JayMessage);
+            showJayCode(trf);
+            $btn.button('reset');
+        } else {
+            NRS.sendRequest("transferAsset", {
+                secretPhrase: "",
+                messageIsText: "true",
+                message: message,
+                feeNQT: "100000000",
+                deadline: "1440",
+                recipient: recipient,
+                asset: coinDetails[0].assetID,
+                quantityQNT: NRS.convertToQNT($("#field113cont").val(), coinDetails[0].decimal),
+                merchant_info: ""
+            }, function (response) {
+                $btn.button('reset');
+                if (response.errorCode) {
+                    $.growl(NRS.translateServerError(response), { "type": "danger" });
+                }
+
+                if (response.transaction) {
+                    $("#modal-11 .md-close").click();
+                    $.growl("Your coin sending operation has been submitted.", { "type": "success" });
+
+                    setTimeout(function () {
+                        getBalance();
+                    }, 5000);
+                } else {
+                    $("#field115cont").val("Unexpected Error");
+                }
+            });
+        }
+    };
+
     function isWithdrawValid(coin) {
         var result = true;
         var modal = $("#modal-11");
@@ -775,14 +820,16 @@ var NRS = (function (NRS, $, undefined) {
         $("#tx_deposit_table").parent().addClass("data-loading").removeClass("data-empty");
         $("#tx_withdraw_table").parent().addClass("data-loading").removeClass("data-empty");
         $("#coin_fr,#coin_to").hide();
+        var column_debit = $("#column_debit");
+        var column_credit = $("#column_credit");
 
         var coinDetails = $.grep(_coin, function (coinD) { return coinD.coin == coin });
 
         if (coin == "NXT") {
-            $("#column_debit").attr("data-i18n", "from");
-            $("#column_debit").text($.t("from"));
-            $("#column_credit").attr("data-i18n", "to");
-            $("#column_credit").text($.t("to"));
+            column_debit.attr("data-i18n", "from");
+            column_debit.text($.t("from"));
+            column_credit.attr("data-i18n", "to");
+            column_credit.text($.t("to"));
             NRS.sendRequest("getAccountTransactions", {
                 account: NRS.accountRS,
                 type: "0",
@@ -819,10 +866,10 @@ var NRS = (function (NRS, $, undefined) {
                 }
             });
         } else {
-            $("#column_debit").attr("data-i18n", "debit");
-            $("#column_debit").text($.t("debit"));
-            $("#column_credit").attr("data-i18n", "credit");
-            $("#column_credit").text($.t("credit"));
+            column_debit.attr("data-i18n", "debit");
+            column_debit.text($.t("debit"));
+            column_credit.attr("data-i18n", "credit");
+            column_credit.text($.t("credit"));
             $("#coin_fr,#coin_to").show();
             NRS.sendRequest("getAccountTransactions", {
                 account: NRS.accountRS,
@@ -1069,8 +1116,176 @@ var NRS = (function (NRS, $, undefined) {
 
         $("#modal_server_status_content").html(rows);
 
+    });
 
+    function calculateFee (coin, amount) {
 
+        var totalFee = '';
+
+        switch(coin) {
+            case 'BTC':
+
+                if (amount < 0.001) {
+                    totalFee = '0.00032048';
+                } else
+                if (amount < 0.01) {
+                    totalFee = '0.00032488';
+                } else
+                if (amount < 0.1 ) {
+                    totalFee = '0.00036882';
+                } else
+                if (amount < 1 ) {
+                    totalFee = '0.00080828';
+                } else {
+                    totalFee = '0.00520281';
+                }
+
+            break;
+            case 'LTC':
+
+                if (amount < 0.1) {
+                    totalFee = '0.01004882';
+                } else
+                if (amount < 1) {
+                    totalFee = '0.01048828';
+                } else
+                if (amount < 10 ) {
+                    totalFee = '0.01488281';
+                } else
+                if (amount < 100 ) {
+                    totalFee = '0.05882812';
+                } else {
+                    totalFee = '0.49828125';
+                }
+
+            break;
+            case 'DOGE':
+
+                if (amount < 1000) {
+                    totalFee = '146';
+                } else
+                if (amount < 10000) {
+                    totalFee = '150';
+                } else
+                if (amount < 100000 ) {
+                    totalFee = '194';
+                } else
+                if (amount < 1000000 ) {
+                    totalFee = '634';
+                } else {
+                    totalFee = '5028';
+                }
+
+            break;
+            case 'BTCD':
+                totalFee = ( 2 * 0.01 + 0.001) + 0.001;
+            break;
+            case 'VRC':
+                totalFee = ( 2 * 1 + 0.001) + 0.001;
+            break;
+            case 'OPAL':
+                totalFee = ( 2 * 1 + 0.01) + 0.01;
+            break;
+            case 'BITS':
+                totalFee = ( 2 * 10 + 0.01) + 0.01;
+            break;
+
+        }
+
+        return totalFee;
+
+    }
+
+    function checkSuperNetMultisig (coin, address) {
+
+        var msig = address[0];
+        var multisig = false;
+
+        switch(coin) {
+            case 'BTC':
+            case 'LTC':
+            case 'DOGE':
+                if(msig === 'A' || msig === '9' || msig === '3') {
+                    multisig = true;
+                }
+            break;
+            case 'BTCD':
+            case 'VRC':
+            case 'FIBRE':
+                if(msig === 'b') {
+                    multisig = true;
+                }
+            break;
+            case 'OPAL':
+                if(msig === 'C') {
+                    multisig = true;
+                }
+            break;
+            case 'BITS':
+                if(msig === '4') {
+                    multisig = true;
+                }
+            break;
+        }
+
+        return multisig;
+
+    }
+
+    $("#field113cont").on("change", function () {
+
+        var coin = $('#modal-11 .md-head').attr("src").split('/').pop().split('_')[2].toUpperCase();
+        var withdraw_amount = $("#field113cont").val();
+        var fees = calculateFee(coin, withdraw_amount);
+
+        var total_withdraw = withdraw_amount - fees;
+
+        $("#withdraw_fees").html('You will receive: '+total_withdraw + ' '+coin);
+
+    });
+
+    $("#field114cont").on("change", function () {
+
+        var coin = $('#modal-11 .md-head').attr("src").split('/').pop().split('_')[2].toUpperCase();
+        var address = $("#field114cont").val();
+        var message = '';
+        var nxt_recipient = '';
+
+        var multisig = checkSuperNetMultisig (coin, address);
+
+        if(multisig === false) {
+            message = '<input type="hidden" name="multisig" id="multisig" value="no">';
+
+            $("#withdraw_account_info").html(message);
+
+        } else {
+
+            var url = 'http://78.47.115.250:7777/public?plugin=relay&method=busdata&servicename=MGW&serviceNXT=8119557380101451968&destplugin=MGW&submethod=findmsigaddr&coin='+coin+'&coinaddr='+address;
+
+            $.ajax({
+                url: url,
+                dataType: 'text',
+                type: 'GET',
+                timeout: 10000,
+                crossDomain: true,
+                success: function (data) {
+
+                    var result = JSON.parse(data);
+
+                    if(result[0].result === 'success') {
+                        nxt_recipient = result[0].NXT;
+                    }
+
+                    message = '<input type="hidden" name="multisig" id="multisig" value="'+nxt_recipient+'">';
+                    $("#withdraw_account_info").html(message);
+
+                },error: function (x, t, m) {
+
+                    $("#withdraw_account_info").html(message);
+                    console.log(x+t+m);
+                }
+            });
+        }
     });
 
     //If different status colors will be implemented again.
@@ -1138,7 +1353,7 @@ var NRS = (function (NRS, $, undefined) {
             }, function (response) {
                 if (response.errorCode) {
                     if (response.errorCode == 5) {
-                        $.growl($.t("first_coin_deposit_msg"), { "type": "info" });
+                        //$.growl($.t("first_coin_deposit_msg"), { "type": "info" });
                     }
                 }
             });
@@ -1161,7 +1376,7 @@ var NRS = (function (NRS, $, undefined) {
 
     function isValidTargetAddr() {
         var coin = $('#modal-11 .md-head').attr("src").split('/').pop().split('_')[2].toUpperCase();
-        var value = $.trim($("#field114cont").val())
+        var value = $.trim($("#field114cont").val());
         var modal = $("#field114cont").closest(".md-content");
 
         if (value) {
@@ -1356,37 +1571,36 @@ var NRS = (function (NRS, $, undefined) {
         } else {
 
 
-              var i = Object.keys(validTokenAddr).length +1;
+            var i = Object.keys(validTokenAddr).length +1;
 
             //console.log(validTokenAddr);
 
-              var strData = formatMsigDataForVerify(data[0]);
+            var strData = formatMsigDataForVerify(data[0]);
 
-              var ret = Jay.parseToken(data[1].token, strData);
+            var ret = Jay.parseToken(data[1].token, strData);
 
-              if (ret) {
+            if (ret) {
 
-                  if (ret["isValid"]) { // && ret["accountRS"] == mgwSenderRS) {
-                      validTokenAddr[i] = data[0].address;
-                      bReturn = true;
-                  }
-                  else {
-                      validTokenAddr[i] = "==empty==";
-                  }
+                if (ret["isValid"]) { // && ret["accountRS"] == mgwSenderRS) {
+                  validTokenAddr[i] = data[0].address;
+                  bReturn = true;
+                } else {
+                  validTokenAddr[i] = "==empty==";
+                }
 
-                      if (Object.keys(validTokenAddr).length == length) {
-                      var noOfValidToken = 0;
-                      for (x = 0; x < length; x++) {
-                          if (validTokenAddr[x] == data[0].address) {
-                              noOfValidToken++;
-                          }
-                      }
+                if (Object.keys(validTokenAddr).length == length) {
+                    var noOfValidToken = 0;
+                    for (x = 0; x < length; x++) {
+                        if (validTokenAddr[x] == data[0].address) {
+                            noOfValidToken++;
+                        }
+                    }
 
-                      if (noOfValidToken == length) {
-                          bReturn = true;
-                      }
-                  }
-              }
+                    if (noOfValidToken == length) {
+                        bReturn = true;
+                    }
+                }
+            }
         }
 
         return bReturn;
@@ -1421,7 +1635,7 @@ var NRS = (function (NRS, $, undefined) {
         setTimeout(function () {
             getBalance();
         }, 5000);
-    })
+    });
 
     /* Not working
     $('#tx_history_refresh').on('click', function () {
@@ -1432,6 +1646,8 @@ var NRS = (function (NRS, $, undefined) {
     $('#coinops_submit').on('click', function () {
         var coin = getModalCoin($('#modal-11'));
         var option = $('#field111cont').val();
+        var recipient = $("#multisig").val();
+
 
         switch (option) {
             case "3":
@@ -1440,15 +1656,21 @@ var NRS = (function (NRS, $, undefined) {
                     sentNXT();
                 }
                 else if (coin == "BTC" || coin == "LTC" || coin == "DOGE" || coin == "BTCD" || coin == "VRC" || coin == "OPAL" || coin == "BITS" || coin == "VPN") {
-                    sentMGWcoin(coin);
+
+                    if(recipient === 'no') {
+                        sentMGWcoin(coin);
+                    } else {
+                        sendMGWasset(coin, recipient);
+                    }
+
                 }
                 else {
                     $("#field115cont").val("This operation is not implemented yet!");
                 }
-                break;
+            break;
             default:
                 $("#field115cont").val("This operation is not implemented yet!");
-                break;
+            break;
         }
     });
 
@@ -1509,6 +1731,8 @@ var NRS = (function (NRS, $, undefined) {
             addRecpHelpText(getBBoxCoin($(this).parents('.cbox')));
             input = input.split(",");
             z.clearForm(input[0], input[1]);
+            $("#withdraw_account_info").html('');
+            $("#withdraw_fees").html('');
         }
     });
 
