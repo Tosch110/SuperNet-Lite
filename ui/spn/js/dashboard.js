@@ -219,6 +219,7 @@ var NRS = (function (NRS, $, undefined) {
         }, function (response) {
             if (response.unconfirmedBalanceNQT) {
                 $("#account_balance").html(NRS.formatStyledAmount(response.unconfirmedBalanceNQT));
+                $("#pubKey").hide();
             } else {
                 $("#account_balance").html("0");
 
