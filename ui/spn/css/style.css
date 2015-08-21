@@ -92,7 +92,7 @@ Main Components
     .cd-header .news {
         font-family: normalText;
         font-weight: 200;
-        border: 1px solid #F58735;
+        #border: 1px solid #F58735;
         float: left;
         margin-top: 28px;
         position: relative;

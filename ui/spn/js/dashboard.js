@@ -185,6 +185,7 @@ var NRS = (function (NRS, $, undefined) {
 
         $("#nxt_details_account_rs").html(NRS.accountRS);
         $("#nxt_details_publicKey").html(NRS.publicKey);
+        $("#supernet_accountRS").html(NRS.accountRS);
 
         setTimeout(function () {
             NRS.hideDashboardElementinJay();
@@ -689,9 +690,10 @@ var NRS = (function (NRS, $, undefined) {
         var result = true;
         var balanceNQT = 0;
         var balance = "";
+        var withdrawAmountNQT = '';
 
         if (coin == "NXT") {
-            var withdrawAmountNQT = new Big(NRS.convertToNQT($("#field113cont").val()).toString());
+            withdrawAmountNQT = new Big(NRS.convertToNQT($("#field113cont").val()).toString());
             balance = NRS.accountInfo.unconfirmedBalanceNQT - 100000000;
             balance = new Big(balance.toString());
             if (balance.cmp(withdrawAmountNQT) == -1) {
@@ -708,7 +710,7 @@ var NRS = (function (NRS, $, undefined) {
                 }
             }
             balanceNQT = new Big(balanceNQT.toString());
-            var withdrawAmountNQT = new Big(NRS.convertToQNT($("#field113cont").val(), coinDetails[0].decimal).toString());
+            withdrawAmountNQT = new Big(NRS.convertToQNT($("#field113cont").val(), coinDetails[0].decimal).toString());
             if (balanceNQT.cmp(withdrawAmountNQT) == -1) {
                 result = false;
             }
@@ -761,60 +763,6 @@ var NRS = (function (NRS, $, undefined) {
             }
         });
     }
-
-    //NRS.getTxHistory = function() {
-    //    $("#tx_history_modal_transactions").addClass("data-loading");
-
-    //    var hasResult = false;
-    //    var url = initNewbieURL + "/init/?requestType=status";
-    //    url += "&NXT=" + NRS.accountRS;
-    //    url += "&pubkey=" + NRS.publicKey;
-    //    url += "&coin=BTCD";
-
-    //    $("#txt_tx_API").val(url);
-
-    //    $.ajax({
-    //        url: url,
-    //        dataType: 'json',
-    //        type: 'GET',
-    //        timeout: 30000,
-    //        crossDomain: true,
-    //        success: function (data) {
-    //            $.growl("tx history data return : " + JSON.stringify(data), { "type": "success" });
-
-    //            $("#txt_tx_log").val(JSON.stringify(data));
-    //            //var result = JSON.parse('[[{"circulation":"8104.81340000","unspent":"8094.80344007","pendingdeposits":"0.00000000","redeems":[],"revenues":"-10.00995993","boughtNXT":30,"seconds":"29.614","userdeposits":[{"vout":1,"height":299085,"txid":"9f22aaa6da9afe9e8fcf1c8a4d69573f9a7264a529cbb71c8bf8ef8de824e810","addr":"bLRp614oYpZCvJ3PjJpJG9Kw4GQBh9ui84","value":"0.20000000","depositid":"15017275505506004531","status":"complete"}],"userwithdraws":[],"AEbalance":"0.20000000","pending_userdeposits":"0.00000000","pending_userwithdraws":"0.00000000","userbalance":"0.20000000","userNXT":"8026315745545145508","userRS":"NXT-HM76-NNU7-LL7S-8MTSY","depositaddr":"bLRp614oYpZCvJ3PjJpJG9Kw4GQBh9ui84","NXT":"423766016895692955","requestType":"MGWresponse","gatewayid":0,"timestamp":1419828158,"NXTheight":319956,"depinfo":[-10.00995993,-0.00995993,0.09004007,8094.80344007,8104.80344007,8104.90344007,0,0.20000000,0.20000000,0,0,0,0,0,0]},{"token":"4nbbkmqel5nl6fevock6k7gbpcfmt9fl3gsj4gf3e7rdefsd1roo26ebankapoo2bs95gkhu5lqqrm2tkqdclaht356b2165oesjq23d8kc0ft4o41j2gn2bkk7cq5ss29v6hlkvq2kh4e993guup8qgfra94f6u"}],[{"circulation":"8104.81340000","unspent":"8104.80344007","pendingdeposits":"0.00000000","redeems":[],"revenues":"-0.00995993","boughtNXT":30,"seconds":"5.180","userdeposits":[{"vout":1,"height":299085,"txid":"9f22aaa6da9afe9e8fcf1c8a4d69573f9a7264a529cbb71c8bf8ef8de824e810","addr":"bLRp614oYpZCvJ3PjJpJG9Kw4GQBh9ui84","value":"0.20000000","depositid":"15017275505506004531","status":"complete"}],"userwithdraws":[],"AEbalance":"0.20000000","pending_userdeposits":"0.00000000","pending_userwithdraws":"0.00000000","userbalance":"0.20000000","userNXT":"8026315745545145508","userRS":"NXT-HM76-NNU7-LL7S-8MTSY","depositaddr":"bLRp614oYpZCvJ3PjJpJG9Kw4GQBh9ui84","NXT":"12240549928875772593","requestType":"MGWresponse","gatewayid":1,"timestamp":1419828206,"NXTheight":319956,"depinfo":[-10.00995993,-0.00995993,0.09004007,8094.80344007,8104.80344007,8104.90344007,0,0,0.20000000,0,0,0,0,0,0]},{"token":"phfmcvvc65ag4edesl43pith02t6r4c4c3e4s0t7gofh3p7p1roqun8klkn6p382br97nl5sb66tmugggb5rs84feer4qucbhnvfb5f67gpgusrhv6ch98s1cnl5irilin2fhqpt1eores0c1nbjuiih98ialenu"}]]');
-    //            var result = data;
-    //            var rows = "";
-
-    //            if (result[0]) {
-    //                if (result[0][0]) {
-    //                    if (result[0][0].userdeposits) {
-    //                        hasResult = true;
-    //                    }
-    //                }
-    //            }
-
-    //            if (hasResult) {
-    //                $.each(result[0][0].userdeposits, function (i, v) {
-    //                    rows += "<tr><td>" + v.value + "</td><td>" + v.status + "</td></tr>";
-    //                });
-
-    //                $("#tx_history_modal_transactions_table tbody").empty().append(rows);
-    //            }
-    //            else {
-    //                $("#tx_history_modal_transactions_table tbody").empty();
-    //            }
-
-    //            setTimeout(function () {
-    //                NRS.dataLoadFinished($("#tx_history_modal_transactions_table"));
-    //            }, 1000);
-    //        },
-    //        error: function (x, t, m) {
-    //            $.growl("Error calling " + url + " API", { "type": "danger" });
-    //        }
-    //    });
-    //}
 
     function getTxHistory(coin) {
         $("#tx_deposit_table").parent().addClass("data-loading").removeClass("data-empty");
@@ -886,6 +834,7 @@ var NRS = (function (NRS, $, undefined) {
                 if (response.transactions) {
                     var deposit = "";
                     var withdraw = "";
+                    var msg = "";
 
                     $.each(response.transactions, function (i, v) {
                         //if (isValidMgwServer(coin, v.sender)) {
@@ -894,7 +843,7 @@ var NRS = (function (NRS, $, undefined) {
                                 //deposit += v.attachment.message;
                                 //$.growl(v.attachment.message, { "type": "danger" });
                                 if (IsJsonString(v.attachment.message)) {
-                                    var msg = JSON.parse(v.attachment.message);
+                                    msg = JSON.parse(v.attachment.message);
                                     var nxtAdded = "";
 
                                     if (msg.buyNXT && msg.conv != 0) {
@@ -914,7 +863,7 @@ var NRS = (function (NRS, $, undefined) {
                             if (v.attachment.asset == coinDetails[0].assetID) {
                                 //var msg = JSON.parse(v.attachment.message);
                                 if (IsJsonString(v.attachment.message)) {
-                                    var msg = JSON.parse(v.attachment.message);
+                                    msg = JSON.parse(v.attachment.message);
 
                                     withdraw += "<tr><td>" + v.transaction + "</td><td>" + NRS.formatTimestamp(v.timestamp) + "</td><td>" + msg.withdrawaddr + "</td><td>" + NRS.formatQuantity(v.attachment.quantityQNT, coinDetails[0].decimal) + "</td><td>" + NRS.formatQuantity(v.attachment.quantityQNT, coinDetails[0].decimal) + "</td></tr>";
                                 }
@@ -949,115 +898,6 @@ var NRS = (function (NRS, $, undefined) {
         }
         return result;
     }
-
-
-    NRS.getServerStatus = function (lastBlockchainFeederHeight) {
-        /*
-        var url = '';
-
-        //return;
-
-        $.each(_bridge, function (index, node) {
-
-            if (node.coin === 'BTC' || node.coin === 'LTC' || node.coin === 'DOGE') {
-                url = node.bridge + ":7777/public?plugin=relay&method=busdata&servicename=MGW&serviceNXT=8119557380101451968&destplugin=MGW&submethod=status&coin=" + node.coin + "&jsonflag=";
-            } else {
-                url = node.bridge + "/init/?requestType=status&coin=" + node.coin + "&jsonflag=1";
-            }
-
-            var rows = "", status = "", light = "";
-
-           // console.log(url);
-
-            $.ajax({
-                url: url,
-                dataType: 'text',
-                type: 'GET',
-                timeout: 10000,
-                crossDomain: true,
-                success: function (data) {
-                    if (lastBlockchainFeederHeight) {
-                        var isServerDown = false;
-                        $(".bgnxt .led-div").removeClass("led-red").addClass("led-green");
-                        $(".bgnxt .led-div").tooltipster('content', $.t("online"));
-                        $(".bgnxt .led-div").attr("data-i18n-tooltip", "online");
-
-
-                       // console.log('DATA: '+data);
-
-                        $.each(data, function (i, v) {
-
-                            //var server_details = "<span data-i18n='nxt_height'>Nxt Height</span>" + " : <nxt.height> <br/>" + "<span data-i18n='nxt_lag'>Nxt Lag</span>" + " : <nxt.lag> <br/>" + "<span data-i18n='coin_height'>Coin Height</span>" + " : <coin.height> <br/>" + "<span data-i18n='coin_lag'>Coin Lag</span>" + " : <coin.lag>";
-                            var color = "red";
-                            var server_details = 'Offline';
-
-                            //color = getServerStatusColor(v.RTNXT.height, v.RTNXT.lag, v[v.coin].height, v[v.coin].lag, lastBlockchainFeederHeight, v.coin);
-
-                            //server_details = server_details.replace("<nxt.height>", v.RTNXT.height);
-                            //server_details = server_details.replace("<nxt.lag>", v.RTNXT.lag);
-                            //server_details = server_details.replace("<coin.height>", v[v.coin].height);
-                            //server_details = server_details.replace("<coin.lag>", v[v.coin].lag);
-
-                            if(v.requestType !== undefined) {
-
-                                color= 'green';
-                                server_details = 'Online';
-                            }
-
-                            console.log(color);
-
-                            light += " <i class='fa fa-circle 1' style='font-size: 12px; color: " + color + "'></i>";
-                            status += "<td>" + server_details + "</td>";
-
-
-                            var coinLight = $(".bg" + v.coin.toLowerCase() + " .led-div");
-                            if (isServerDown) {
-                                if (coinLight.hasClass("led-green")) {
-                                    coinLight.removeClass("led-green").addClass("led-red");
-                                    coinLight.tooltipster('content', $.t("offline"));
-                                    coinLight.attr("data-i18n-tooltip", "offline");
-                                }
-
-                            } else {
-                                if (coinLight.hasClass("led-red")) {
-                                    coinLight.removeClass("led-red").addClass("led-green");
-                                    coinLight.tooltipster('content', $.t("online"));
-                                    coinLight.attr("data-i18n-tooltip", "online");
-                                }
-                            }
-
-                            rows += "<tr><td>" + v.coin + light + "</td>";
-                            rows += status;
-                            rows += "</tr>";
-
-                            if (color != "green") {
-                                isServerDown = true;
-                            }
-                        });
-
-
-
-                        $("#server_status_table tbody").append(rows);
-                        NRS.dataLoadFinished($("#server_status_table"));
-                    }
-                    else {
-                        $("#server_status_table tbody").append(rows);
-                        NRS.dataLoadFinished($("#server_status_table"));
-                    }
-                },
-                error: function (x, t, m) {
-                    if (isDebug) {
-                        $.growl("Error getting " + v.coin + " server status!", { "type": "danger" });
-                    }
-                }
-            });
-        });
-
-
-        */
-
-    };
-
 
     $(".led-div").on("click", function () {
 
@@ -1121,76 +961,58 @@ var NRS = (function (NRS, $, undefined) {
     function calculateFee (coin, amount) {
 
         var totalFee = '';
+        var NXTfee_equiv = '';
+        var opreturn_amount = '';
+        var txfee = '';
 
         switch(coin) {
             case 'BTC':
-
-                if (amount < 0.001) {
-                    totalFee = '0.00032048';
-                } else
-                if (amount < 0.01) {
-                    totalFee = '0.00032488';
-                } else
-                if (amount < 0.1 ) {
-                    totalFee = '0.00036882';
-                } else
-                if (amount < 1 ) {
-                    totalFee = '0.00080828';
-                } else {
-                    totalFee = '0.00520281';
-                }
-
+                NXTfee_equiv = 0.00006;
+                txfee = 0.0001;
             break;
             case 'LTC':
-
-                if (amount < 0.1) {
-                    totalFee = '0.01004882';
-                } else
-                if (amount < 1) {
-                    totalFee = '0.01048828';
-                } else
-                if (amount < 10 ) {
-                    totalFee = '0.01488281';
-                } else
-                if (amount < 100 ) {
-                    totalFee = '0.05882812';
-                } else {
-                    totalFee = '0.49828125';
-                }
-
+                NXTfee_equiv = 0.004;
+                txfee = 0.001;
             break;
             case 'DOGE':
-
-                if (amount < 1000) {
-                    totalFee = '146';
-                } else
-                if (amount < 10000) {
-                    totalFee = '150';
-                } else
-                if (amount < 100000 ) {
-                    totalFee = '194';
-                } else
-                if (amount < 1000000 ) {
-                    totalFee = '634';
-                } else {
-                    totalFee = '5028';
-                }
-
+                NXTfee_equiv = 70;
+                txfee = 3;
             break;
             case 'BTCD':
-                totalFee = ( 2 * 0.01 + 0.001) + 0.001;
+                NXTfee_equiv = 0.01;
+                txfee = 0.001;
             break;
             case 'VRC':
-                totalFee = ( 2 * 1 + 0.001) + 0.001;
+                NXTfee_equiv = 1;
+                txfee = 0.001;
             break;
             case 'OPAL':
-                totalFee = ( 2 * 1 + 0.01) + 0.01;
+                NXTfee_equiv = 1;
+                txfee = 0.01;
             break;
             case 'BITS':
-                totalFee = ( 2 * 10 + 0.01) + 0.01;
+                NXTfee_equiv = 10;
+                txfee = 0.01;
             break;
 
         }
+
+        switch(coin) {
+            case 'BTC':
+            case 'LTC':
+            case 'DOGE':
+                totalFee = [(amount / 2048) + (2 * NXTfee_equiv) - opreturn_amount + txfee] + txfee;
+            break;
+            case 'BTCD':
+            case 'VRC':
+            case 'OPAL':
+            case 'BITS':
+                totalFee = ((2 * NXTfee_equiv + txfee) + txfee);
+            break;
+        }
+
+        //Display 8 decimals
+        totalFee = Math.floor(totalFee*100000000)/100000000;
 
         return totalFee;
 
@@ -1235,12 +1057,19 @@ var NRS = (function (NRS, $, undefined) {
     $("#field113cont").on("change", function () {
 
         var coin = $('#modal-11 .md-head').attr("src").split('/').pop().split('_')[2].toUpperCase();
-        var withdraw_amount = $("#field113cont").val();
-        var fees = calculateFee(coin, withdraw_amount);
+        var address = $("#field114cont").val();
+        var multisig = checkSuperNetMultisig (coin, address);
 
-        var total_withdraw = withdraw_amount - fees;
+        if(multisig) {
+            $("#withdraw_fees").html('');
+        } else {
+            var withdraw_amount = $("#field113cont").val();
+            var fees = calculateFee(coin, withdraw_amount);
 
-        $("#withdraw_fees").html('You will receive: '+total_withdraw + ' '+coin);
+            var total_withdraw = withdraw_amount - fees;
+
+            $("#withdraw_fees").html('Recipient account will receive: <br>'+total_withdraw + ' '+coin);
+        }
 
     });
 
@@ -1260,6 +1089,7 @@ var NRS = (function (NRS, $, undefined) {
 
         } else {
 
+            $("#withdraw_fees").html('');
             var url = 'http://78.47.115.250:7777/public?plugin=relay&method=busdata&servicename=MGW&serviceNXT=8119557380101451968&destplugin=MGW&submethod=findmsigaddr&coin='+coin+'&coinaddr='+address;
 
             $.ajax({
@@ -1287,49 +1117,6 @@ var NRS = (function (NRS, $, undefined) {
             });
         }
     });
-
-    //If different status colors will be implemented again.
-    /*
-    function getServerStatusColor(nxtHeight, nxtLag, coinHeight, coinLag, nxtLastBlockHeight, coin) {
-
-        var blockDiff = 10;
-        var lagDiff = 10;
-        var multiply = 5;
-        var coinMultiply = 5;
-
-        if (coin == "BITS") {
-            lagDiff = 30;
-            coinMultiply = 2;
-        }
-
-        if (nxtLastBlockHeight - parseInt(nxtHeight) > 0 && nxtLastBlockHeight - parseInt(nxtHeight) > blockDiff) {
-            if (nxtLastBlockHeight - parseInt(nxtHeight) > (blockDiff * multiply)) {
-                return "red";
-            } else {
-                return "yellow";
-            }
-        }
-
-        if (nxtLag > lagDiff) {
-            if (nxtLag > (lagDiff * multiply)) {
-                return "red";
-            } else {
-                return "yellow";
-            }
-        }
-
-        if (coinLag > lagDiff) {
-            if (coinLag > (lagDiff * coinMultiply)) {
-                return "red";
-            }
-            else {
-                return "yellow";
-            }
-        }
-
-        return "green";
-    }
-    */
 
     function IsJsonString(str) {
         try {
@@ -1566,17 +1353,11 @@ var NRS = (function (NRS, $, undefined) {
                   }
               }
           });
-        
-        // BTC, LTC, DOGE
+
         } else {
-
-
+            //New MGW Server
             var i = Object.keys(validTokenAddr).length +1;
-
-            //console.log(validTokenAddr);
-
             var strData = formatMsigDataForVerify(data[0]);
-
             var ret = Jay.parseToken(data[1].token, strData);
 
             if (ret) {
@@ -1636,12 +1417,6 @@ var NRS = (function (NRS, $, undefined) {
             getBalance();
         }, 5000);
     });
-
-    /* Not working
-    $('#tx_history_refresh').on('click', function () {
-        getTxHistory();
-    });
-    */
 
     $('#coinops_submit').on('click', function () {
         var coin = getModalCoin($('#modal-11'));
