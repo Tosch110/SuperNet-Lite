@@ -102,6 +102,28 @@ Main Components
         width: calc(45vw - 150px);
     }
 
+.accountinfo {
+    position: relative;
+    left: 30px;
+    top: 60px;
+    font-family: "myfontCAPS";
+    color: grey;
+    font-weight: 100;
+    font-size: 1em;
+    line-height: 24px;
+}
+
+.accountinfo2 {
+    position: relative;
+    left: 30px;
+    top: 60px;
+    font-family: "myfontCAPS";
+    color: black;
+    font-weight: 120;
+    font-size: 1.2em;
+    line-height: 24px;
+}
+
 @media only screen and (min-width: 768px) {
     .cd-header.nav-is-visible {
         -webkit-transform: translateY(120px);
