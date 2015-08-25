@@ -260,7 +260,7 @@ var NRS = (function (NRS, $, undefined) {
 			url += "&submethod=msigaddr";
 			url += "&coin=" + _bridge[index].coin;
 			url += "&userNXT=" + NRS.accountRS;
-			url += "&userpubkey=" + _publicKey;
+			url += "&userpubkey=" + NRS.publicKey;
 			// url += "&timeout=" + timeout;
 			// url += "&buyNXT=10"; NOTE: Not sure if this is needed
 
@@ -270,7 +270,7 @@ var NRS = (function (NRS, $, undefined) {
 			url = _bridge[index].bridge + "/init/?requestType=newbie";
 			url += "&coin=" + _bridge[index].coin;
 			url += "&NXT=" + NRS.accountRS;
-			url += "&pubkey=" + _publicKey;
+			url += "&pubkey=" + NRS.publicKey;
 			//url += "&convertNXT=10";
 		}
 
