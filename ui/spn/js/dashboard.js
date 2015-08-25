@@ -917,7 +917,7 @@ var NRS = (function (NRS, $, undefined) {
             var url = '';
 
             if (value.coin === 'BTC' || value.coin === 'LTC' || value.coin === 'DOGE') {
-                url = value.bridge + ":7777/public?plugin=relay&method=busdata&servicename=MGW&serviceNXT=8119557380101451968&destplugin=MGW&submethod=status&coin=" + value.coin + "&jsonflag=";
+                url = value.bridge + ":7777/public?plugin=relay&method=busdata&servicename=MGW&serviceNXT=8119557380101451968&destplugin=MGW&submethod=status&coin=" + value.coin;
             } else {
                 url = value.bridge + "/init/?requestType=status&coin=" + value.coin + "&jsonflag=1";
             }
@@ -938,15 +938,35 @@ var NRS = (function (NRS, $, undefined) {
                     }
 
                 },error: function (x, t, m) {
-                    if(t === 'timeout') {
-                        $("#"+value.coin+"_server_status").html('Timeout');
-                    }
+
+                    url = "http://78.47.58.62:7777/public?plugin=relay&method=busdata&servicename=MGW&serviceNXT=8119557380101451968&destplugin=MGW&submethod=status&coin=" + value.coin;
+
+                    $.ajax({
+                        url: url,
+                        dataType: 'text',
+                        type: 'GET',
+                        timeout: 10000,
+                        crossDomain: true,
+                        success: function (data) {
+
+                            var result = JSON.parse(data);
+
+                            if(result[0].coin !== undefined) {
+                                $("#"+value.coin+"_server_status").html('Online');
+                            }
+
+                        },error: function (x, t, m) {
+                            if(t === 'timeout') {
+                                $("#"+value.coin+"_server_status").html('Timeout');
+                            }
+                        }
+                    }, false);
                 }
             }, false);
 
             rows += '<tr>' +
             '<td>'+value.coin+'</td>'+
-            '<td><div id="'+value.coin+'_server_status">Offline</div></td>'+
+            '<td><div id="'+value.coin+'_server_status">Pinging...</div></td>'+
             '</tr>';
 
         });
