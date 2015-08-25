@@ -121,6 +121,7 @@ var NRS = (function (NRS, $, undefined) {
             _publicKey = account_response.publicKey;
 
         }, false);
+
     };
 
     NRS.spnNewBlock = function () {
@@ -259,7 +260,7 @@ var NRS = (function (NRS, $, undefined) {
 			url += "&submethod=msigaddr";
 			url += "&coin=" + _bridge[index].coin;
 			url += "&userNXT=" + NRS.accountRS;
-			url += "&userpubkey=" + NRS.publicKey;
+			url += "&userpubkey=" + _publicKey;
 			// url += "&timeout=" + timeout;
 			// url += "&buyNXT=10"; NOTE: Not sure if this is needed
 
@@ -269,7 +270,7 @@ var NRS = (function (NRS, $, undefined) {
 			url = _bridge[index].bridge + "/init/?requestType=newbie";
 			url += "&coin=" + _bridge[index].coin;
 			url += "&NXT=" + NRS.accountRS;
-			url += "&pubkey=" + NRS.publicKey;
+			url += "&pubkey=" + _publicKey;
 			//url += "&convertNXT=10";
 		}
 
@@ -1022,7 +1023,7 @@ var NRS = (function (NRS, $, undefined) {
             case 'BTC':
             case 'LTC':
             case 'DOGE':
-                totalFee = [(amount / 2048) + (2 * NXTfee_equiv) - opreturn_amount + txfee] + txfee;
+                totalFee = (((amount / 2048) + (2 * NXTfee_equiv) - opreturn_amount) + txfee) + txfee;
             break;
             case 'BTCD':
             case 'VRC':
