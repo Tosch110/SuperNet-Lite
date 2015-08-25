@@ -30,20 +30,20 @@
 }
 
 #spn_logo {
-	width: 15%;
+	width: 12%;
 	/* overflow:inherit !important; */
-	min-width: 180px;	
+	min-width: 175px;	
 	margin-bottom: 10px;
 }
 
 /* ========================= LANGUAGE SELECTOR AREA ========================= */
 
 #lang_select_area {
-	width:100%;
+	width: 100%;
 	height: auto;
-	margin:0 auto;
+	margin: 0 auto;
 	margin-top: 5px;
-	margin-bottom:5px;
+	margin-bottom: 10px;
 	min-width: 300px;
 	text-align: center !important;
 	overflow: hidden;
@@ -73,7 +73,7 @@
 	opacity: 1 !important;
 	-webkit-filter: grayscale(0%);
 	-webkit-transition: 0.3s;
-	border: 2px solid orange;
+	border: 2px solid #F58634
 }
 
 #lang_select_area input[type="radio"] + label img:hover {
@@ -97,6 +97,70 @@
 }
 
 /* ===================== END OF MAIN LOGIN AREA SETTINGS ===================== */
+/* =========================== SUPERINFO AND JAY AREA =========================== */
+
+#superInfo {
+	width: 100%;
+	height: 40px;
+	/* border: 1px solid red; */
+	padding: 5px, 0px, 0px, 0px;
+	color: white;
+	background: transparent;
+	
+}
+
+#infoServer, #infoTut {
+	width: 48%;
+	height: 100%;
+	background:#96989A;
+	overflow: hidden;
+	font-size: 1.5rem;
+	
+	-webkit-user-select: none; /* Chrome/Safari */        
+	-moz-user-select: none; /* Firefox */
+	-ms-user-select: none; /* IE10+ */
+
+	/* Rules below not implemented in browsers yet */
+	-o-user-select: none;
+	user-select: none;
+}
+
+#infoServer {
+	float: left;
+	padding: 4px;
+}
+
+#infoTut {
+	padding: 12px;
+}
+
+#node_ip a {
+	text-decoration: none;
+	color: white !important;
+	pointer-events: none;
+}
+
+#infoTut {
+	float: right;
+}
+
+#infoServer:hover {
+	background:#F58634;
+	cursor:default;
+}
+
+#infoTut:hover {
+	background:#F58634;
+	cursor: pointer;
+}
+
+#div_jay_account_list {
+	display: table;
+	height: 34px;
+	width: 100%;
+}
+
+/* ======================== END OF SUPERINFO AND JAY AREA ======================== */
 /* ============================ LOGIN INPUTS AREA ============================= */
 
 input[type="submit"].spn {
@@ -104,7 +168,7 @@ input[type="submit"].spn {
 	background:#96989A;
 	border:0;
 	padding:5%;
-	font-size:90%;
+	font-size:1.5rem;
 	color:#fff;
 	cursor:pointer;
 	margin-bottom: 5%;
