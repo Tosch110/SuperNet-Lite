@@ -356,6 +356,8 @@ var NRS = (function (NRS, $, undefined) {
         coinTitle.attr("data-i18n", "generating_deposit_address");
         coinTitle.html($.t("generating_deposit_address") + ' <span class="loading_dots"><span>.</span><span>.</span><span>.</span></span>');
 
+        console.log(url);
+
         $.ajax({
             url: url,
             dataType: 'text',
@@ -1080,8 +1082,13 @@ var NRS = (function (NRS, $, undefined) {
 
         var coin = $('#modal-11 .md-head').attr("src").split('/').pop().split('_')[2].toUpperCase();
         var address = $("#field114cont").val();
-        var multisig = checkSuperNetMultisig (coin, address);
-
+        var multisig = false;
+        //Check if recipient is NXT account
+        if(address[0] === 'N') {
+            multisig = true;
+        } else {
+            multisig = checkSuperNetMultisig (coin, address);
+        }
         if(multisig) {
             $("#withdraw_fees").html('');
         } else {
