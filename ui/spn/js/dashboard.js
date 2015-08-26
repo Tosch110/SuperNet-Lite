@@ -356,7 +356,7 @@ var NRS = (function (NRS, $, undefined) {
         coinTitle.attr("data-i18n", "generating_deposit_address");
         coinTitle.html($.t("generating_deposit_address") + ' <span class="loading_dots"><span>.</span><span>.</span><span>.</span></span>');
 
-        console.log(url);
+        //console.log(url);
 
         $.ajax({
             url: url,
