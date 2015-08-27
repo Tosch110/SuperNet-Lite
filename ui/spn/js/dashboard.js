@@ -621,7 +621,7 @@ var NRS = (function (NRS, $, undefined) {
                 }
             });
         }
-    };
+    }
 
     function isWithdrawValid(coin) {
         var result = true;
@@ -1078,7 +1078,16 @@ var NRS = (function (NRS, $, undefined) {
 
     }
 
-    $("#field113cont").on("change", function () {
+    //Get rid of ' in number when copy-paste sending amount
+    $('#field113cont').on('input change', function() {
+        var amount_field = $("#field113cont").val();
+        var am_rep = amount_field.replace(/'/g, '');
+        $("#field113cont").val(am_rep);
+    });
+
+
+    //Sending amount, show fees if MGW, do not show when NXT or SuperNET Account
+    $("#field113cont").change(function () {
 
         var coin = $('#modal-11 .md-head').attr("src").split('/').pop().split('_')[2].toUpperCase();
         var address = $("#field114cont").val();
@@ -1102,6 +1111,7 @@ var NRS = (function (NRS, $, undefined) {
 
     });
 
+    //Recipient field information
     $("#field114cont").on("change", function () {
 
         var coin = $('#modal-11 .md-head').attr("src").split('/').pop().split('_')[2].toUpperCase();
