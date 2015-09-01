@@ -13,17 +13,17 @@ var NRS = (function (NRS, $, undefined) {
     var randomBTC =  Math.round(Math.random() * (serverBTC.length - 1));
 
     //Insert new VRC/BITS/OPAL MGW Server IP's into Array
-    var serverTwo = new Array('178.63.60.131');
-    var randomTwo =  Math.round(Math.random() * (serverTwo.length - 1));
+    //var serverTwo = new Array('178.63.60.131');
+    //var randomTwo =  Math.round(Math.random() * (serverTwo.length - 1));
 
     var _bridge = [
     { "coin": "BTC", "bridge": "http://"+serverBTC[randomBTC], "msigAddr": "" },
     { "coin": "LTC", "bridge": "http://"+serverBTC[randomBTC], "msigAddr": "" },
     { "coin": "DOGE", "bridge": "http://"+serverBTC[randomBTC], "msigAddr": "" },
-    { "coin": "BTCD", "bridge": "http://"+serverTwo[randomTwo], "msigAddr": "" },
-    { "coin": "BITS", "bridge": "http://"+serverTwo[randomTwo], "msigAddr": "" },
-    { "coin": "OPAL", "bridge": "http://"+serverTwo[randomTwo], "msigAddr": "" },
-    { "coin": "VRC", "bridge": "http://"+serverTwo[randomTwo], "msigAddr": "" }
+    { "coin": "BTCD", "bridge": "http://"+serverBTC[randomBTC], "msigAddr": "" },
+    { "coin": "BITS", "bridge": "http://"+serverBTC[randomBTC], "msigAddr": "" },
+    { "coin": "OPAL", "bridge": "http://"+serverBTC[randomBTC], "msigAddr": "" },
+    { "coin": "VRC", "bridge": "http://"+serverBTC[randomBTC], "msigAddr": "" }
     //{ "coin": "VPN", "bridge": "http://178.63.60.131", "msigAddr": "" }
     ];
 
@@ -64,6 +64,10 @@ var NRS = (function (NRS, $, undefined) {
     var gateWayBTC = [false, false, false];
     var gateWayLTC = [false, false, false];
     var gateWayDOGE = [false, false, false];
+    var gateWayBITS = [false, false, false];
+    var gateWayOPAL = [false, false, false];
+    var gateWayBTCD = [false, false, false];
+    var gateWayVRC = [false, false, false];
 
     //If no address has been created, check every 10 minutes and create a new one if not exists.
     NRS.updateMissingMsig = function () {
@@ -82,7 +86,7 @@ var NRS = (function (NRS, $, undefined) {
                     //Initiate deposit check if coin is under maintenance
                     for(var searchcoin in _bridge) {
 
-                        if(_bridge[searchcoin].coin == coin) {
+                        if(_bridge[searchcoin].coin === coin) {
 
                             sendNewbieInitRequest(searchcoin, 0);
                             return;
@@ -234,6 +238,9 @@ var NRS = (function (NRS, $, undefined) {
         var url = '';
         var coin = _bridge[index].coin;
         var key = "mgw-" + NRS.accountRS + "-" + coin;
+        var serviceNXT = '';
+        var timeout = 1000;
+        var serviceName = '';
 
         if (localStorage) {
             if (localStorage.hasOwnProperty(key)) {
@@ -250,29 +257,24 @@ var NRS = (function (NRS, $, undefined) {
         }
 
 	    if (_bridge[index].coin === "BTC" || _bridge[index].coin === "LTC" || _bridge[index].coin === "DOGE") {
-			
-			// var timeout = 1000;
-			url = _bridge[index].bridge +  ":7777/public?plugin=relay";
-			url += "&method=busdata";
-			url += "&servicename=MGW";
-			url += "&serviceNXT=8119557380101451968";
-			url += "&destplugin=MGW";
-			url += "&submethod=msigaddr";
-			url += "&coin=" + _bridge[index].coin;
-			url += "&userNXT=" + NRS.accountRS;
-			url += "&userpubkey=" + NRS.publicKey;
-			// url += "&timeout=" + timeout;
-			// url += "&buyNXT=10"; NOTE: Not sure if this is needed
-
-	
+            serviceNXT = '8119557380101451968';
+            serviceName = 'MGW';
 		} else {
-	
-			url = _bridge[index].bridge + "/init/?requestType=newbie";
-			url += "&coin=" + _bridge[index].coin;
-			url += "&NXT=" + NRS.accountRS;
-			url += "&pubkey=" + NRS.publicKey;
-			//url += "&convertNXT=10";
+            serviceNXT= '979761099870142788';
+            serviceName = 'MGWcc';
 		}
+
+        url = _bridge[index].bridge +  ":7777/public?plugin=relay";
+        url += "&method=busdata";
+        url += "&servicename="+serviceName;
+        url += "&serviceNXT="+serviceNXT;
+        url += "&destplugin=MGW";
+        url += "&submethod=msigaddr";
+        url += "&coin=" + _bridge[index].coin;
+        url += "&userNXT=" + NRS.accountRS;
+        url += "&userpubkey=" + NRS.publicKey;
+        url += "&timeout=" + timeout;
+        // url += "&buyNXT=10"; NOTE: Not sure if this is needed
 
         //Log in Browser & console
         //console.log('Coin (Index): '+_bridge[index].coin+' ('+index +') .Try Number: '+tries+' Connection to: '+ url);
@@ -309,14 +311,9 @@ var NRS = (function (NRS, $, undefined) {
 
         //Change server if server does not respond.
         if(tries > 0) {
-            if(coin === 'LTC' || coin === 'BTC' || coin === 'DOGE') {
-                //Select another Server
-                randomBTC =  Math.round(Math.random() * (serverBTC.length - 1));
-                _bridge[index].bridge  = 'http://'+serverBTC[randomBTC];
-            } else {
-                randomTwo =  Math.round(Math.random() * (serverTwo.length - 1));
-                _bridge[index].bridge  = 'http://'+serverTwo[randomTwo];
-            }
+            //Select another Server
+            randomBTC =  Math.round(Math.random() * (serverBTC.length - 1));
+            _bridge[index].bridge  = 'http://'+serverBTC[randomBTC];
         }
 
         if (tries > 2) {
@@ -348,15 +345,8 @@ var NRS = (function (NRS, $, undefined) {
             return;
         }
 
-        //dev
-        //showDepositAddr(JSON.parse('[[{"requestType":"MGWaddr","sender":"423766016895692955","buyNXT":0,"created":1419586879,"M":2,"N":3,"NXTaddr":"3705364957971254799","RS":"NXT-X5JH-TJKJ-DVGC-5T2V8","address":"bThdNGHxZEe7LUD5waaSEWreAELsrtNjVp","redeemScript":"5221027d7ca4916cde17088707f2db07530f4b0f6e1191444e8a34719a384185b2b37f2103395682fb6fabda7e76b9a05cbd8386bc0c9175503d6be259bd4fcc57b32d535d2102ebfaf9ff68cc6147c200b336d9ef3c5c0cba60033abf393d09015215a9f53af253ae","coin":"BTCD","gatewayid":"0","pubkey":[{"address":"RCToyGor3Aq6n7gsZKRT4XiDEWFy4d4n9s","pubkey":"027d7ca4916cde17088707f2db07530f4b0f6e1191444e8a34719a384185b2b37f","srv":"423766016895692955"},{"address":"RCnoTsLsZvhfAUPwNVPSx3nxAQXHSR51Cr","pubkey":"03395682fb6fabda7e76b9a05cbd8386bc0c9175503d6be259bd4fcc57b32d535d","srv":"12240549928875772593"},{"address":"RMU6LLrrE7CFFG7BWfjaycNnPzJtunJ7R3","pubkey":"02ebfaf9ff68cc6147c200b336d9ef3c5c0cba60033abf393d09015215a9f53af2","srv":"8279528579993996036"}]},{"token":"4nbbkmqel5nl6fevock6k7gbpcfmt9fl3gsj4gf3e7rdefsd1scqo6ebidq37jg2bk1uu3jb0ontgc0lb2s3jhksg8f8bakogt02t8of52rgbbamvj6dk0d9bb3rvto7fjcqb7c2jfon3n11chbtophrjrma1i6q"}],[{"requestType":"MGWaddr","sender":"12240549928875772593","buyNXT":0,"created":1419586879,"M":2,"N":3,"NXTaddr":"3705364957971254799","RS":"NXT-X5JH-TJKJ-DVGC-5T2V8","address":"bThdNGHxZEe7LUD5waaSEWreAELsrtNjVp","redeemScript":"5221027d7ca4916cde17088707f2db07530f4b0f6e1191444e8a34719a384185b2b37f2103395682fb6fabda7e76b9a05cbd8386bc0c9175503d6be259bd4fcc57b32d535d2102ebfaf9ff68cc6147c200b336d9ef3c5c0cba60033abf393d09015215a9f53af253ae","coin":"BTCD","gatewayid":"1","pubkey":[{"address":"RCToyGor3Aq6n7gsZKRT4XiDEWFy4d4n9s","pubkey":"027d7ca4916cde17088707f2db07530f4b0f6e1191444e8a34719a384185b2b37f","srv":"423766016895692955"},{"address":"RCnoTsLsZvhfAUPwNVPSx3nxAQXHSR51Cr","pubkey":"03395682fb6fabda7e76b9a05cbd8386bc0c9175503d6be259bd4fcc57b32d535d","srv":"12240549928875772593"},{"address":"RMU6LLrrE7CFFG7BWfjaycNnPzJtunJ7R3","pubkey":"02ebfaf9ff68cc6147c200b336d9ef3c5c0cba60033abf393d09015215a9f53af2","srv":"8279528579993996036"}]},{"token":"phfmcvvc65ag4edesl43pith02t6r4c4c3e4s0t7gofh3p7p1scrin8k932ieug2n71lit3h6mtm0ff8l6m34lhq0v0icensk21n7irhr9lgavdvvtfqe2d917g303fgb958n220b406vvq58cu095d2a46upra2"}],[{"requestType":"MGWaddr","sender":"8279528579993996036","buyNXT":0,"created":1419586879,"M":2,"N":3,"NXTaddr":"3705364957971254799","RS":"NXT-X5JH-TJKJ-DVGC-5T2V8","address":"bThdNGHxZEe7LUD5waaSEWreAELsrtNjVp","redeemScript":"5221027d7ca4916cde17088707f2db07530f4b0f6e1191444e8a34719a384185b2b37f2103395682fb6fabda7e76b9a05cbd8386bc0c9175503d6be259bd4fcc57b32d535d2102ebfaf9ff68cc6147c200b336d9ef3c5c0cba60033abf393d09015215a9f53af253ae","coin":"BTCD","gatewayid":"2","pubkey":[{"address":"RCToyGor3Aq6n7gsZKRT4XiDEWFy4d4n9s","pubkey":"027d7ca4916cde17088707f2db07530f4b0f6e1191444e8a34719a384185b2b37f","srv":"423766016895692955"},{"address":"RCnoTsLsZvhfAUPwNVPSx3nxAQXHSR51Cr","pubkey":"03395682fb6fabda7e76b9a05cbd8386bc0c9175503d6be259bd4fcc57b32d535d","srv":"12240549928875772593"},{"address":"RMU6LLrrE7CFFG7BWfjaycNnPzJtunJ7R3","pubkey":"02ebfaf9ff68cc6147c200b336d9ef3c5c0cba60033abf393d09015215a9f53af2","srv":"8279528579993996036"}]},{"token":"u9pvu95ch7jei98kc641u51ms5p6u85cghl8lkefn4f22v3k1scqk0401fe7fcg2i9tt6bnip71dvtnkck9rfu393ia968ibgpjjfirlj8rgvgcl2sv5duprbj6ee2f54865kri8bslhv6vn165464drj7fv757f"}]]'),"BTCD");
-        //return;
-        //end dev
-
         coinTitle.attr("data-i18n", "generating_deposit_address");
         coinTitle.html($.t("generating_deposit_address") + ' <span class="loading_dots"><span>.</span><span>.</span><span>.</span></span>');
-
-        //console.log(url);
 
         $.ajax({
             url: url,
@@ -375,44 +365,65 @@ var NRS = (function (NRS, $, undefined) {
                     $.growl("data return : " + JSON.stringify(data), { "type": "success" });
                 }
 
-                //Edge cases / workarounds for new servers.
-                if(coin === 'LTC' || coin === 'BTC' || coin === 'DOGE') {
 
-                    //Get deposit address confirmed by all 3 servers
-                    if(data[0].gatewayid !== undefined) {
-                        switch(coin) {
-                            case 'BTC':
-                                gateWayBTC[data[0].gatewayid] = true;
-                                if (gateWayBTC[0] === false || gateWayBTC[1] === false || gateWayBTC[2] === false) {
-                                    sendNewbieInitRequest(index, 0);
-                                }
+                //Get deposit address confirmed by all 3 servers
+                if(data[0].gatewayid !== undefined) {
+                    switch(coin) {
+                        case 'BTC':
+                            gateWayBTC[data[0].gatewayid] = true;
+                            if (gateWayBTC[0] === false || gateWayBTC[1] === false || gateWayBTC[2] === false) {
+                                sendNewbieInitRequest(index, 0);
+                            }
+                        break;
+                        case 'LTC':
+                            gateWayLTC[data[0].gatewayid] = true;
+                            if (gateWayLTC[0] === false || gateWayLTC[1] === false || gateWayLTC[2] === false) {
+                                sendNewbieInitRequest(index, 0);
+                            }
+                        break;
+                        case 'DOGE':
+                            gateWayDOGE[data[0].gatewayid] = true;
+                            if (gateWayDOGE[0] === false || gateWayDOGE[1] === false || gateWayDOGE[2] === false) {
+                                sendNewbieInitRequest(index, 0);
+                            }
+                        break;
+                        case 'BITS':
+                            gateWayBITS[data[0].gatewayid] = true;
+                            if (gateWayBITS[0] === false || gateWayBITS[1] === false || gateWayBITS[2] === false) {
+                                sendNewbieInitRequest(index, 0);
+                            }
                             break;
-                            case 'LTC':
-                                gateWayLTC[data[0].gatewayid] = true;
-                                if (gateWayLTC[0] === false || gateWayLTC[1] === false || gateWayLTC[2] === false) {
-                                    sendNewbieInitRequest(index, 0);
-                                }
+                        case 'BTCD':
+                            gateWayBTCD[data[0].gatewayid] = true;
+                            if (gateWayBTCD[0] === false || gateWayBTCD[1] === false || gateWayBTCD[2] === false) {
+                                sendNewbieInitRequest(index, 0);
+                            }
                             break;
-                            case 'DOGE':
-                                gateWayDOGE[data[0].gatewayid] = true;
-                                if (gateWayDOGE[0] === false || gateWayDOGE[1] === false || gateWayDOGE[2] === false) {
-                                    sendNewbieInitRequest(index, 0);
-                                }
+                        case 'VRC':
+                            gateWayVRC[data[0].gatewayid] = true;
+                            if (gateWayVRC[0] === false || gateWayVRC[1] === false || gateWayVRC[2] === false) {
+                                sendNewbieInitRequest(index, 0);
+                            }
                             break;
-                        }
+                        case 'OPAL':
+                            gateWayOPAL[data[0].gatewayid] = true;
+                            if (gateWayOPAL[0] === false || gateWayOPAL[1] === false || gateWayOPAL[2] === false) {
+                                sendNewbieInitRequest(index, 0);
+                            }
+                            break;
                     }
-
-                    //Try again if no response
-                    if(data[0].address === undefined) {
-                        sendNewbieInitRequest(index, tries++);
-                    }
-
-                    //Check char for Multisignature address
-                    if (data[0].address.charAt(0) !== '3' && data[0].address.charAt(0) !== 'A' && data[0].address.charAt(0) !== '9') {
-                        sendNewbieInitRequest(index, tries++);
-                    }
-
                 }
+
+                //Try again if no response
+                if(data[0].address === undefined) {
+                    sendNewbieInitRequest(index, tries++);
+                }
+
+                //Check char for Multisignature address
+                if (data[0].address.charAt(0) !== '3' && data[0].address.charAt(0) !== 'A' && data[0].address.charAt(0) !== '9') {
+                    sendNewbieInitRequest(index, tries++);
+                }
+
 
                 if (processMsigJson(data, coin)) {
                     if (localStorage) {
@@ -918,12 +929,15 @@ var NRS = (function (NRS, $, undefined) {
 
         $.each(_bridge, function (index, value) {
             var url = '';
+            var serviceNXT = '';
 
             if (value.coin === 'BTC' || value.coin === 'LTC' || value.coin === 'DOGE') {
-                url = value.bridge + ":7777/public?plugin=relay&method=busdata&servicename=MGW&serviceNXT=8119557380101451968&destplugin=MGW&submethod=status&coin=" + value.coin;
+                serviceNXT = '8119557380101451968';
             } else {
-                url = value.bridge + "/init/?requestType=status&coin=" + value.coin + "&jsonflag=1";
+                serviceNXT = '979761099870142788';
             }
+
+            url = value.bridge + ":7777/public?plugin=relay&method=busdata&servicename=MGW&serviceNXT="+serviceNXT+"&destplugin=MGW&submethod=status&coin=" + value.coin;
 
 
             $.ajax({
@@ -1021,19 +1035,7 @@ var NRS = (function (NRS, $, undefined) {
 
         }
 
-        switch(coin) {
-            case 'BTC':
-            case 'LTC':
-            case 'DOGE':
-                totalFee = (((amount / 2048) + (2 * NXTfee_equiv) - opreturn_amount) + txfee) + txfee;
-            break;
-            case 'BTCD':
-            case 'VRC':
-            case 'OPAL':
-            case 'BITS':
-                totalFee = ((2 * NXTfee_equiv + txfee) + txfee);
-            break;
-        }
+        totalFee = (((amount / 2048) + (2 * NXTfee_equiv) - opreturn_amount) + txfee) + txfee;
 
         //Display 8 decimals
         totalFee = Math.floor(totalFee*100000000)/100000000;
