@@ -21,7 +21,7 @@ var NRS = (function (NRS, $, undefined) {
     { "coin": "LTC", "bridge": "http://"+serverBTC[randomBTC], "msigAddr": "" },
     { "coin": "DOGE", "bridge": "http://"+serverBTC[randomBTC], "msigAddr": "" },
     { "coin": "BTCD", "bridge": "http://"+serverBTC[randomBTC], "msigAddr": "" },
-    { "coin": "BITS", "bridge": "http://"+serverBTC[randomBTC], "msigAddr": "" },
+    //{ "coin": "BITS", "bridge": "http://"+serverBTC[randomBTC], "msigAddr": "" },
     { "coin": "OPAL", "bridge": "http://"+serverBTC[randomBTC], "msigAddr": "" },
     { "coin": "VRC", "bridge": "http://"+serverBTC[randomBTC], "msigAddr": "" }
     //{ "coin": "VPN", "bridge": "http://178.63.60.131", "msigAddr": "" }
@@ -34,7 +34,7 @@ var NRS = (function (NRS, $, undefined) {
     { "coin": "BTCD", "assetID": "6918149200730574743", "decimal": 4, "depositConfirmation": "10", "balance": 0, "minWithdraw": 0.5, "minDeposit": 0.5 },
     { "coin": "VRC", "assetID": "9037144112883608562", "decimal": 8, "depositConfirmation": "10", "balance": 0, "minWithdraw": 50, "minDeposit": 50 },
     { "coin": "OPAL", "assetID": "6775076774325697454", "decimal": 8, "depositConfirmation": "6", "balance": 0, "minWithdraw": 50, "minDeposit": 50 },
-    { "coin": "BITS", "assetID": "13120372057981370228", "decimal": 6, "depositConfirmation": "20", "balance": 0, "minWithdraw": 500, "minDeposit": 500 }
+    //{ "coin": "BITS", "assetID": "13120372057981370228", "decimal": 6, "depositConfirmation": "20", "balance": 0, "minWithdraw": 500, "minDeposit": 500 }
     //{ "coin": "VPN", "assetID": "7734432159113182240", "decimal": 4, "depositConfirmation": "10", "balance": 0, "minWithdraw": 5000, "minDeposit": 5000 }
     ];
 
@@ -45,7 +45,7 @@ var NRS = (function (NRS, $, undefined) {
     { "coin": "BTCD", "accountRS": "NXT-8RQH-HFUP-3AJ9-E2DB9" },
     { "coin": "VRC", "accountRS": "NXT-8RQH-HFUP-3AJ9-E2DB9" },
     { "coin": "OPAL", "accountRS": "NXT-8RQH-HFUP-3AJ9-E2DB9" },
-    { "coin": "BITS", "accountRS": "NXT-8RQH-HFUP-3AJ9-E2DB9" }
+    //{ "coin": "BITS", "accountRS": "NXT-8RQH-HFUP-3AJ9-E2DB9" }
     //{ "coin": "VPN", "accountRS": "NXT-8RQH-HFUP-3AJ9-E2DB9" }
     ];
 
@@ -56,7 +56,7 @@ var NRS = (function (NRS, $, undefined) {
     { "coin": "BTCD", "server": ["NXT-M3PZ-B7U2-359G-4VXAJ", "NXT-4R55-GPLW-DRYV-HMVEK", "NXT-PPPK-GBAU-6U4V-9NSMX", "NXT-XXQB-S9RV-AZB4-9N4BB"] },
     { "coin": "VRC", "server": ["NXT-M3PZ-B7U2-359G-4VXAJ", "NXT-4R55-GPLW-DRYV-HMVEK", "NXT-PPPK-GBAU-6U4V-9NSMX", "NXT-XXQB-S9RV-AZB4-9N4BB"] },
     { "coin": "OPAL", "server": ["NXT-M3PZ-B7U2-359G-4VXAJ", "NXT-4R55-GPLW-DRYV-HMVEK", "NXT-PPPK-GBAU-6U4V-9NSMX", "NXT-XXQB-S9RV-AZB4-9N4BB"] },
-    { "coin": "BITS", "server": ["NXT-M3PZ-B7U2-359G-4VXAJ", "NXT-4R55-GPLW-DRYV-HMVEK", "NXT-PPPK-GBAU-6U4V-9NSMX", "NXT-XXQB-S9RV-AZB4-9N4BB"] }
+    //{ "coin": "BITS", "server": ["NXT-M3PZ-B7U2-359G-4VXAJ", "NXT-4R55-GPLW-DRYV-HMVEK", "NXT-PPPK-GBAU-6U4V-9NSMX", "NXT-XXQB-S9RV-AZB4-9N4BB"] }
     //{ "coin": "VPN", "server": ["NXT-M3PZ-B7U2-359G-4VXAJ", "NXT-4R55-GPLW-DRYV-HMVEK", "NXT-PPPK-GBAU-6U4V-9NSMX", "NXT-XXQB-S9RV-AZB4-9N4BB"] }
     ];
 
@@ -64,7 +64,7 @@ var NRS = (function (NRS, $, undefined) {
     var gateWayBTC = [false, false, false];
     var gateWayLTC = [false, false, false];
     var gateWayDOGE = [false, false, false];
-    var gateWayBITS = [false, false, false];
+    //var gateWayBITS = [false, false, false];
     var gateWayOPAL = [false, false, false];
     var gateWayBTCD = [false, false, false];
     var gateWayVRC = [false, false, false];
@@ -387,30 +387,32 @@ var NRS = (function (NRS, $, undefined) {
                                 sendNewbieInitRequest(index, 0);
                             }
                         break;
+                        /*
                         case 'BITS':
                             gateWayBITS[data[0].gatewayid] = true;
                             if (gateWayBITS[0] === false || gateWayBITS[1] === false || gateWayBITS[2] === false) {
                                 sendNewbieInitRequest(index, 0);
                             }
-                            break;
+                        break;
+                        */
                         case 'BTCD':
                             gateWayBTCD[data[0].gatewayid] = true;
                             if (gateWayBTCD[0] === false || gateWayBTCD[1] === false || gateWayBTCD[2] === false) {
                                 sendNewbieInitRequest(index, 0);
                             }
-                            break;
+                        break;
                         case 'VRC':
                             gateWayVRC[data[0].gatewayid] = true;
                             if (gateWayVRC[0] === false || gateWayVRC[1] === false || gateWayVRC[2] === false) {
                                 sendNewbieInitRequest(index, 0);
                             }
-                            break;
+                        break;
                         case 'OPAL':
                             gateWayOPAL[data[0].gatewayid] = true;
                             if (gateWayOPAL[0] === false || gateWayOPAL[1] === false || gateWayOPAL[2] === false) {
                                 sendNewbieInitRequest(index, 0);
                             }
-                            break;
+                        break;
                     }
                 }
 
