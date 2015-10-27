@@ -670,7 +670,7 @@ color: white !important;
      height:50px;
 }
 
-.coinaddr .tooltip{
+.coinaddr {
      display:block !important;
 }
 

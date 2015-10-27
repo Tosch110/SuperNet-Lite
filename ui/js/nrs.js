@@ -422,7 +422,7 @@ var NRS = (function(NRS, $, undefined) {
 			{
 			    if (NRS.serverConnect) {
                     //Look for missing msig signatures
-                    NRS.updateMissingMsig();
+                    //NRS.updateMissingMsig();
 			    }
 			}
 		});
