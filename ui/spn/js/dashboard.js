@@ -28,14 +28,14 @@ var NRS = (function (NRS, $, undefined) {
     ];
 
     var _coin = [
-    { "coin": "BTC", "assetID": "12659653638116877017", "decimal": 8, "depositConfirmation": "3", "balance": 0, "minWithdraw": 0.001, "minDeposit": 0.001 },
-    { "coin": "LTC", "assetID": "125609428220063838", "decimal": 4, "depositConfirmation": "10", "balance":0, "minWithdraw": 0.05, "minDeposit": 0.05 },
-    { "coin": "DOGE", "assetID": "16344939950195952527", "decimal": 4, "depositConfirmation": "10", "balance":0, "minWithdraw": 500, "minDeposit": 500 },
-    { "coin": "BTCD", "assetID": "6918149200730574743", "decimal": 4, "depositConfirmation": "10", "balance": 0, "minWithdraw": 0.5, "minDeposit": 0.5 },
-    { "coin": "VRC", "assetID": "9037144112883608562", "decimal": 8, "depositConfirmation": "10", "balance": 0, "minWithdraw": 50, "minDeposit": 50 },
-    { "coin": "OPAL", "assetID": "6775076774325697454", "decimal": 8, "depositConfirmation": "6", "balance": 0, "minWithdraw": 50, "minDeposit": 50 },
-    //{ "coin": "BITS", "assetID": "13120372057981370228", "decimal": 6, "depositConfirmation": "20", "balance": 0, "minWithdraw": 500, "minDeposit": 500 }
-    //{ "coin": "VPN", "assetID": "7734432159113182240", "decimal": 4, "depositConfirmation": "10", "balance": 0, "minWithdraw": 5000, "minDeposit": 5000 }
+    { "coin": "BTC", "assetID": "12659653638116877017", "decimal": 8, "depositConfirmation": "3", "balance": 0, "minWithdraw": 0.001, "maxWithdraw": 9.9, "minDeposit": 0.001 },
+    { "coin": "LTC", "assetID": "125609428220063838", "decimal": 4, "depositConfirmation": "10", "balance":0, "minWithdraw": 0.05,"maxWithdraw": 499, "minDeposit": 0.05 },
+    { "coin": "DOGE", "assetID": "16344939950195952527", "decimal": 4, "depositConfirmation": "10", "balance":0, "minWithdraw": 500,"maxWithdraw": 9999999, "minDeposit": 500 },
+    { "coin": "BTCD", "assetID": "6918149200730574743", "decimal": 4, "depositConfirmation": "10", "balance": 0, "minWithdraw": 0.5,"maxWithdraw": 999, "minDeposit": 0.5 },
+    { "coin": "VRC", "assetID": "9037144112883608562", "decimal": 8, "depositConfirmation": "10", "balance": 0, "minWithdraw": 50,"maxWithdraw": 49999, "minDeposit": 50 },
+    { "coin": "OPAL", "assetID": "6775076774325697454", "decimal": 8, "depositConfirmation": "6", "balance": 0, "minWithdraw": 50,"maxWithdraw": 999999, "minDeposit": 50 },
+    //{ "coin": "BITS", "assetID": "13120372057981370228", "decimal": 6, "depositConfirmation": "20", "balance": 0, "minWithdraw": 500,"maxWithdraw": 480000, "minDeposit": 500 }
+    //{ "coin": "VPN", "assetID": "7734432159113182240", "decimal": 4, "depositConfirmation": "10", "balance": 0, "minWithdraw": 5000,"maxWithdraw": 80000, "minDeposit": 5000 }
     ];
 
     var _coinMGW = [
@@ -1789,6 +1789,15 @@ var NRS = (function (NRS, $, undefined) {
             maxFractionLength = 8;
         } else {
             maxFractionLength = resultCoinDetails[0].decimal;
+        }
+
+
+        if($(this).val() > resultCoinDetails[0].maxWithdraw) {
+            $(this).val(resultCoinDetails[0].maxWithdraw);
+            $.growl("Maximum "+resultCoinDetails[0].coin + " withdraw is "+resultCoinDetails[0].maxWithdraw+" "+resultCoinDetails[0].coin, {
+                "type": "danger"
+            });
+            e.preventDefault();
         }
 
 
