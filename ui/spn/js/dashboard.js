@@ -164,7 +164,7 @@ var NRS = (function (NRS, $, undefined) {
         }*/
     };
 
-    NRS.onNxtDisconnected = function () {
+    /* NRS.onNxtDisconnected = function () {
         var result = _bridge.map(function (a) { return a.coin; });
         result.push("NXT");
 
@@ -177,7 +177,7 @@ var NRS = (function (NRS, $, undefined) {
                 coinLight.attr("data-i18n-tooltip", "offline");
             }
         });
-    };
+    }; */
 
     function getMsigDepositAddress() {
         showDashboard();
@@ -271,7 +271,7 @@ var NRS = (function (NRS, $, undefined) {
             var key = "mgw-" + NRS.accountRS + "-" + coin;
             var lowcase_coin = coin.toLowerCase();
 
-            $(".bg"+lowcase_coin+" .led-div").attr( "data-coin", coin);
+            //$(".bg"+lowcase_coin+" .led-div").attr( "data-coin", coin);
 
             if (localStorage) {
                 if (localStorage.hasOwnProperty(key)) {
@@ -1155,7 +1155,7 @@ var NRS = (function (NRS, $, undefined) {
         return result;
     }
 
-    $(".led-div").on("click", function () {
+   /* $(".led-div").on("click", function () {
 
         var coin_satus = $(this).data("coin");
 
@@ -1248,7 +1248,7 @@ var NRS = (function (NRS, $, undefined) {
 
         $("#modal_server_status_content").html(rows);
 
-    });
+    }); */
 
     function calculateFee (coin, amount) {
 
@@ -1589,12 +1589,12 @@ var NRS = (function (NRS, $, undefined) {
             $(".bg" + coin + " .coinaddr").addClass("dropdown");
         */
 
-        var coinLight = $(".bg" + coin + " .led-div");
+        /*var coinLight = $(".bg" + coin + " .led-div");
         if (coinLight.hasClass("led-red")) {
             coinLight.removeClass("led-red").addClass("led-green");
             coinLight.tooltipster('content', $.t("online"));
             coinLight.attr("data-i18n-tooltip", "online");
-        }
+        } */
 
         $(".bg" + coin + " h4").tooltipster('content', $.t("minimum_deposit_is") + " " + coinDetails[0].minDeposit + ' ' + coin.toUpperCase() + '.');
 
