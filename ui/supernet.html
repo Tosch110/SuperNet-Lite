@@ -1048,19 +1048,19 @@ works with tutorials, WIKI links and more.">HELP</a>
                             <div class="callout account_info callout-info fontOS" style="display:none"></div>
                             <div class="alert alert-no-icon alert-danger fontOS" style="padding: 5px; margin-bottom: 15px; display: none"></div>
                         </li>
+                        <!--
                         <li>
+
                             <div class="input_label">
                                 <p data-i18n="select_operation">Select operation</p>
                             </div>
                             <div class="input_field">
                                 <select class="input_type" id="field111cont" autofocus>
-                                    <!--<option value=1>Buy this coin with another coin</option>
-                        <option value=2>Trade this coin for other coin</option>-->
                                     <option value=3 data-i18n="send_coin">Send coin</option>
                                 </select>
                             </div>
                         </li>
-                        <!--
+
             <li>
                 <div class="input_label">
                     <p>Select pair coin</p>
@@ -1125,53 +1125,70 @@ works with tutorials, WIKI links and more.">HELP</a>
                         <li>
                             <div class="input_label">
                                 <p data-i18n="select_operation">Select operation</p>
+                                <input type="hidden" name="cash_operation_coin" id="cash_operation_coin">
                             </div>
                             <div class="input_field">
-                                <select class="input_type" id="field121cont" autofocus>
-                                    <option value=1 data-i18n="buy_coin_with_cash">Purchase coin with cash</option>
-                                    <option value=2 data-i18n="convert_coin_to_cash">Convert coin to cash</option>
-                                    <option value=3 data-i18n="other_question">Other?</option>
+                                <select class="input_type" id="cash_operation_type" autofocus>
+                                    <option value="purchase" data-i18n="buy_coin_with_cash">Purchase coin with cash</option>
+                                    <option value="convert" data-i18n="convert_coin_to_cash">Convert coin to cash</option>
                                 </select>
                             </div>
                         </li>
-                        <li>
-                            <div class="input_label">
-                                <p data-i18n="select_currency">Select currency</p>
-                            </div>
-                            <div class="input_field">
-                                <select class="input_type" id="field122cont" autofocus>
-                                    <option value=1 data-i18n="usd">USD</option>
-                                    <option value=2 data-i18n="euro">EURO</option>
-                                </select>
-                            </div>
-                        </li>
+
                         <li>
                             <div class="input_label">
                                 <p data-i18n="select_service">Select service</p>
                             </div>
                             <div class="input_field">
-                                <select class="input_type" id="field123cont" autofocus>
-                                    <option value=1>Coinomat</option>
-                                    <option value=2>Coinimal</option>
-                                    <option value=3 data-i18n="other_question">Other?</option>
+                                <select class="input_type" id="cash_service_select" autofocus>
+                                    <option></option>
+                                    <option value="coinomat">Coinomat</option>
+                                    <!-- <option value="coinimal">Coinimal</option> -->
                                 </select>
                             </div>
                         </li>
-                        <li>
+                        <li id="select_currency_li" hidden>
+                            <div class="input_label">
+                                <p data-i18n="select_currency">Select currency</p>
+                            </div>
+                            <div class="input_field">
+                                <select class="input_type" id="cash_select_currency">
+                                </select>
+                            </div>
+                        </li>
+                        <li id="select_transfer_li" hidden>
+                            <div class="input_label">
+                                <p data-i18n="select_transfer">Select Transfer</p>
+                            </div>
+                            <div class="input_field">
+                                <select class="input_type" id="cash_select_transfer">
+                                </select>
+                            </div>
+                        </li>
+
+                        <li id="input_amount_li" hidden>
                             <div class="input_label">
                                 <p data-i18n="amount">Amount</p>
                             </div>
                             <div class="input_field">
-                                <input type="text" class="input_type" id="field124cont">
+                                <input type="number" class="input_type" id="cash_input_amount">
+                            </div>
+                        </li>
+                        <li id="cash_exchange_price" hidden>
+                            <div class="input_label">
+                                <p data-i18n="exchange_price">You receive</p>
+                            </div>
+                            <div class="input_field">
+                                <input type="text" id="exchange_price_text" readonly>
                             </div>
                         </li>
                         <li>
-                            <textarea class="input_span" id="field125cont"></textarea>
+                            <textarea class="input_span" id="cash_operation_text" readonly></textarea>
                         </li>
                     </ul>
                     <div class="md-button-wrapper">
-                        <button class="md-close md-close-1" data-i18n="close">CLOSE</button>
-                        <button class="md-clear" onclick="z.clearForm(12,5)" data-i18n="clear">CLEAR</button>
+                        <button class="md-close md-close-1 clear_cash_operation" data-i18n="close">CLOSE</button>
+                        <button class="md-clear clear_cash_operation" onclick="z.clearForm(12,5)" data-i18n="clear">CLEAR</button>
                         <button class="md-submit" onclick="alert('Submission action placeholder')" data-i18n="submit">SUBMIT</button>
                     </div>
                 </div>
@@ -1298,32 +1315,16 @@ works with tutorials, WIKI links and more.">HELP</a>
                     </table>
                     <div style="clear: both;height:20px;"></div>
                     <div class="md-button-wrapper">
-                        <button class="md-close md-close-1"data-i18n="close">CLOSE</button>
+                        <button class="md-close md-close-1" data-i18n="close">CLOSE</button>
                     </div>
                 </div>
             </div>
         </div>
         <!--  / MODAL WINDOW  -->
 
-        <!--  MODAL WINDOW FULL WIDTH  -->
-        <div class="md-modal md-effect md-full" id="modal-21">
-            <div class="md-content">
-                <h3>ADVANCED</h3>
-                <div>
-                    <div class="md-content-inner">
-                        Content Advanced
-                    </div>
-                    <div class="md-button-wrapper full-wrapper">
-                        <button class="md-close md-close-1">CLOSE</button>
-                    </div>
-                    <!--<button class="md-close md-close-1">EXIT</button>-->
-                </div>
-            </div>
-        </div>
-
         <div class="md-modal md-effect md-full" id="modal-22">
             <div class="md-content">
-                <img class="md-head">
+                <img class="md-head" src="#">
                 <div>
                     <div class="md-content-inner">
                         <!--BOX 1 - Pangea -->
@@ -1914,7 +1915,7 @@ works with tutorials, WIKI links and more.">HELP</a>
                             <input type="hidden" name="recipient" id="mgw_withdraw_modal_recipient" value="" />
                             <input type="hidden" name="asset" id="mgw_withdraw_modal_asset" value="" />
                             <input type="hidden" name="quantityQNT" id="mgw_withdraw_modal_quantityQNT" value="" />
-                            <input type="hidden" name="deadline" id="mgw_withdraw_modal_deadline" value="24" />
+                            <!-- <input type="hidden" name="deadline" id="mgw_withdraw_modal_deadline" value="24" /> -->
                             <input type="hidden" name="merchant_info" value="" data-default="" />
                         </div>
                         <div class="form-group">
@@ -2057,7 +2058,7 @@ works with tutorials, WIKI links and more.">HELP</a>
             <span data-i18n="downloading_blockchain">Downloading Blockchain</span> (<span class="blocks_left"></span>)
         </div>
         <div id="snLoaderBar">
-            <span style="width: 0%"></span>
+            <span style="width: 1%;"></span>
         </div>
         <div class="db_halted" style="display:none;text-align:center;font-weight:bold;">
             <span data-i18n="blockchain_download_halted">Blockchain download halted</span>,<br>
@@ -2173,6 +2174,7 @@ works with tutorials, WIKI links and more.">HELP</a>
     <script src="js/spn.js" type="text/javascript"></script>
     <script src="spn/js/spn.lite.js" type="text/javascript"></script>
     <script src="spn/js/spn.login.js" type="text/javascript"></script>
+    <script src="spn/js/spn.cash.js" type="text/javascript"></script>
     <script src="spn/js/modernizr.js"></script>
     <script src="spn/js/jquery.tooltipster.min.js" type="text/javascript"></script>
     <script src="spn/js/main.js"></script>
