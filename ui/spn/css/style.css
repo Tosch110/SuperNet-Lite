@@ -672,6 +672,7 @@ color: white !important;
 
 .coinaddr {
      display:block !important;
+    font-size:13px;
 }
 
 .cboxcont h5 a, cboxcont h5 a:link, cboxcont h5 a:visited {
