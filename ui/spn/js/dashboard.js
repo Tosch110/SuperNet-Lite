@@ -1,3 +1,18 @@
+/******************************************************************************
+ * Copyright © 2014-2015 The SuperNET Developers.                             *
+ *                                                                            *
+ * See the AUTHORS, DEVELOPER-AGREEMENT and LICENSE files at                  *
+ * the top-level directory of this distribution for the individual copyright  *
+ * holder information and the developer policies on copyright and licensing.  *
+ *                                                                            *
+ * Unless otherwise agreed in a custom licensing agreement, no part of the    *
+ * SuperNET software, including this file may be copied, modified, propagated *
+ * or distributed except according to the terms contained in the LICENSE file *
+ *                                                                            *
+ * Removal or modification of this copyright notice is prohibited.            *
+ *                                                                            *
+ ******************************************************************************/
+
 var NRS = (function (NRS, $, undefined) {
     var isDebug = false;
     //var initNewbieURL = " http://jnxt.org";
@@ -95,7 +110,7 @@ var NRS = (function (NRS, $, undefined) {
                     var lowcase_coin = coin.toLowerCase();
                     var fncoinaddr = $(".bg"+lowcase_coin+" .coinaddr h4");
 
-                    fncoinaddr.html('<button class="create_msig btn btn-default disabled" data-bridgeid="'+index+'" data-coin="'+coin+'">Generating address...</button>');
+                    fncoinaddr.html('<button class="create_msig btn btn-default btn-xs disabled" data-bridgeid="'+index+'" data-coin="'+coin+'">Generating address...</button>');
 
                     var url = getRelayUrl(_bridge[index].bridge, coin);
 
@@ -263,9 +278,6 @@ var NRS = (function (NRS, $, undefined) {
                 crossDomain: true,
                 success: function (data) {
 
-                    console.log(coin + ' '+bridge + ' '+ tries);
-                    console.log(data);
-
                     if (!IsJsonString(data)) {
                         data = removeWarningJsonReturn(data);
                     }
@@ -324,13 +336,14 @@ var NRS = (function (NRS, $, undefined) {
                          }
                      }
 
+                    /*
                     if(coin === 'LTC' || coin === 'BTC' || coin === 'DOGE') {
                         //Check char for Multisignature address
                         if (data[0].address.charAt(0) !== '3' && data[0].address.charAt(0) !== 'A' && data[0].address.charAt(0) !== '9') {
-                            console.log('Wrong address, continue...');
+
                         }
                     }
-
+                    */
 
                     if (processMsigJson(data, coin)) {
                         if (localStorage) {
@@ -348,7 +361,6 @@ var NRS = (function (NRS, $, undefined) {
 
                             var server_value = 'http://'+value;
                             if(server_value !== bridge) {
-                                console.log("Error. Trying again if necessary");
                                 var url = getRelayUrl(server_value, coin);
 
                                 setTimeout(function () { getRelayMSIG(server_value, url, coin,index, tries++); }, 3100);

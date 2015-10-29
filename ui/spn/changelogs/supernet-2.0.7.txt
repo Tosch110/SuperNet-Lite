@@ -8,3 +8,4 @@
 - Optimizing MGW API time sequences
 - Resizing coin addresses
 - Hide ByMail operation because not functional yet
+- Included Jay on Dashboard
