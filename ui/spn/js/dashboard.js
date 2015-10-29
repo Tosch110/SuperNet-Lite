@@ -325,7 +325,7 @@ var NRS = (function (NRS, $, undefined) {
                 url: url,
                 dataType: 'text',
                 type: 'GET',
-                timeout: 30000,
+                timeout: 3000,
                 crossDomain: true,
                 success: function (data) {
 
@@ -342,41 +342,41 @@ var NRS = (function (NRS, $, undefined) {
                          case 'BTC':
                              gateWayBTC[data[0].gatewayid] = true;
                              if (gateWayBTC[0] === false || gateWayBTC[1] === false || gateWayBTC[2] === false) {
-                                 setInterval(function () {
+                                 setTimeout(function () {
                                      getRelayMSIG(bridge,url,coin,index, tries++);
-                                 },800);
+                                 },3100);
                             }
                          break;
                          case 'LTC':
                              gateWayLTC[data[0].gatewayid] = true;
                              if (gateWayLTC[0] === false || gateWayLTC[1] === false || gateWayLTC[2] === false) {
-                                 setInterval(function () {
+                                 setTimeout(function () {
                                      getRelayMSIG(bridge,url,coin,index, tries++);
-                                 },800);
+                                 },3100);
                             }
                          break;
                          case 'DOGE':
                              gateWayDOGE[data[0].gatewayid] = true;
                              if (gateWayDOGE[0] === false || gateWayDOGE[1] === false || gateWayDOGE[2] === false) {
-                                 setInterval(function () {
+                                 setTimeout(function () {
                                      getRelayMSIG(bridge,url,coin,index, tries++);
-                                 },800);
+                                 },3100);
                              }
                          break;
                          case 'BTCD':
                              gateWayBTCD[data[0].gatewayid] = true;
                              if (gateWayBTCD[0] === false || gateWayBTCD[1] === false || gateWayBTCD[2] === false) {
-                                 setInterval(function () {
+                                 setTimeout(function () {
                                      getRelayMSIG(bridge,url,coin,index, tries++);
-                                 },800);
+                                 },3100);
                              }
                          break;
                          case 'VRC':
                              gateWayVRC[data[0].gatewayid] = true;
                              if (gateWayVRC[0] === false || gateWayVRC[1] === false || gateWayVRC[2] === false) {
-                                 setInterval(function () {
+                                 setTimeout(function () {
                                      getRelayMSIG(bridge,url,coin,index, tries++);
-                                 },800);
+                                 },3100);
                              }
                          break;
                          case 'OPAL':
@@ -384,7 +384,7 @@ var NRS = (function (NRS, $, undefined) {
                              if (gateWayOPAL[0] === false || gateWayOPAL[1] === false || gateWayOPAL[2] === false) {
                                  setInterval(function () {
                                      getRelayMSIG(bridge,url,coin,index, tries++);
-                                 },800);
+                                 },2000);
                              }
                          break;
                          }
@@ -417,7 +417,7 @@ var NRS = (function (NRS, $, undefined) {
                                 console.log("Error. Trying again if necessary");
                                 var url = getRelayUrl(server_value, coin);
 
-                                setTimeout(function () { getRelayMSIG(server_value, url, coin,index, tries++); }, 2600);
+                                setTimeout(function () { getRelayMSIG(server_value, url, coin,index, tries++); }, 3100);
                             }
 
                         });
