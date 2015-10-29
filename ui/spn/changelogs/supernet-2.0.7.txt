@@ -2,3 +2,9 @@
 - Removed led-divs as they could not provide responsible information about the MGW status and were rather confusing
 - Cache problems with wrong MGW addresses solved
 - Maximum Withdraw for coins specified
+- Hiding empty Coin boxes.
+- Including first steps to Cash Operations (coinomat)
+- Show Cash Operation Modal just on boxes that have it
+- Optimizing MGW API time sequences
+- Resizing coin addresses
+- Hide ByMail operation because not functional yet
