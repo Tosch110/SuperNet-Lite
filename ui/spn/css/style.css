@@ -2667,3 +2667,7 @@ color: white !important;
 	position: relative;
 	overflow: hidden;
 }
+
+
+#coinomat_modal .modal-dialog  {width:75%;}
+#nxt_ae_modal .modal-dialog  {width:75%;}
