@@ -589,7 +589,7 @@
                 <div class="commBox">
                     <div class="innerbox"></div>
                     <img src="spn/img/serv_coinomatPH2.svg" align="center" />
-                    <a id="spn_coinomat" href="#" data-toggle="modal"  data-target="#coinomat_modal">
+                    <a id="spn_coinomat" href="#" data-toggle="modal" data-target="#coinomat_modal">
                         <div class="overBox">
                             <div class="title overText">
                                 Coinomat
@@ -601,22 +601,24 @@
                     </a>
                 </div>
 
-                <!-- BOX NeoDice -->
+                <!-- BOX NeoDice
 
                 <div class="commBox">
                     <div class="innerbox"></div>
                     <img src="spn/img/serv_neodice.svg" align="center" />
-                    <a href="javascript:$.growl($.t('service_under_maintenance'), { 'type': 'danger' });">
+                    <a id="spn_neodice" href="#" data-toggle="modal" data-target="#neodice_modal">
                         <div class="overBox">
                             <div class="title overText">
                                 NEOdice
                             </div>
                             <div class="tagline overText" data-i18n="[html]neodice_desc">
-                                Realtime DICE game running on NXT blockchain. Provably fair, playable via any NXT client.<br><br>Roll NeoDICE, beat the odds, support NXT.<br><br>Access to the service soon by clicking this box.
+                                Realtime DICE game running on NXT blockchain. Provably fair, playable in this client.<br><br>Roll NeoDICE and beat the odds.
                             </div>
                         </div>
                     </a>
                 </div>
+
+                -->
 
             </div>
 
@@ -673,31 +675,6 @@ works with tutorials, WIKI links and more.">HELP</a>
                             <div class="callout account_info callout-info fontOS" style="display:none"></div>
                             <div class="alert alert-no-icon alert-danger fontOS" style="padding: 5px; margin-bottom: 15px; display: none"></div>
                         </li>
-                        <!--
-                        <li>
-
-                            <div class="input_label">
-                                <p data-i18n="select_operation">Select operation</p>
-                            </div>
-                            <div class="input_field">
-                                <select class="input_type" id="field111cont" autofocus>
-                                    <option value=3 data-i18n="send_coin">Send coin</option>
-                                </select>
-                            </div>
-                        </li>
-
-            <li>
-                <div class="input_label">
-                    <p>Select pair coin</p>
-                </div>
-                <div class="input_field">
-                    <select class="input_type" id="field112cont" autofocus>
-                        <option value=1>Coin to buy</option>
-                        <option value=2>Coin to sell</option>
-                    </select>
-                </div>
-            </li>
-            -->
                         <li>
                             <div class="input_label">
                                 <span data-i18n="recipient_account">Recipient Account</span>
@@ -1103,25 +1080,6 @@ works with tutorials, WIKI links and more.">HELP</a>
                             </a>
                         </div>
 
-
-
-                        <!--BOX 3 - NEOdice
-
-                        <div class="commBox">
-                            <div class="innerbox"></div>
-                            <img src="spn/img/serv_neodice.svg" align="center" />
-                            <a href="javascript:$.growl($.t('service_under_maintenance'), { 'type': 'danger' });">
-                                <div class="overBox">
-                                    <div class="title overText">
-                                        NEOdice
-                                    </div>
-                                    <div class="tagline overText" data-i18n="[html]neodice_desc">
-                                        Realtime DICE game running on NXT blockchain. Provably fair, playable via any NXT client.<br><br>Roll NeoDICE, beat the odds, support NXT.<br><br>Access to the service soon by clicking this box.
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        -->
                         <!--BOX 4 - Opal Drive -->
 
                         <div class="commBox">
@@ -1777,14 +1735,6 @@ works with tutorials, WIKI links and more.">HELP</a>
     </div>    
 <!-- ------------------ /blockchain download bar ------------------ -->
 
-<!-- -------------------- server status trigger -------------------- -->
-
-    <!--
-    <div id="server_status" class="fontOS">
-        <a class="btn btn-spn md-trigger sofTran fontOS" data-modal="modal-server-status" data-i18n="servers_status">SERVERS STATUS</a>
-    </div>
-    -->
-<!-- -------------------- /server status trigger -------------------- -->
 
     <div id="show_console">
         <a href="#" onclick="NRS.showConsole();return false;" style="color:black;"><i class="fa fa-terminal" style="font-weight:bold"></i></a>
@@ -1931,6 +1881,6 @@ works with tutorials, WIKI links and more.">HELP</a>
 			return window.open(url, title, 'toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width='+w+', height='+h+', top='+top+', left='+left);
 		} 
 	</script>
-	
+
 </body>
 </html>
