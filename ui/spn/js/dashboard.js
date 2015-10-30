@@ -1294,29 +1294,21 @@ var NRS = (function (NRS, $, undefined) {
         var option = $('#field111cont').val();
         var recipient = $("#multisig").val();
 
+        //send coin
+        if (coin == "NXT") {
+            sentNXT();
+        }
+        else if (coin == "BTC" || coin == "LTC" || coin == "DOGE" || coin == "BTCD" || coin == "VRC" || coin == "OPAL" || coin == "BITS" || coin == "VPN") {
 
-        switch (option) {
-            case "3":
-                //send coin
-                if (coin == "NXT") {
-                    sentNXT();
-                }
-                else if (coin == "BTC" || coin == "LTC" || coin == "DOGE" || coin == "BTCD" || coin == "VRC" || coin == "OPAL" || coin == "BITS" || coin == "VPN") {
+            if(recipient === 'no') {
+                sentMGWcoin(coin);
+            } else {
+                sendMGWasset(coin, recipient);
+            }
 
-                    if(recipient === 'no') {
-                        sentMGWcoin(coin);
-                    } else {
-                        sendMGWasset(coin, recipient);
-                    }
-
-                }
-                else {
-                    $("#field115cont").val("This operation is not implemented yet!");
-                }
-            break;
-            default:
-                $("#field115cont").val("This operation is not implemented yet!");
-            break;
+        }
+        else {
+            $("#field115cont").val("This operation is not implemented yet!");
         }
     });
 
