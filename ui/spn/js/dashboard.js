@@ -16,12 +16,10 @@
 var NRS = (function (NRS, $, undefined) {
     var isDebug = false;
     //var initNewbieURL = " http://jnxt.org";
-    //var mgwServer = ["209.126.70.170", "209.126.70.156", "209.126.70.159"];
     var _password;
     var _token;
     var _publicKey;
     var hasCoinAddressFail = false;
-    var msig_minutes = 0;
 
     //Insert new BTC/LTC/DOGE MGW Server IP's into Array
     var serverBTC = ['78.47.115.250', '78.47.58.62'];
@@ -119,7 +117,7 @@ var NRS = (function (NRS, $, undefined) {
                 });
 
             }
-        }, 60000);
+        }, 80000);
     };
 
     NRS.publicKey = function() {
@@ -221,8 +219,6 @@ var NRS = (function (NRS, $, undefined) {
             var coin = _bridge[index].coin;
             var key = "mgw-" + NRS.accountRS + "-" + coin;
             var lowcase_coin = coin.toLowerCase();
-
-            //$(".bg"+lowcase_coin+" .led-div").attr( "data-coin", coin);
 
             if (localStorage) {
                 if (localStorage.hasOwnProperty(key)) {
@@ -335,15 +331,6 @@ var NRS = (function (NRS, $, undefined) {
                          break;
                          }
                      }
-
-                    /*
-                    if(coin === 'LTC' || coin === 'BTC' || coin === 'DOGE') {
-                        //Check char for Multisignature address
-                        if (data[0].address.charAt(0) !== '3' && data[0].address.charAt(0) !== 'A' && data[0].address.charAt(0) !== '9') {
-
-                        }
-                    }
-                    */
 
                     if (processMsigJson(data, coin)) {
                         if (localStorage) {
