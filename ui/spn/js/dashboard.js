@@ -1708,11 +1708,10 @@ var NRS = (function (NRS, $, undefined) {
         $("#modal-17 h3").html($.t('jay_wallet').toUpperCase());
     });
 
-
-
     $(".show_more_details").on("click", function() {
         $("#node_ip_div").toggle();
     });
+
 
     return NRS;
 }(NRS || {}, jQuery));

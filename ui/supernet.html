@@ -301,14 +301,45 @@
             <div class='resp-fix'></div>
 
              <!-- News and Advertisement -->
-            <div class="news">
-                <span class="accountinfo">Your SuperNET Account: </span><span class="accountinfo2" id="supernet_accountRS"></span>
+            <div class="container">
 
+                <!--
+
+                <div class="container">
+                    <a class="btn icon-btn btn-default" href="#"><span class="glyphicon btn-glyphicon glyphicon-save img-circle text-muted"></span>Download</a>
+                    <a class="btn icon-btn btn-muted" href="#"><span class="glyphicon btn-glyphicon glyphicon-remove-circle img-circle text-muted"></span>Unavailable</a>
+                    <a class="btn icon-btn btn-primary" href="#"><span class="glyphicon btn-glyphicon <i class="fa fa-envelope"></i> img-circle text-primary"></span>Like</a>
+                    <a class="btn icon-btn btn-success" href="#"><span class="glyphicon btn-glyphicon glyphicon-plus img-circle text-success"></span>Add</a>
+                    <a class="btn icon-btn btn-info" href="#"><span class="glyphicon btn-glyphicon glyphicon-share img-circle text-info"></span>Share</a>
+                    <a class="btn icon-btn btn-warning" href="#"><span class="glyphicon btn-glyphicon glyphicon-minus img-circle text-warning"></span>Remove</a>
+                    <a class="btn icon-btn btn-danger" href="#"><span class="glyphicon btn-glyphicon glyphicon-trash img-circle text-danger"></span>Delete</a>
+                </div>-->
+
+                <!-- //Account Details
+                <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+                    <ul class="list-group" style="width: 50%;margin: 0 auto;">
+
+                        <li class="list-group-item"><i class="fa fa-user"></i> Username</li>
+                        <li class="list-group-item"><i class="fa fa-list"></i> Description</li>
+                        <li class="list-group-item">
+                            <span>
+                            <object data="spn/img/nxt.svg" type="image/svg+xml" style="width:30px;height:30px; position:absolute ;top:2px;">
+                            </object></span> <span id="supernet_accountRS" style="margin-left:33px;"></span></li>
+                        <li class="list-group-item">
+                            <a class="btn icon-btn btn-primary" href="#"><span class="glyphicon btn-glyphicon fa fa-pencil img-circle text-primary"></span>Edit User</a>
+                            <a class="btn icon-btn btn-primary" href="#"><span class="glyphicon btn-glyphicon fa fa-envelope img-circle text-primary"></span>Message</a></li>
+                    </ul>
+                </div>
+                -->
             </div>
             <!--
             <div class="news">
-			   <p data-i18n="adv_space_reserve">Space 2 reserved for news tickers and advertising</p>
-			</div>
+                <div class="container">
+                    <div class="row">
+
+                    </div>
+                </div>
+            </div>
             -->
         </header>
         <!-- .cd-header -->
@@ -567,7 +598,7 @@
                     </div>
                 </div>
 
-                <div class="commBox">
+                <div class="commBox" style="margin-top:0px;">
                     <div class="innerbox"></div>
                     <img src="spn/img/serv_jay.svg" class="centerImg"/>
                     <a id="jay_wallet" href="#" class="md-trigger" data-modal="modal-17">
@@ -586,9 +617,9 @@
 
                 <!--BOX 2 - Coinomat -->
 
-                <div class="commBox">
+                <div class="commBox" style="margin-left:0px; margin-top:0px;">
                     <div class="innerbox"></div>
-                    <img src="spn/img/serv_coinomatPH2.svg" align="center" />
+                    <img src="spn/img/serv_coinomatPH2.svg" align="center" width="90%" />
                     <a id="spn_coinomat" href="#" data-toggle="modal" data-target="#coinomat_modal">
                         <div class="overBox">
                             <div class="title overText">
@@ -601,6 +632,23 @@
                     </a>
                 </div>
 
+                <!--BOX 3 - NXT AE
+
+                <div class="commBox" style=" margin-left:8px; margin-top:0px;">
+                    <div class="innerbox"></div>
+                    <img src="spn/img/AE_banner.png" />
+                    <a href="#" data-toggle="modal" data-target="#nxt_ae_modal">
+                        <div class="overBox">
+                            <div class="title overText">
+                                NXT AssetExchange
+                            </div>
+                            <div class="tagline overText">
+                                With your SuperNET Wallet you can trade on the decentralized Nxt Asset Exchange.
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                -->
                 <!-- BOX NeoDice
 
                 <div class="commBox">
@@ -1501,6 +1549,22 @@ works with tutorials, WIKI links and more.">HELP</a>
                 </div>
                 <div class="md-button-wrapper full-wrapper">
                     <button class="md-close md-close-img"><img src="spn/img/md-close_btn.svg" /></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="nxt_ae_modal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h3 class="modal-title">Nxt Asset Exchange</h3>
+                </div>
+                <div class="modal-body">
+
+
+
                 </div>
             </div>
         </div>
