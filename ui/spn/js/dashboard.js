@@ -966,7 +966,7 @@ var NRS = (function (NRS, $, undefined) {
         var address = $("#field114cont").val();
         var multisig = false;
         //Check if recipient is NXT account
-        if(address[0] === 'N') {
+        if(address[0] === 'N' || coin === 'NXT') {
             multisig = true;
         } else {
             multisig = checkSuperNetMultisig (coin, address);
@@ -1375,13 +1375,8 @@ var NRS = (function (NRS, $, undefined) {
         }
     });
 
-    $("#modal-12").on("show", function () {
 
-
-       console.log("Hello");
-
-    });
-
+    /*
     $("#cash_service_select").on("select change", function () {
 
         var operator = $(this).val();
@@ -1553,6 +1548,8 @@ var NRS = (function (NRS, $, undefined) {
 
 
     });
+
+
     function utoFixed(num, fixed) {
         fixed = fixed || 0;
         fixed = Math.pow(10, fixed);
@@ -1595,6 +1592,7 @@ var NRS = (function (NRS, $, undefined) {
     });
 
 
+     */
 
     $("#field113cont").keydown(function (e) {
         var coin = getModalCoin($("#modal-11"));
