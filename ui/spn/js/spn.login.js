@@ -20,11 +20,10 @@ var NRS = (function(NRS, $, undefined) {
 	NRS.newlyCreatedAccount = false;
 
 	NRS.allowLoginViaEnter = function() {
-		$("#login_password").keypress(function(e) {
+		$("#login_pin").keypress(function(e) {
 			if (e.which == '13') {
 				e.preventDefault();
-				var password = $("#login_password").val();
-				NRS.login(password);
+                NRS.loginJayAccount();
 			}
 		});
 	}
