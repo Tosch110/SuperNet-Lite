@@ -97,9 +97,9 @@ var NRS = (function (NRS, $, undefined) {
 
 
             var result = $.grep(sto, function(e){ return e.accountRS == account.accountRS; });
-            
+
             if (result.length > 0) {
-                $.growl("Account already exists.", {
+                $.growl("You already have that account listed.", {
                     "type": "danger",
                     "offset": 10
                 });

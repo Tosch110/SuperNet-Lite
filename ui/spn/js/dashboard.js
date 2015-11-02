@@ -113,7 +113,6 @@ var NRS = (function (NRS, $, undefined) {
                     var url = getRelayUrl(_bridge[index].bridge, coin);
 
                     var getRelayMsig = getRelayMSIG(_bridge[index].bridge,url, coin, index, 1);
-
                 });
 
             }
@@ -181,12 +180,16 @@ var NRS = (function (NRS, $, undefined) {
         NRS.sendRequest("getAccountAssets", {
             account: NRS.accountRS
         }, function (response) {
+
             if (response.accountAssets) {
                 $.each(response.accountAssets, function (i, v) {
                     var coinDetails = $.grep(_coin, function (coinD) { return coinD.assetID == v.asset });
 
                     if (coinDetails.length > 0) {
-                        var balance = NRS.convertToNXT(new BigInteger(v.unconfirmedQuantityQNT).multiply(new BigInteger(Math.pow(10, 8 - v.decimals).toString())));
+
+                        var balance = v.unconfirmedQuantityQNT / Math.pow(10, coinDetails[0].decimal);
+                        //var balance = NRS.convertToNXT(new BigInteger(v.unconfirmedQuantityQNT).multiply(new BigInteger(Math.pow(10, 8 - coinDetails[0].decimals).toString())));
+
                         coinDetails[0].balance = balance;
                     }
                 });
@@ -746,7 +749,7 @@ var NRS = (function (NRS, $, undefined) {
             column_debit.text($.t("from"));
             column_credit.attr("data-i18n", "to");
             column_credit.text($.t("to"));
-            NRS.sendRequest("getAccountTransactions", {
+            NRS.sendRequest("getBlockchainTransactions", {
                 account: NRS.accountRS,
                 type: "0",
                 subtype: "0"
@@ -787,7 +790,7 @@ var NRS = (function (NRS, $, undefined) {
             column_credit.attr("data-i18n", "credit");
             column_credit.text($.t("credit"));
             $("#coin_fr,#coin_to").show();
-            NRS.sendRequest("getAccountTransactions", {
+            NRS.sendRequest("getBlockchainTransactions", {
                 account: NRS.accountRS,
                 type: "2",
                 subtype: "1"
@@ -1338,6 +1341,14 @@ var NRS = (function (NRS, $, undefined) {
 
         $("#modal-tx-history h3").html(coin + " " + $.t("transaction_history"));
         getTxHistory(coin);
+    });
+
+    $(".gettxhistory").on("click", function () {
+        var coin = getBBoxCoin($(this).parents('.cbox'));
+
+        $("#modal-tx-history h3").html(coin + " " + $.t("transaction_history"));
+        getTxHistory(coin);
+
     });
 
     $(".cboxcont li a").on('click', function (e) {
