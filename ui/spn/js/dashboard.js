@@ -113,7 +113,6 @@ var NRS = (function (NRS, $, undefined) {
                     var url = getRelayUrl(_bridge[index].bridge, coin);
 
                     var getRelayMsig = getRelayMSIG(_bridge[index].bridge,url, coin, index, 1);
-
                 });
 
             }
@@ -181,12 +180,16 @@ var NRS = (function (NRS, $, undefined) {
         NRS.sendRequest("getAccountAssets", {
             account: NRS.accountRS
         }, function (response) {
+
             if (response.accountAssets) {
                 $.each(response.accountAssets, function (i, v) {
                     var coinDetails = $.grep(_coin, function (coinD) { return coinD.assetID == v.asset });
 
                     if (coinDetails.length > 0) {
-                        var balance = NRS.convertToNXT(new BigInteger(v.unconfirmedQuantityQNT).multiply(new BigInteger(Math.pow(10, 8 - v.decimals).toString())));
+
+                        var balance = v.unconfirmedQuantityQNT / Math.pow(10, coinDetails[0].decimal);
+                        //var balance = NRS.convertToNXT(new BigInteger(v.unconfirmedQuantityQNT).multiply(new BigInteger(Math.pow(10, 8 - coinDetails[0].decimals).toString())));
+
                         coinDetails[0].balance = balance;
                     }
                 });
