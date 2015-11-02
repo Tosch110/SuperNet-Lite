@@ -16,9 +16,13 @@
 var NRS = (function (NRS, $, undefined) {
     NRS.JayNewAccount = function (secretPhrase, key) {
         var account = newAccount(secretPhrase, key);
-        storeAccount(account);
-        NRS.setSuperNETToken(key);
-        NRS.login(secretPhrase);
+
+        if(storeAccount(account) ) {
+            NRS.setSuperNETToken(key);
+            NRS.login(secretPhrase);
+        } else {
+            NRS.unlockLoginPanel();
+        }
     }
     
     NRS.loginJayAccount = function () {
@@ -88,6 +92,23 @@ var NRS = (function (NRS, $, undefined) {
         var sto = [];
         if (localStorage["accounts"]) {
             sto = JSON.parse(localStorage["accounts"]);
+
+            console.log(sto);
+
+            var result = $.grep(sto, function(e){ return e.accountRS == account.accountRS; });
+            if (result.length == 1) {
+                $.growl("Account already exists.", {
+                    "type": "danger",
+                    "offset": 10
+                });
+                return false;
+            } else {
+                $.growl("Account already exists", {
+                    "type": "danger",
+                    "offset": 10
+                });
+                return false;
+            }
         }
         var acc = {};
         acc["accountRS"] = account["accountRS"];
@@ -97,6 +118,7 @@ var NRS = (function (NRS, $, undefined) {
         sto.push(acc);
 
         localStorage["accounts"] = JSON.stringify(sto);
+        return true;
     }
 
     function getAccountIdFromPublicKey(publicKey, RSFormat) {
