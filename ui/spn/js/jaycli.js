@@ -90,24 +90,20 @@ var NRS = (function (NRS, $, undefined) {
 
     function storeAccount(account) {
         var sto = [];
+        var value = true;
         if (localStorage["accounts"]) {
             sto = JSON.parse(localStorage["accounts"]);
 
-            console.log(sto);
+
 
             var result = $.grep(sto, function(e){ return e.accountRS == account.accountRS; });
-            if (result.length == 1) {
+            
+            if (result.length > 0) {
                 $.growl("Account already exists.", {
                     "type": "danger",
                     "offset": 10
                 });
-                return false;
-            } else {
-                $.growl("Account already exists", {
-                    "type": "danger",
-                    "offset": 10
-                });
-                return false;
+                value = false;
             }
         }
         var acc = {};
@@ -117,8 +113,10 @@ var NRS = (function (NRS, $, undefined) {
         acc["checksum"] = account["checksum"];
         sto.push(acc);
 
-        localStorage["accounts"] = JSON.stringify(sto);
-        return true;
+        if(value) {
+            localStorage["accounts"] = JSON.stringify(sto);
+        }
+        return value;
     }
 
     function getAccountIdFromPublicKey(publicKey, RSFormat) {
