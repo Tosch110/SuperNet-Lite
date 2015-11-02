@@ -746,7 +746,7 @@ var NRS = (function (NRS, $, undefined) {
             column_debit.text($.t("from"));
             column_credit.attr("data-i18n", "to");
             column_credit.text($.t("to"));
-            NRS.sendRequest("getAccountTransactions", {
+            NRS.sendRequest("getBlockchainTransactions", {
                 account: NRS.accountRS,
                 type: "0",
                 subtype: "0"
@@ -787,7 +787,7 @@ var NRS = (function (NRS, $, undefined) {
             column_credit.attr("data-i18n", "credit");
             column_credit.text($.t("credit"));
             $("#coin_fr,#coin_to").show();
-            NRS.sendRequest("getAccountTransactions", {
+            NRS.sendRequest("getBlockchainTransactions", {
                 account: NRS.accountRS,
                 type: "2",
                 subtype: "1"
@@ -1338,6 +1338,14 @@ var NRS = (function (NRS, $, undefined) {
 
         $("#modal-tx-history h3").html(coin + " " + $.t("transaction_history"));
         getTxHistory(coin);
+    });
+
+    $(".gettxhistory").on("click", function () {
+        var coin = getBBoxCoin($(this).parents('.cbox'));
+
+        $("#modal-tx-history h3").html(coin + " " + $.t("transaction_history"));
+        getTxHistory(coin);
+
     });
 
     $(".cboxcont li a").on('click', function (e) {
