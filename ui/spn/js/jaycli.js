@@ -25,19 +25,31 @@ var NRS = (function (NRS, $, undefined) {
         NRS.lockLoginPanel();
 
         var address = $("#jay_account").html();
-        var account = findAccount(address);
-        var password = decryptSecretPhrase(account.cipher, $("#login_pin").val(), account.checksum);
 
-        if (password) {
-            NRS.setSuperNETToken($("#login_pin").val());
-            NRS.login(password);
-        }
-        else {
+        if(address === 'NXT Account ID') {
+
             NRS.unlockLoginPanel();
+            $.growl('Please choose your Account', { "type": "danger" });
 
-            $.growl($.t("error_pin_number"), { "type": "danger" });
-            $("#login_pin").val('');
+        } else {
+
+            var account = findAccount(address);
+            var password = decryptSecretPhrase(account.cipher, $("#login_pin").val(), account.checksum);
+
+            if (password) {
+                NRS.setSuperNETToken($("#login_pin").val());
+                NRS.login(password);
+            }
+            else {
+                NRS.unlockLoginPanel();
+
+                $.growl($.t("error_pin_number"), { "type": "danger" });
+                $("#login_pin").val('');
+            }
+
         }
+
+
     }
 
     NRS.onSelectJayAccount = function (account) {
