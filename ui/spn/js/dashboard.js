@@ -121,13 +121,8 @@ var NRS = (function (NRS, $, undefined) {
 
     NRS.publicKey = function() {
 
-        NRS.sendRequest("getAccountId", {
-            secretPhrase: _password
-        }, function (account_response) {
-
-            _publicKey = account_response.publicKey;
-
-        }, false);
+        _publicKey = Jay.secretPhraseToPublicKey(_password);
+        return _publicKey;
 
     };
 
@@ -680,9 +675,10 @@ var NRS = (function (NRS, $, undefined) {
                     }
                 }
             }
-            balanceNQT = new Big(balanceNQT.toString());
-            withdrawAmountNQT = new Big(NRS.convertToQNT($("#field113cont").val(), coinDetails[0].decimal).toString());
-            if (balanceNQT.cmp(withdrawAmountNQT) == -1) {
+            //balanceNQT = new Big(coinDetails[0].balance.toString());
+            //withdrawAmountNQT = new Big(NRS.convertToQNT($("#field113cont").val(), coinDetails[0].decimal).toString());
+
+            if ($("#field113cont").val() > coinDetails[0].balance) {
                 result = false;
             }
         }
