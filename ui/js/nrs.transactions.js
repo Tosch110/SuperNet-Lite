@@ -11,7 +11,7 @@ var NRS = (function(NRS, $, undefined) {
 	NRS.transactionsPageType = null;
 
 	NRS.getInitialTransactions = function() {
-		NRS.sendRequest("getAccountTransactions", {
+		NRS.sendRequest("getBlockchainTransactions", {
 			"account": NRS.account,
 			"firstIndex": 0,
 			"lastIndex": 9
@@ -202,7 +202,7 @@ var NRS = (function(NRS, $, undefined) {
 
 	NRS.getNewTransactions = function() {
 		//check if there is a new transaction..
-		NRS.sendRequest("getAccountTransactionIds", {
+		NRS.sendRequest("getBlockchainTransactions", {
 			"account": NRS.account,
 			"timestamp": NRS.blocks[0].timestamp + 1,
 			"firstIndex": 0,
@@ -210,7 +210,7 @@ var NRS = (function(NRS, $, undefined) {
 		}, function(response) {
 			//if there is, get latest 10 transactions
 			if (response.transactionIds && response.transactionIds.length) {
-				NRS.sendRequest("getAccountTransactions", {
+				NRS.sendRequest("getBlockchainTransactions", {
 					"account": NRS.account,
 					"firstIndex": 0,
 					"lastIndex": 9
@@ -607,7 +607,7 @@ var NRS = (function(NRS, $, undefined) {
 			}
 		}
 
-		NRS.sendRequest("getAccountTransactions+", params, function(response) {
+		NRS.sendRequest("getBlockchainTransactions+", params, function(response) {
 			if (response.transactions && response.transactions.length) {
 				if (response.transactions.length > NRS.itemsPerPage) {
 					NRS.hasMorePages = true;

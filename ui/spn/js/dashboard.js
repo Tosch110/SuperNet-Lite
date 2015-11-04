@@ -173,7 +173,8 @@ var NRS = (function (NRS, $, undefined) {
 
     function getBalance() {
         NRS.sendRequest("getAccountAssets", {
-            account: NRS.accountRS
+            account: NRS.accountRS,
+            "includeAssetInfo": true
         }, function (response) {
 
             if (response.accountAssets) {
