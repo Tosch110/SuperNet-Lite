@@ -422,7 +422,7 @@ var NRS = (function(NRS, $, undefined) {
 			{
 			    if (NRS.serverConnect) {
                     //Look for missing msig signatures
-                    NRS.updateMissingMsig();
+                    //NRS.updateMissingMsig();
 			    }
 			}
 		});
@@ -743,7 +743,11 @@ var NRS = (function(NRS, $, undefined) {
 
 	NRS.getAccountInfo = function(firstRun, callback) {
 		NRS.sendRequest("getAccount", {
-			"account": NRS.account
+			"account": NRS.account,
+            "includeLessors": true,
+            "includeAssets": true,
+            "includeCurrencies": true,
+            "includeEffectiveBalance" :true
 		}, function(response) {
 			var previousAccountInfo = NRS.accountInfo;
 
@@ -888,7 +892,7 @@ var NRS = (function(NRS, $, undefined) {
 				}
 
 				/* Display message count in top and limit to 100 for now because of possible performance issues*/	
-				NRS.sendRequest("getAccountTransactions+", {
+				NRS.sendRequest("getBlockchainTransactions+", {
 					"account": NRS.account,
 					"type": 1,
 					"subtype": 0,

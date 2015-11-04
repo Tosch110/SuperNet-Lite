@@ -1,3 +1,18 @@
+/******************************************************************************
+ * Copyright © 2014-2015 The SuperNET Developers.                             *
+ *                                                                            *
+ * See the AUTHORS, DEVELOPER-AGREEMENT and LICENSE files at                  *
+ * the top-level directory of this distribution for the individual copyright  *
+ * holder information and the developer policies on copyright and licensing.  *
+ *                                                                            *
+ * Unless otherwise agreed in a custom licensing agreement, no part of the    *
+ * SuperNET software, including this file may be copied, modified, propagated *
+ * or distributed except according to the terms contained in the LICENSE file *
+ *                                                                            *
+ * Removal or modification of this copyright notice is prohibited.            *
+ *                                                                            *
+ ******************************************************************************/
+
 /**
  * @duplicate from {nrs.login.js}
  */
@@ -5,11 +20,10 @@ var NRS = (function(NRS, $, undefined) {
 	NRS.newlyCreatedAccount = false;
 
 	NRS.allowLoginViaEnter = function() {
-		$("#login_password").keypress(function(e) {
+		$("#login_pin").keypress(function(e) {
 			if (e.which == '13') {
 				e.preventDefault();
-				var password = $("#login_password").val();
-				NRS.login(password);
+                NRS.loginJayAccount();
 			}
 		});
 	}

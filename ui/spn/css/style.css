@@ -96,7 +96,7 @@ Main Components
         float: left;
         margin-top: 28px;
         position: relative;
-        height: 100px;
+        height: 150px;
         top: 0px;
         margin-left: 25px;
         width: calc(90vw - 300px);
@@ -670,8 +670,9 @@ color: white !important;
      height:50px;
 }
 
-.coinaddr .tooltip{
+.coinaddr {
      display:block !important;
+    font-size:13px;
 }
 
 .cboxcont h5 a, cboxcont h5 a:link, cboxcont h5 a:visited {
@@ -787,18 +788,12 @@ color: white !important;
 
 
 .overboxBTCD li:nth-of-type(3) {
-      position: absolute;
-	  background-image: url(../img/minicon_fiat.svg);
-	  background-repeat: no-repeat; 
-	  background-size: 100%;
-	  width: 37px;
-	  height: 37px;
-	  margin-top: 4px !important;
-	  margin-left: 126px !important;
-	  
-	  opacity: 0.5;
-	  transition: all .4s ease;
-	  -webkit-transition: all .4s ease;	  
+    position: absolute;
+    margin-top: 6px !important;
+    margin-left: 170px !important;
+
+    transition: all .4s ease;
+    -webkit-transition: all .4s ease;
 }
 
 
@@ -922,18 +917,12 @@ color: white !important;
 
 
 .overboxVRC li:nth-of-type(3) {
-      position: absolute;
-	  background-image: url(../img/minicon_fiat.svg);
-	  background-repeat: no-repeat; 
-	  background-size: 100%;
-	  width: 37px;
-	  height: 37px;
-	  margin-top: 4px !important;
-	  margin-left: 126px !important;
-	  
-	  opacity: 0.5;
-	  transition: all .4s ease;
-	  -webkit-transition: all .4s ease;	  
+    position: absolute;
+    margin-top: 6px !important;
+    margin-left: 170px !important;
+
+    transition: all .4s ease;
+    -webkit-transition: all .4s ease;
 }
 
 
@@ -1058,18 +1047,12 @@ color: white !important;
 
 
 .overboxBITS li:nth-of-type(3) {
-      position: absolute;
-	  background-image: url(../img/minicon_fiat.svg);
-	  background-repeat: no-repeat; 
-	  background-size: 100%;
-	  width: 37px;
-	  height: 37px;
-	  margin-top: 4px !important;
-	  margin-left: 126px !important;
-	  
-	  opacity: 0.5;
-	  transition: all .4s ease;
-	  -webkit-transition: all .4s ease;	  
+    position: absolute;
+    margin-top: 6px !important;
+    margin-left: 170px !important;
+
+    transition: all .4s ease;
+    -webkit-transition: all .4s ease;
 }
 
 
@@ -1196,18 +1179,12 @@ color: white !important;
 
 
 .overboxOPAL li:nth-of-type(3) {
-      position: absolute;
-	  background-image: url(../img/minicon_fiat.svg);
-	  background-repeat: no-repeat; 
-	  background-size: 100%;
-	  width: 37px;
-	  height: 37px;
-	  margin-top: 4px !important;
-	  margin-left: 126px !important;
-	  
-	  opacity: 0.5;
-	  transition: all .4s ease;
-	  -webkit-transition: all .4s ease;	  
+    position: absolute;
+    margin-top: 6px !important;
+    margin-left: 170px !important;
+
+    transition: all .4s ease;
+    -webkit-transition: all .4s ease;
 }
 
 
@@ -1336,16 +1313,9 @@ color: white !important;
 
 .overboxNXT li:nth-of-type(3) {
       position: absolute;
-	  background-image: url(../img/minicon_fiat.svg);
-	  background-repeat: no-repeat; 
-	  background-size: 100%;
-	  font-color: white;
-	  width: 37px;
-	  height: 37px;
-	  margin-top: 4px !important;
-	  margin-left: 126px !important;
-	  
-	  opacity: 0.5;
+	  margin-top: 6px !important;
+	  margin-left: 170px !important;
+
 	  transition: all .4s ease;
 	  -webkit-transition: all .4s ease;	  
 }
@@ -1475,18 +1445,12 @@ color: white !important;
 
 
 .overboxVPN li:nth-of-type(3) {
-      position: absolute;
-	  background-image: url(../img/minicon_fiat.svg);
-	  background-repeat: no-repeat; 
-	  background-size: 100%;
-	  width: 37px;
-	  height: 37px;
-	  margin-top: 4px !important;
-	  margin-left: 126px !important;
-	  
-	  opacity: 0.5;
-	  transition: all .4s ease;
-	  -webkit-transition: all .4s ease;	  
+    position: absolute;
+    margin-top: 6px !important;
+    margin-left: 170px !important;
+
+    transition: all .4s ease;
+    -webkit-transition: all .4s ease;
 }
 
 
@@ -1613,18 +1577,12 @@ color: white !important;
 
 
 .overboxBTC li:nth-of-type(3) {
-      position: absolute;
-	  background-image: url(../img/minicon_fiat.svg);
-	  background-repeat: no-repeat; 
-	  background-size: 100%;
-	  width: 37px;
-	  height: 37px;
-	  margin-top: 4px !important;
-	  margin-left: 126px !important;
-	  
-	  opacity: 0.5;
-	  transition: all .4s ease;
-	  -webkit-transition: all .4s ease;	  
+    position: absolute;
+    margin-top: 6px !important;
+    margin-left: 170px !important;
+
+    transition: all .4s ease;
+    -webkit-transition: all .4s ease;
 }
 
 
@@ -1749,18 +1707,21 @@ color: white !important;
 
 
 .overboxLTC li:nth-of-type(3) {
-      position: absolute;
-	  background-image: url(../img/minicon_fiat.svg);
-	  background-repeat: no-repeat; 
-	  background-size: 100%;
-	  width: 37px;
-	  height: 37px;
-	  margin-top: 4px !important;
-	  margin-left: 126px !important;
-	  
-	  opacity: 0.5;
-	  transition: all .4s ease;
-	  -webkit-transition: all .4s ease;	  
+    position: absolute;
+    margin-top: 6px !important;
+    margin-left: 170px !important;
+
+    transition: all .4s ease;
+    -webkit-transition: all .4s ease;
+}
+
+.fa-book {
+    color: white;
+    opacity: 0.5;
+}
+
+.fa-book:hover {
+    opacity: 0.3;
 }
 
 
@@ -1887,18 +1848,12 @@ color: white !important;
 
 
 .overboxBBR li:nth-of-type(3) {
-      position: absolute;
-	  background-image: url(../img/minicon_fiat.svg);
-	  background-repeat: no-repeat; 
-	  background-size: 100%;
-	  width: 37px;
-	  height: 37px;
-	  margin-top: 4px !important;
-	  margin-left: 126px !important;
-	  
-	  opacity: 0.5;
-	  transition: all .4s ease;
-	  -webkit-transition: all .4s ease;	  
+    position: absolute;
+    margin-top: 6px !important;
+    margin-left: 170px !important;
+
+    transition: all .4s ease;
+    -webkit-transition: all .4s ease;
 }
 
 
@@ -2025,18 +1980,12 @@ color: white !important;
 
 
 .overboxDOGE li:nth-of-type(3) {
-      position: absolute;
-	  background-image: url(../img/minicon_fiat.svg);
-	  background-repeat: no-repeat; 
-	  background-size: 100%;
-	  width: 37px;
-	  height: 37px;
-	  margin-top: 4px !important;
-	  margin-left: 126px !important;
-	  
-	  opacity: 0.5;
-	  transition: all .4s ease;
-	  -webkit-transition: all .4s ease;	  
+    position: absolute;
+    margin-top: 6px !important;
+    margin-left: 170px !important;
+
+    transition: all .4s ease;
+    -webkit-transition: all .4s ease;
 }
 
 
@@ -2162,18 +2111,12 @@ color: white !important;
 
 
 .overboxFIBRE li:nth-of-type(3) {
-      position: absolute;
-	  background-image: url(../img/minicon_fiat.svg);
-	  background-repeat: no-repeat; 
-	  background-size: 100%;
-	  width: 37px;
-	  height: 37px;
-	  margin-top: 4px !important;
-	  margin-left: 126px !important;
-	  
-	  opacity: 0.5;
-	  transition: all .4s ease;
-	  -webkit-transition: all .4s ease;	  
+    position: absolute;
+    margin-top: 6px !important;
+    margin-left: 170px !important;
+
+    transition: all .4s ease;
+    -webkit-transition: all .4s ease;
 }
 
 
@@ -2308,18 +2251,13 @@ color: white !important;
 
 
 .overboxSYS li:nth-of-type(3) {
-      position: absolute;
-	  background-image: url(../img/minicon_fiat.svg);
-	  background-repeat: no-repeat; 
-	  background-size: 100%;
-	  width: 37px;
-	  height: 37px;
-	  margin-top: 4px !important;
-	  margin-left: 126px !important;
-	  
-	  opacity: 0.5;
-	  transition: all .4s ease;
-	  -webkit-transition: all .4s ease;	  
+    position: absolute;
+    margin-top: 6px !important;
+    margin-left: 170px !important;
+    font-color:white;
+
+    transition: all .4s ease;
+    -webkit-transition: all .4s ease;
 }
 
 
@@ -2666,3 +2604,10 @@ color: white !important;
 	position: relative;
 	overflow: hidden;
 }
+
+
+#coinomat_modal .modal-dialog  {width:75%;}
+#nxt_ae_modal .modal-dialog  {width:75%;}
+
+.btn-glyphicon { padding:8px; background:#ffffff; margin-right:4px; }
+.icon-btn { padding: 1px 15px 3px 2px; border-radius:50px;}

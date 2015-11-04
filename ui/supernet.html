@@ -1,4 +1,20 @@
-﻿<!DOCTYPE html>
+﻿<!--
+/******************************************************************************
+* Copyright © 2014-2015 The SuperNET Developers.                             *
+*                                                                            *
+* See the AUTHORS, DEVELOPER-AGREEMENT and LICENSE files at                  *
+* the top-level directory of this distribution for the individual copyright  *
+* holder information and the developer policies on copyright and licensing.  *
+*                                                                            *
+* Unless otherwise agreed in a custom licensing agreement, no part of the    *
+* SuperNET software, including this file may be copied, modified, propagated *
+* or distributed except according to the terms contained in the LICENSE file *
+*                                                                            *
+* Removal or modification of this copyright notice is prohibited.            *
+*                                                                            *
+******************************************************************************/
+-->
+<!DOCTYPE html>
 <html class="lockscreen">
 <head>
     <meta charset="UTF-8">
@@ -17,6 +33,8 @@
     <link href="spn/css/login_style.css" rel="stylesheet" type="text/css" />
     <link href="spn/css/tooltipster.css" rel="stylesheet" />
     <link href="spn/css/modal/component.css" rel="stylesheet">
+    <link href="css/spn.coinimal.css" rel="stylesheet">
+    <link href="css/select2/select2.css" rel="stylesheet" type="text/css">
     <link rel="icon" href="spn/img/snicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="spn/css/font-supernet.css">
 </head>
@@ -66,17 +84,6 @@
                         <!--  ---------------------- spn_login ---------------------- -->
 
                         <div id="spn_login">
-                           <!--  <div class="row" id="node_ip_div" style="font-size:small;display:none;">
-                                <div class="col-lg-6">
-                                    Connected via:
-                                </div>
-                                <div class="col-lg-6">
-                                    <span id="node_ip"></span>
-                                </div>
-                                <div class="col-lg-6">First-Time</div>
-                                <div class="col-lg-6"><a href="spn/tutorial/1/index.html" onclick="window.open(this.href, 'SuperNET Tutorial','left=20,top=20,width=500,height=400,toolbar=1,resizable=0'); return false;">Tutorial</a></div>
-                            </div> -->
-							
                             <div id="lang_select_area" class="fontOS">
                                 <input type="radio" id="lang_sel_en" class="lang_selector" name="GUIlang" value="en">
                                 <label for="lang_sel_en"><img src="spn/img/flag_en.svg" class="tooltip" title="English" /></label>
@@ -90,7 +97,7 @@
 							
 							<div id="superInfo">
 								<div id="infoServer" class="sofTran">
-									<p>Connected via:</br>
+									<p>Connected via:
 									<span id="node_ip"></span></p>
 								</div>
 								<div id="infoTut" class="sofTran" onclick="tutPop()">
@@ -230,7 +237,7 @@
                                     </div>
                                 </div>
 
-                                <div class="step_3 account_phrase_generator_steps">
+                                <div class="step_3 account_phrase_generator_steps">verifyGeneratedPassphrase
                                     <p data-i18n="passphrase_write_below">Your passphrase is very important! In order to be sure that you have saved it, please write your passphrase below:</p><br />
 
                                     <div class="callout callout-danger" style="display:none" data-i18n="incorrectly_typed_passphrase">You have not typed the passphrase correctly, please try again!</div>
@@ -294,14 +301,47 @@
             <div class='resp-fix'></div>
 
              <!-- News and Advertisement -->
-            <div class="news">
-                <span class="accountinfo">Your SuperNET Account: </span><span class="accountinfo2" id="supernet_accountRS"></span>
+            <div class="container">
 
+                <!--
+
+                <div class="container">
+                    <a class="btn icon-btn btn-default" href="#"><span class="glyphicon btn-glyphicon glyphicon-save img-circle text-muted"></span>Download</a>
+                    <a class="btn icon-btn btn-muted" href="#"><span class="glyphicon btn-glyphicon glyphicon-remove-circle img-circle text-muted"></span>Unavailable</a>
+                    <a class="btn icon-btn btn-primary" href="#"><span class="glyphicon btn-glyphicon <i class="fa fa-envelope"></i> img-circle text-primary"></span>Like</a>
+                    <a class="btn icon-btn btn-success" href="#"><span class="glyphicon btn-glyphicon glyphicon-plus img-circle text-success"></span>Add</a>
+                    <a class="btn icon-btn btn-info" href="#"><span class="glyphicon btn-glyphicon glyphicon-share img-circle text-info"></span>Share</a>
+                    <a class="btn icon-btn btn-warning" href="#"><span class="glyphicon btn-glyphicon glyphicon-minus img-circle text-warning"></span>Remove</a>
+                    <a class="btn icon-btn btn-danger" href="#"><span class="glyphicon btn-glyphicon glyphicon-trash img-circle text-danger"></span>Delete</a>
+                </div>-->
+
+                 <!-- //Account Details
+                <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+                    <ul class="list-group" style="width: 50%;margin: 0 auto;">
+
+                        <li class="list-group-item"><i class="fa fa-user"></i> Username</li>
+                        <li class="list-group-item"><i class="fa fa-list"></i> Description</li>
+                        <li class="list-group-item">
+
+                            <a class="btn icon-btn btn-primary" href="#"><span class="glyphicon btn-glyphicon fa fa-tag img-circle text-primary"></span> <span id="supernet_accountRS"></span></a>
+
+                            <object  style="width:30px;height:30px; position:absolute ;top:2px;">
+                            </object></li>
+                        <li class="list-group-item">
+                            <a class="btn icon-btn btn-primary" href="#"><span class="glyphicon btn-glyphicon fa fa-pencil img-circle text-primary"></span>Edit User</a>
+                            <a class="btn icon-btn btn-primary" href="#"><span class="glyphicon btn-glyphicon fa fa-envelope img-circle text-primary"></span>Message</a></li>
+                    </ul>
+                </div>
+                -->
             </div>
             <!--
             <div class="news">
-			   <p data-i18n="adv_space_reserve">Space 2 reserved for news tickers and advertising</p>
-			</div>
+                <div class="container">
+                    <div class="row">
+
+                    </div>
+                </div>
+            </div>
             -->
         </header>
         <!-- .cd-header -->
@@ -322,366 +362,11 @@
                     </div>
                 </div>
 
-
-                <!------------ BBR BOX ------------>
-                <!--<div class="cbox bgbbr">
-                        <div class="cboxcont">
-                            <h3>Boolberry</h3>
-                            <h4 onclick="alert('COPY WALLET ADDRESS action placeholder')">BBR-1234-2333-3345-5236</h4>
-                            <h5>1257.7663</h5>
-                            <div class="overboxBBR">
-
-                                 <ul>
-                                    <li> <a href="#0"></a></li>
-                                    <li> <a href="#0"></a></li>
-                                    <li> <a href="#0"></a></li>
-
-                                </ul>
-                            </div>
-                        </div>
-                      </div>
-                -->
-                <!------------ BTC BOX ------------>
-
-                <div class="cbox bgbtc">
-                    <div class="cboxcont">
-                        <h3>Bitcoin</h3>
-                        <div class="led-div led-green tooltip md-trigger" data-i18n-tooltip="online" title="Online" data-modal="modal-server-status"></div>
-                        <div class="coinaddr">
-                            <h4 class="tooltip" data-i18n="please_wait">--- Connecting ---</h4>
-			            </div>
-                        <h5><a href="#" class="tooltip md-trigger" data-i18n-tooltip="view_tx_history" title="View transaction history" data-modal="modal-tx-history">0</a></h5>
-                        <div class="overboxBTC">
-                            <ul>
-                                <li>
-                                    <a href="https://bitcoin.org/" target="_blank" class="tooltip" data-i18n-tooltip="official_website" title="Official website/forum for the coin">
-                                        <font style="visibility: hidden">
-                                            BITCOIN<br>
-                                            BITCOIN<br>
-                                            BITCOIN
-                                        </font>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="tooltip md-trigger" data-modal="modal-11" data-type="btc" data-type2="coinops" data-i18n-tooltip="coin_operations" title="Coin operations">
-                                        <font style="visibility: hidden">
-                                            BTC|<br>
-                                            BTC|<br>
-                                            BTC|
-                                        </font>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="tooltip md-trigger" data-modal="modal-12" data-type="btc" data-type2="cashops" data-i18n-tooltip="cash_operations" title="Cash operations">
-                                        <font style="visibility: hidden">
-                                            BTC|<br>
-                                            BTC|<br>
-                                            BTC|
-                                        </font>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="tooltip md-trigger" data-modal="modal-13" data-type="btc" data-type2="mail" data-i18n-tooltip="mail_operations" title="byMail coin transfer experimental feature, available only for BTCD at this moment.">
-                                        <font style="visibility: hidden">
-                                            BTC|<br>
-                                            BTC|<br>
-                                            BTC|
-                                        </font>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <!------------ BTCD BOX ------------>
-
-                <div class="cbox bgbtcd">
-                    <div class="cboxcont">
-                        <h3>BitcoinDark</h3>
-                        <div class="led-div led-green tooltip md-trigger" data-i18n-tooltip="online" title="Online" data-modal="modal-server-status"></div>
-                        <div class="coinaddr">
-                            <h4 class="tooltip" data-i18n="please_wait">
-                                --- Connecting ---
-                            </h4>
-                        </div>
-                        <h5><a href="#" class="tooltip md-trigger" data-i18n-tooltip="view_tx_history" title="View transaction history" data-modal="modal-tx-history">0</a></h5>
-                        <div class="overboxBTCD">
-                            <ul>
-                                <li>
-                                    <a href="http://bitcoindark.pw/" target="_blank" class="tooltip" data-i18n-tooltip="official_website" title="Official website/forum for the coin">
-                                        <font style="visibility: hidden">
-                                            BTCDARK<br>
-                                            BTCDARK<br>
-                                            BTCDARK
-                                        </font>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="tooltip md-trigger" data-modal="modal-11" data-type="btcd" data-type2="coinops" data-i18n-tooltip="coin_operations" title="Coin operations">
-                                        <font style="visibility: hidden">
-                                            BTD|<br>
-                                            BTD|<br>
-                                            BTD|
-                                        </font>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="tooltip md-trigger" data-modal="modal-12" data-type="btcd" data-type2="cashops" data-i18n-tooltip="cash_operations" title="Cash operations">
-                                        <font style="visibility: hidden">
-                                            BTD|<br>
-                                            BTD|<br>
-                                            BTD|
-                                        </font>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="tooltip md-trigger" data-modal="modal-13" data-type="btcd" data-type2="mail" data-i18n-tooltip="mail_operations" title="byMail coin transfer
-experimental feature,
-available only for BTCD
-at this moment.">
-                                        <font style="visibility: hidden">
-                                            BTD|<br>
-                                            BTD|<br>
-                                            BTD|
-                                        </font>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-
-                    </div>
-                </div>
-
-                <!------------ BITS BOX ------------>
-
-                <div class="cbox bgbits">
-                    <div class="cboxcont">
-                        <h3>Bitstar</h3>
-                        <!-- <div class="led-div led-green tooltip md-trigger" data-i18n-tooltip="online" title="Online" data-modal="modal-server-status"></div> -->
-                        <div class="coinaddr">
-                            <h4 class="tooltip" data-i18n="under_development">--- Under Development ---</h4>
-                        </div>
-                        <h5><a href="#" class="tooltip md-trigger" data-i18n-tooltip="view_tx_history" title="View transaction history" data-modal="modal-tx-history"></a></h5>
-                        <div class="overboxBITS">
-                            <ul>
-                                <li>
-                                    <a href="http://www.bitstarcoin.com/" target="_blank" class="tooltip" data-i18n-tooltip="official_website" title="Official website/forum for the coin">
-                                        <font style="visibility: hidden">
-                                            BITSTAR<br>
-                                            BITSTAR<br>
-                                            BITSTAR
-                                        </font>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="tooltip md-trigger" data-modal="modal-11" data-type="bits" data-type2="coinops" data-i18n-tooltip="coin_operations" title="Coin operations">
-                                        <font style="visibility: hidden">
-                                            BITS<br>
-                                            BITS<br>
-                                            BITS
-                                        </font>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="tooltip md-trigger" data-modal="modal-12" data-type="bits" data-type2="cashops" data-i18n-tooltip="cash_operations" title="Cash operations">
-                                        <font style="visibility: hidden">
-                                            BITS<br>
-                                            BITS<br>
-                                            BITS
-                                        </font>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="tooltip md-trigger" data-modal="modal-13" data-type="bits" data-type2="mail" data-i18n-tooltip="mail_operations" title="byMail coin transfer
-experimental feature,
-available only for BTCD
-at this moment.">
-                                        <font style="visibility: hidden">
-                                            BITS<br>
-                                            BITS<br>
-                                            BITS
-                                        </font>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <!------------ DOGE BOX ------------>
-
-                <div class="cbox bgdoge">
-                    <div class="cboxcont">
-                        <h3>Dogecoin</h3>
-                        <div class="led-div led-green tooltip md-trigger" data-i18n-tooltip="online" title="Online" data-modal="modal-server-status"></div>
-                        <div class="coinaddr">
-                            <h4 class="tooltip" data-i18n="please_wait">--- Connecting ---</h4>
-                        </div>
-                        <h5><a href="#" class="tooltip md-trigger" data-i18n-tooltip="view_tx_history" title="View transaction history" data-modal="modal-tx-history">0</a></h5>
-                        <div class="overboxDOGE">
-                            <ul>
-                                <li>
-                                    <a href="http://dogecoin.com/" target="_blank" class="tooltip" data-i18n-tooltip="official_website" title="Official website/forum for the coin">
-                                        <font style="visibility: hidden">
-                                            DOGECO<br>
-                                            DOGECO<br>
-                                            DOGECO
-                                        </font>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="tooltip md-trigger" data-modal="modal-11" data-type="doge" data-type2="coinops" data-i18n-tooltip="coin_operations" title="Coin operations">
-                                        <font style="visibility: hidden">
-                                            DO|<br>
-                                            DO|<br>
-                                            DO|
-                                        </font>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="tooltip md-trigger" data-modal="modal-12" data-type="doge" data-type2="cashops" data-i18n-tooltip="cash_operations" title="Cash operations">
-                                        <font style="visibility: hidden">
-                                            DO|<br>
-                                            DO|<br>
-                                            DO|
-                                        </font>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="tooltip md-trigger" data-modal="modal-13" data-type="doge" data-type2="mail" data-i18n-tooltip="mail_operations" title="byMail coin transfer
-experimental feature,
-available only for BTCD
-at this moment.">
-                                        <font style="visibility: hidden">
-                                            DOG<br>
-                                            DOG<br>
-                                            DOG
-                                        </font>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                
-                <!------------ FIBRE BOX ------------>
-
-                <div class="cbox bgFIBRE">
-                    <div class="cboxcont">
-                        <h3>FIBRE</h3>
-                        <div class="coinaddr">
-                            <h4 class="tooltip" data-i18n="under_development">--- Under Development ---</h4>
-                        </div>
-                        <h5><a href="#" class="tooltip md-trigger" data-i18n-tooltip="view_tx_history" title="View transaction history" data-modal="modal-tx-history">0</a></h5>
-                        <div class="overboxFIBRE">
-                            <ul>
-                                <li>
-                                    <a href="http://www.fibrecoin.com/" target="_blank" class="tooltip" data-i18n-tooltip="official_website" title="Official website/forum for the coin">
-                                        <font style="visibility: hidden">
-                                            FIBRES<br>
-                                            FIBRES<br>
-                                            FIBRES
-                                        </font>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="tooltip md-trigger" data-modal="modal-11" data-type="fibre" data-type2="coinops" data-i18n-tooltip="coin_operations" title="Coin operations">
-                                        <font style="visibility: hidden">
-                                            FI|<br>
-                                            FI|<br>
-                                            FI|
-                                        </font>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="tooltip md-trigger" data-modal="modal-12" data-type="fibre" data-type2="cashops" data-i18n-tooltip="cash_operations" title="Cash operations">
-                                        <font style="visibility: hidden">
-                                            FI|<br>
-                                            FI|<br>
-                                            FI|
-                                        </font>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="tooltip md-trigger" data-modal="modal-13" data-type="fibre" data-type2="mail" data-i18n-tooltip="mail_operations" title="byMail coin transfer
-experimental feature,
-available only for BTCD
-at this moment.">
-                                        <font style="visibility: hidden">
-                                            FIB<br>
-                                            FIB<br>
-                                            FIB
-                                        </font>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-		<!------------ LTC BOX ------------>
-
-                <div class="cbox bgltc">
-                    <div class="cboxcont">
-                        <h3>Litecoin</h3>
-                        <div class="led-div led-green tooltip md-trigger" data-i18n-tooltip="online" title="Online" data-modal="modal-server-status"></div>
-                        <div class="coinaddr">
-                            <h4 class="tooltip" data-i18n="please_wait">--- Connecting ---</h4>
-                        </div>
-                        <h5><a href="#" class="tooltip md-trigger" data-i18n-tooltip="view_tx_history" title="View transaction history" data-modal="modal-tx-history">0</a></h5>
-                        <div class="overboxLTC">
-                            <ul>
-                                <li>
-                                    <a href="https://litecoin.org/" target="_blank" class="tooltip" data-i18n-tooltip="official_website" title="Official website/forum for the coin">
-                                        <font style="visibility: hidden">
-                                            LITECOIN<br>
-                                            LITECOIN<br>
-                                            LITECOIN
-                                        </font>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="tooltip md-trigger" data-modal="modal-11" data-type="ltc" data-type2="coinops" data-i18n-tooltip="coin_operations" title="Coin operations">
-                                        <font style="visibility: hidden">
-                                            LTC|<br>
-                                            LTC|<br>
-                                            LTC|
-                                        </font>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="tooltip md-trigger" data-modal="modal-12" data-type="ltc" data-type2="cashops" data-i18n-tooltip="cash_operations" title="Cash operations">
-                                        <font style="visibility: hidden">
-                                            LTC|<br>
-                                            LTC|<br>
-                                            LTC|
-                                        </font>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="tooltip md-trigger" data-modal="modal-13" data-type="ltc" data-type2="mail" data-i18n-tooltip="mail_operations" title="byMail coin transfer
-experimental feature,
-available only for BTCD
-at this moment.">
-                                        <font style="visibility: hidden">
-                                            LTC|<br>
-                                            LTC|<br>
-                                            LTC|
-                                        </font>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
                 <!------------ NXT BOX ------------>
 
                 <div class="cbox bgnxt">
                     <div class="cboxcont">
                         <h3>Nxt</h3>
-                        <div class="led-div led-green tooltip md-trigger" data-i18n-tooltip="online" title="Online" data-modal="modal-server-status"></div>
                         <div class="coinaddr">
                             <a class="md-trigger" data-modal="modal-21"><h4 class="tooltip"></h4></a><br>
                         </div>
@@ -707,24 +392,8 @@ at this moment.">
                                     </a>
                                 </li>
                                 <li>
-                                    <a class="tooltip md-trigger" data-modal="modal-12" data-type="nxt" data-type2="cashops" data-i18n-tooltip="cash_operations" title="Cash operations">
-                                        <font style="visibility: hidden">
-                                            NXT|<br>
-                                            NXT|<br>
-                                            NXT|
-                                        </font>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="tooltip md-trigger" data-modal="modal-13" data-type="nxt" data-type2="mail" data-i18n-tooltip="mail_operations" title="byMail coin transfer
-experimental feature,
-available only for BTCD
-at this moment.">
-                                        <font style="visibility: hidden">
-                                            NXT|<br>
-                                            NXT|<br>
-                                            NXT|
-                                        </font>
+                                    <a href="#" class="tooltip md-trigger gettxhistory" data-i18n-tooltip="view_tx_history" title="View transaction history" data-modal="modal-tx-history">
+                                        <i class="fa fa-book fa-2x"></i>
                                     </a>
                                 </li>
                             </ul>
@@ -732,12 +401,171 @@ at this moment.">
                     </div>
                 </div>
 
+                <!------------ BTC BOX ------------>
+
+                <div class="cbox bgbtc">
+                    <div class="cboxcont">
+                        <h3>Bitcoin</h3>
+                        <div class="coinaddr">
+                            <h4 class="tooltip">--- Connecting ---</h4>
+			            </div>
+                        <h5><a href="#" class="tooltip md-trigger" data-i18n-tooltip="view_tx_history" title="View transaction history" data-modal="modal-tx-history">0</a></h5>
+                        <div class="overboxBTC">
+                            <ul>
+                                <li>
+                                    <a href="https://bitcoin.org/" target="_blank" class="tooltip" data-i18n-tooltip="official_website" title="Official website/forum for the coin">
+                                        <font style="visibility: hidden">
+                                            BITCOIN<br>
+                                            BITCOIN<br>
+                                            BITCOIN
+                                        </font>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="tooltip md-trigger" data-modal="modal-11" data-type="btc" data-type2="coinops" data-i18n-tooltip="coin_operations" title="Coin operations">
+                                        <font style="visibility: hidden">
+                                            BTC|<br>
+                                            BTC|<br>
+                                            BTC|
+                                        </font>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="tooltip md-trigger gettxhistory" data-i18n-tooltip="view_tx_history" title="View transaction history" data-modal="modal-tx-history">
+                                        <i class="fa fa-book fa-2x"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!------------ BTCD BOX ------------>
+
+                <div class="cbox bgbtcd">
+                    <div class="cboxcont">
+                        <h3>BitcoinDark</h3>
+                        <div class="coinaddr">
+                            <h4 class="tooltip" data-i18n="please_wait">
+                                --- Connecting ---
+                            </h4>
+                        </div>
+                        <h5><a href="#" class="tooltip md-trigger" data-i18n-tooltip="view_tx_history" title="View transaction history" data-modal="modal-tx-history">0</a></h5>
+                        <div class="overboxBTCD">
+                            <ul>
+                                <li>
+                                    <a href="http://bitcoindark.pw/" target="_blank" class="tooltip" data-i18n-tooltip="official_website" title="Official website/forum for the coin">
+                                        <font style="visibility: hidden">
+                                            BTCDARK<br>
+                                            BTCDARK<br>
+                                            BTCDARK
+                                        </font>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a class="tooltip md-trigger" data-modal="modal-11" data-type="btcd" data-type2="coinops" data-i18n-tooltip="coin_operations" title="Coin operations">
+                                        <font style="visibility: hidden">
+                                            BTD|<br>
+                                            BTD|<br>
+                                            BTD|
+                                        </font>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="tooltip md-trigger gettxhistory" data-i18n-tooltip="view_tx_history" title="View transaction history" data-modal="modal-tx-history">
+                                        <i class="fa fa-book fa-2x"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!------------ DOGE BOX ------------>
+
+                <div class="cbox bgdoge">
+                    <div class="cboxcont">
+                        <h3>Dogecoin</h3>
+                        <div class="coinaddr">
+                            <h4 class="tooltip" data-i18n="please_wait">--- Connecting ---</h4>
+                        </div>
+                        <h5><a href="#" class="tooltip md-trigger" data-i18n-tooltip="view_tx_history" title="View transaction history" data-modal="modal-tx-history">0</a></h5>
+                        <div class="overboxDOGE">
+                            <ul>
+                                <li>
+                                    <a href="http://dogecoin.com/" target="_blank" class="tooltip" data-i18n-tooltip="official_website" title="Official website/forum for the coin">
+                                        <font style="visibility: hidden">
+                                            DOGECO<br>
+                                            DOGECO<br>
+                                            DOGECO
+                                        </font>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a class="tooltip md-trigger" data-modal="modal-11" data-type="doge" data-type2="coinops" data-i18n-tooltip="coin_operations" title="Coin operations">
+                                        <font style="visibility: hidden">
+                                            DO|<br>
+                                            DO|<br>
+                                            DO|
+                                        </font>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="tooltip md-trigger gettxhistory" data-i18n-tooltip="view_tx_history" title="View transaction history" data-modal="modal-tx-history">
+                                        <i class="fa fa-book fa-2x"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+		<!------------ LTC BOX ------------>
+
+                <div class="cbox bgltc">
+                    <div class="cboxcont">
+                        <h3>Litecoin</h3><div class="coinaddr">
+                            <h4 class="tooltip" data-i18n="please_wait">--- Connecting ---</h4>
+                        </div>
+                        <h5><a href="#" class="tooltip md-trigger" data-i18n-tooltip="view_tx_history" title="View transaction history" data-modal="modal-tx-history">0</a></h5>
+                        <div class="overboxLTC">
+                            <ul>
+                                <li>
+                                    <a href="https://litecoin.org/" target="_blank" class="tooltip" data-i18n-tooltip="official_website" title="Official website/forum for the coin">
+                                        <font style="visibility: hidden">
+                                            LITECOIN<br>
+                                            LITECOIN<br>
+                                            LITECOIN
+                                        </font>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="tooltip md-trigger" data-modal="modal-11" data-type="ltc" data-type2="coinops" data-i18n-tooltip="coin_operations" title="Coin operations">
+                                        <font style="visibility: hidden">
+                                            LTC|<br>
+                                            LTC|<br>
+                                            LTC|
+                                        </font>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="tooltip md-trigger gettxhistory" data-i18n-tooltip="view_tx_history" title="View transaction history" data-modal="modal-tx-history">
+                                        <i class="fa fa-book fa-2x"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+
+
                 <!------------ OPAL BOX ------------>
 
                 <div class="cbox bgopal">
                     <div class="cboxcont">
                         <h3>Opal</h3>
-                        <div class="led-div led-green tooltip md-trigger" data-i18n-tooltip="online" title="Online" data-modal="modal-server-status"></div>
                         <div class="coinaddr">
                             <h4 class="tooltip" data-i18n="please_wait">--- Connecting ---</h4>
                         </div>
@@ -763,95 +591,17 @@ at this moment.">
                                     </a>
                                 </li>
                                 <li>
-                                    <a class="tooltip md-trigger" data-modal="modal-12" data-type="opal" data-type2="cashops" data-i18n-tooltip="cash_operations" title="Cash operations">
-                                        <font style="visibility: hidden">
-                                            OPL|<br>
-                                            OPA|<br>
-                                            PAL|
-                                        </font>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="tooltip md-trigger" data-modal="modal-13" data-type="opal" data-type2="mail" data-i18n-tooltip="mail_operations" title="byMail coin transfer
-experimental feature,
-available only for BTCD
-at this moment.">
-                                        <font style="visibility: hidden">
-                                            OPA|<br>
-                                            OPL|<br>
-                                            PAL|
-                                        </font>
+                                    <a href="#" class="tooltip md-trigger gettxhistory" data-i18n-tooltip="view_tx_history" title="View transaction history" data-modal="modal-tx-history">
+                                        <i class="fa fa-book fa-2x"></i>
                                     </a>
                                 </li>
                             </ul>
                         </div>
                     </div>
                 </div>
-
-		<!------------ SYS BOX ------------>
-
-                <div class="cbox bgSYS">
-                    <div class="cboxcont">
-                        <h3>Syscoin</h3>
-                        <div class="coinaddr">
-                            <h4 class="tooltip" data-i18n="under_development">--- Under Development ---</h4>
-                        </div>
-                        <h5><a href="#" class="tooltip md-trigger" data-i18n-tooltip="view_tx_history" title="View transaction history" data-modal="modal-tx-history">0</a></h5>
-                        <div class="overboxSYS">
-                            <ul>
-                                <li>
-                                    <a href="http://syscoin.org/" target="_blank" class="tooltip" data-i18n-tooltip="official_website" title="Official website/forum for the coin">
-                                        <font style="visibility: hidden">
-                                            SYS<br>
-                                            SYS<br>
-                                            SYS
-                                        </font>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="tooltip md-trigger" data-modal="modal-11" data-type="fibre" data-type2="coinops" data-i18n-tooltip="coin_operations" title="Coin operations">
-                                        <font style="visibility: hidden">
-                                            SYS|<br>
-                                            SYS|<br>
-                                            SYS|
-                                        </font>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="tooltip md-trigger" data-modal="modal-12" data-type="fibre" data-type2="cashops" data-i18n-tooltip="cash_operations" title="Cash operations">
-                                        <font style="visibility: hidden">
-                                            SYS|<br>
-                                            SYS|<br>
-                                            SYS|
-                                        </font>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="tooltip md-trigger" data-modal="modal-13" data-type="fibre" data-type2="mail" data-i18n-tooltip="mail_operations" title="byMail coin transfer
-
-experimental feature,
-available only for BTCD
-
-at this moment.">
-                                        <font style="visibility: hidden">
-                                            SYS<br>
-                                            SYS<br>
-                                            SYS
-                                        </font>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <!------------ VRC BOX ------------>
-
                 <div class="cbox bgvrc">
                     <div class="cboxcont">
-                        <h3>Vericoin</h3>
-                        <div class="led-div led-green tooltip md-trigger" data-i18n-tooltip="online" title="Online" data-modal="modal-server-status"></div>
-                        <div class="coinaddr">
+                        <h3>Vericoin</h3> <div class="coinaddr">
                             <h4 class="tooltip" data-i18n="please_wait">--- Please Wait ---</h4>
                         </div>
                         <h5><a href="#" class="tooltip md-trigger" data-i18n-tooltip="view_tx_history" title="View transaction history" data-modal="modal-tx-history">0</a></h5>
@@ -876,104 +626,89 @@ at this moment.">
                                     </a>
                                 </li>
                                 <li>
-                                    <a class="tooltip md-trigger" data-modal="modal-12" data-type="vrc" data-type2="cashops" data-i18n-tooltip="cash_operations" title="Cash operations">
-                                        <font style="visibility: hidden">
-                                            VRC|<br>
-                                            VRC|<br>
-                                            VRC|
-                                        </font>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="tooltip md-trigger" data-modal="modal-13" data-type="vrc" data-type2="mail" data-i18n-tooltip="mail_operations" title="byMail coin transfer
-experimental feature,
-available only for BTCD
-at this moment.">
-                                        <font style="visibility: hidden">
-                                            VRC|<br>
-                                            VRC|<br>
-                                            VRC|
-                                        </font>
+                                    <a href="#" class="tooltip md-trigger gettxhistory" data-i18n-tooltip="view_tx_history" title="View transaction history" data-modal="modal-tx-history">
+                                        <i class="fa fa-book fa-2x"></i>
                                     </a>
                                 </li>
                             </ul>
                         </div>
                     </div>
                 </div>
-                
-                <!------------ VPN BOX ------------>
+
                 <!--
-                <div class="cbox bgvpn">
-                    <div class="cboxcont">
-                        <h3>Vpncoin</h3>
-                        <div class="coinaddr">
-                            <h4 class="tooltip" data-i18n="under_development">--- Under Development ---</h4>
+
+                <div class="commBox" style="margin-top:0px;">
+                    <div class="innerbox"></div>
+                    <img src="spn/img/serv_jay.svg" class="centerImg"/>
+                    <a id="jay_wallet" href="#" class="md-trigger" data-modal="modal-17">
+                        <div class="overBox">
+                            <div class="title overText">
+                                Jay Wallet
+                            </div>
+                            <div class="tagline overText" data-i18n="[html]jay_wallet_desc">
+                                A fast, easy, and safe Nxt web wallet experience.<br><br>
+                                Access your SuperNET accounts via Jay.
+                            </div>
                         </div>
-                        <h5><a href="#" class="tooltip md-trigger" data-i18n-tooltip="view_tx_history" title="View transaction history" data-modal="modal-tx-history">0</a></h5>
-                        <div class="overboxVPN">
-                            <ul>
-                                <li>
-                                    <a href="http://bitnet.wang/" target="_blank" class="tooltip" data-i18n-tooltip="official_website" title="Official website/forum for the coin">
-                                        <font style="visibility: hidden">
-                                            VPNCOIN<br>
-                                            VPNCOIN<br>
-                                            VPNCOIN
-                                        </font>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="tooltip md-trigger" data-modal="modal-11" data-type="vpn" data-type2="coinops" data-i18n-tooltip="coin_operations" title="Coin operations">
-                                        <font style="visibility: hidden">
-                                            BIT|<br>
-                                            NET|<br>
-                                            CHI|
-                                        </font>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="tooltip md-trigger" data-modal="modal-12" data-type="vpn" data-type2="cashops" data-i18n-tooltip="cash_operations" title="Cash operations">
-                                        <font style="visibility: hidden">
-                                            BIT|<br>
-                                            NET|<br>
-                                            CHI|
-                                        </font>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="tooltip md-trigger" data-modal="modal-13" data-type="vpn" data-type2="mail" data-i18n-tooltip="mail_operations" title="byMail coin transfer
-experimental feature,
-available only for BTCD
-at this moment.">
-                                        <font style="visibility: hidden">
-                                            BIT|<br>
-                                            NET|<br>
-                                            CHI|
-                                        </font>
-                                    </a>
-                                </li>
-                            </ul>
+                    </a>
+                </div>
+
+
+                -->
+                <!--BOX 2 - Coinomat
+
+                <div class="commBox" style="margin-left:0px; margin-top:0px;">
+                    <div class="innerbox"></div>
+                    <img src="spn/img/serv_coinomatPH2.svg" align="center" width="90%" />
+                    <a id="spn_coinomat" href="#" data-toggle="modal" data-target="#coinomat_modal">
+                        <div class="overBox">
+                            <div class="title overText">
+                                Coinomat
+                            </div>
+                            <div class="tagline overText" data-i18n="[html]coinomat_desc">
+                                Coinomat allows you to convert between various cryptocurrencies and national currencies without the hassle of opening an account at an cryptocurrency exchange.<br><br>Access to their services via the FIAT OPERATIONS icon in the Balance Boxes.
+                            </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
                 -->
+                <!--BOX 3 - NXT AE
 
+                <div class="commBox" style=" margin-left:8px; margin-top:0px;">
+                    <div class="innerbox"></div>
+                    <img src="spn/img/AE_banner.png" />
+                    <a href="#" data-toggle="modal" data-target="#nxt_ae_modal">
+                        <div class="overBox">
+                            <div class="title overText">
+                                NXT AssetExchange
+                            </div>
+                            <div class="tagline overText">
+                                With your SuperNET Wallet you can trade on the decentralized Nxt Asset Exchange.
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                -->
+                <!-- BOX NeoDice
 
+                <div class="commBox">
+                    <div class="innerbox"></div>
+                    <img src="spn/img/serv_neodice.svg" align="center" />
+                    <a id="spn_neodice" href="#" data-toggle="modal" data-target="#neodice_modal">
+                        <div class="overBox">
+                            <div class="title overText">
+                                NEOdice
+                            </div>
+                            <div class="tagline overText" data-i18n="[html]neodice_desc">
+                                Realtime DICE game running on NXT blockchain. Provably fair, playable in this client.<br><br>Roll NeoDICE and beat the odds.
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                -->
 
             </div>
-
-            <div class="wrapper">
-                <!-- Embedd Twitter
-                    <div class="row">
-                        <div class="col-lg-4">
-                         <a class="twitter-timeline"  href="https://twitter.com/SuperNETorg" data-widget-id="632313104689430528">Tweets by @SuperNETorg</a>
-                         <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-                        </div>
-                    </div>
-                -->
-                </div>
-
-
-            <!-- /.wrap -->
 
         </main>
 
@@ -1030,31 +765,6 @@ works with tutorials, WIKI links and more.">HELP</a>
                         </li>
                         <li>
                             <div class="input_label">
-                                <p data-i18n="select_operation">Select operation</p>
-                            </div>
-                            <div class="input_field">
-                                <select class="input_type" id="field111cont" autofocus>
-                                    <!--<option value=1>Buy this coin with another coin</option>
-                        <option value=2>Trade this coin for other coin</option>-->
-                                    <option value=3 data-i18n="send_coin">Send coin</option>
-                                </select>
-                            </div>
-                        </li>
-                        <!--
-            <li>
-                <div class="input_label">
-                    <p>Select pair coin</p>
-                </div>
-                <div class="input_field">
-                    <select class="input_type" id="field112cont" autofocus>
-                        <option value=1>Coin to buy</option>
-                        <option value=2>Coin to sell</option>
-                    </select>
-                </div>
-            </li>
-            -->
-                        <li>
-                            <div class="input_label">
                                 <span data-i18n="recipient_account">Recipient Account</span>
                                 <i id="recpHelp" class="fa fa-question-circle show_popover" data-container="body" style="color:#4CAA6E"></i>
                             </div>
@@ -1105,53 +815,70 @@ works with tutorials, WIKI links and more.">HELP</a>
                         <li>
                             <div class="input_label">
                                 <p data-i18n="select_operation">Select operation</p>
+                                <input type="hidden" name="cash_operation_coin" id="cash_operation_coin">
                             </div>
                             <div class="input_field">
-                                <select class="input_type" id="field121cont" autofocus>
-                                    <option value=1 data-i18n="buy_coin_with_cash">Purchase coin with cash</option>
-                                    <option value=2 data-i18n="convert_coin_to_cash">Convert coin to cash</option>
-                                    <option value=3 data-i18n="other_question">Other?</option>
+                                <select class="input_type" id="cash_operation_type" autofocus>
+                                    <option value="purchase" data-i18n="buy_coin_with_cash">Purchase coin with cash</option>
+                                    <option value="convert" data-i18n="convert_coin_to_cash">Convert coin to cash</option>
                                 </select>
                             </div>
                         </li>
-                        <li>
-                            <div class="input_label">
-                                <p data-i18n="select_currency">Select currency</p>
-                            </div>
-                            <div class="input_field">
-                                <select class="input_type" id="field122cont" autofocus>
-                                    <option value=1 data-i18n="usd">USD</option>
-                                    <option value=2 data-i18n="euro">EURO</option>
-                                </select>
-                            </div>
-                        </li>
+
                         <li>
                             <div class="input_label">
                                 <p data-i18n="select_service">Select service</p>
                             </div>
                             <div class="input_field">
-                                <select class="input_type" id="field123cont" autofocus>
-                                    <option value=1>Coinomat</option>
-                                    <option value=2>Coinimal</option>
-                                    <option value=3 data-i18n="other_question">Other?</option>
+                                <select class="input_type" id="cash_service_select" autofocus>
+                                    <option></option>
+                                    <option value="coinomat">Coinomat</option>
+                                    <!-- <option value="coinimal">Coinimal</option> -->
                                 </select>
                             </div>
                         </li>
-                        <li>
+                        <li id="select_currency_li" hidden>
+                            <div class="input_label">
+                                <p data-i18n="select_currency">Select currency</p>
+                            </div>
+                            <div class="input_field">
+                                <select class="input_type" id="cash_select_currency">
+                                </select>
+                            </div>
+                        </li>
+                        <li id="select_transfer_li" hidden>
+                            <div class="input_label">
+                                <p data-i18n="select_transfer">Select Transfer</p>
+                            </div>
+                            <div class="input_field">
+                                <select class="input_type" id="cash_select_transfer">
+                                </select>
+                            </div>
+                        </li>
+
+                        <li id="input_amount_li" hidden>
                             <div class="input_label">
                                 <p data-i18n="amount">Amount</p>
                             </div>
                             <div class="input_field">
-                                <input type="text" class="input_type" id="field124cont">
+                                <input type="number" class="input_type" id="cash_input_amount">
+                            </div>
+                        </li>
+                        <li id="cash_exchange_price" hidden>
+                            <div class="input_label">
+                                <p data-i18n="exchange_price">You receive</p>
+                            </div>
+                            <div class="input_field">
+                                <input type="text" id="exchange_price_text" readonly>
                             </div>
                         </li>
                         <li>
-                            <textarea class="input_span" id="field125cont"></textarea>
+                            <textarea class="input_span" id="cash_operation_text" readonly></textarea>
                         </li>
                     </ul>
                     <div class="md-button-wrapper">
-                        <button class="md-close md-close-1" data-i18n="close">CLOSE</button>
-                        <button class="md-clear" onclick="z.clearForm(12,5)" data-i18n="clear">CLEAR</button>
+                        <button class="md-close md-close-1 clear_cash_operation" data-i18n="close">CLOSE</button>
+                        <button class="md-clear clear_cash_operation" onclick="z.clearForm(12,5)" data-i18n="clear">CLEAR</button>
                         <button class="md-submit" onclick="alert('Submission action placeholder')" data-i18n="submit">SUBMIT</button>
                     </div>
                 </div>
@@ -1278,32 +1005,16 @@ works with tutorials, WIKI links and more.">HELP</a>
                     </table>
                     <div style="clear: both;height:20px;"></div>
                     <div class="md-button-wrapper">
-                        <button class="md-close md-close-1"data-i18n="close">CLOSE</button>
+                        <button class="md-close md-close-1" data-i18n="close">CLOSE</button>
                     </div>
                 </div>
             </div>
         </div>
         <!--  / MODAL WINDOW  -->
 
-        <!--  MODAL WINDOW FULL WIDTH  -->
-        <div class="md-modal md-effect md-full" id="modal-21">
-            <div class="md-content">
-                <h3>ADVANCED</h3>
-                <div>
-                    <div class="md-content-inner">
-                        Content Advanced
-                    </div>
-                    <div class="md-button-wrapper full-wrapper">
-                        <button class="md-close md-close-1">CLOSE</button>
-                    </div>
-                    <!--<button class="md-close md-close-1">EXIT</button>-->
-                </div>
-            </div>
-        </div>
-
         <div class="md-modal md-effect md-full" id="modal-22">
             <div class="md-content">
-                <img class="md-head">
+                <img class="md-head" src="#">
                 <div>
                     <div class="md-content-inner">
                         <!--BOX 1 - Pangea -->
@@ -1340,7 +1051,7 @@ works with tutorials, WIKI links and more.">HELP</a>
                             </a>
                         </div>
 
-                        <!--BOX 3 - CryptoPanels -->
+                        <!--BOX 3 - CryptoPanels
 
                         <div class="commBox">
                             <div class="innerbox"></div>
@@ -1356,6 +1067,7 @@ works with tutorials, WIKI links and more.">HELP</a>
                                 </div>
                             </a>
                         </div>
+                        -->
 
                         <!--BOX 4 - FreeMarket -->
 
@@ -1379,15 +1091,17 @@ works with tutorials, WIKI links and more.">HELP</a>
                         <div class="commBox">
                             <div class="innerbox"></div>
                             <img src="spn/img/proj_nxtvaultPH.svg" align="center" />
-                            <div class="overBox">
-                                <div class="title overText">
-                                    NXTvault
+                            <a href="https://nxtforum.org/general-discussion/unveiling-the-new-nxtvault-secure-account-management-for-android-devices!-beta/" target="_blank">
+                                <div class="overBox">
+                                    <div class="title overText">
+                                        NXTvault
+                                    </div>
+                                    <div class="tagline overText" data-i18n="[html]nxtvault_desc">
+                                        Decentralized 2-factor authentication service for securing Nxt transactions on Android devices.<br><br>
+                                        Using Nxt's innovative phasing and account control features to protect your account.<br><br>Work in progress
+                                    </div>
                                 </div>
-                                <div class="tagline overText" data-i18n="[html]nxtvault_desc">
-                                    Decentralized 2-factor authentication service for securing Nxt transactions on Android devices.<br><br>
-                                    Using Nxt's innovative phasing and account control features to protect your account.<br><br>Work in progress
-                                </div>
-                            </div>
+                            </a>
                         </div>
 
                         <!--BOX 6 - Atomic -->
@@ -1408,7 +1122,7 @@ works with tutorials, WIKI links and more.">HELP</a>
                         </div>
 
 
-                        <!--BOX 7 - Omnigames -->
+                        <!--BOX 7 - Omnigames
 
                         <div class="commBox">
                             <div class="innerbox"></div>
@@ -1422,6 +1136,7 @@ works with tutorials, WIKI links and more.">HELP</a>
                                 </div>
                             </div>
                         </div>
+                        -->
                     </div>
                     <div class="md-button-wrapper full-wrapper">
                         <button class="md-close md-close-img"><img src="spn/img/md-close_btn.svg" /></button>
@@ -1441,49 +1156,19 @@ works with tutorials, WIKI links and more.">HELP</a>
                         <div class="commBox">
                             <div class="innerbox"></div>
                             <img src="spn/img/serv_coinimal.svg" align="center" />
-                            <div class="overBox">
-                                <div class="title overText">
-                                    Coinimal
-                                </div>
-                                <div class="tagline overText" data-i18n="[html]coinimal_desc">
-                                    Vienna based Cryptocoin Gateway service, that allows you to directly buy and sell your Coins with EUR using your European bank account.<br><br>Access to their services via the FIAT OPERATIONS icon in the Balance Boxes.
-                                </div>
-                            </div>
-                        </div>
-
-                        <!--BOX 2 - Coinomat -->
-
-                        <div class="commBox">
-                            <div class="innerbox"></div>
-                            <img src="spn/img/serv_coinomatPH2.svg" align="center" />
-                            <div class="overBox">
-                                <div class="title overText">
-                                    Coinomat
-                                </div>
-                                <div class="tagline overText" data-i18n="[html]coinomat_desc">
-                                    Coinomat allows you to convert between various cryptocurrencies and national currencies without the hassle of opening an account at an cryptocurrency exchange.<br><br>Access to their services via the FIAT OPERATIONS icon in the Balance Boxes.
-                                </div>
-                            </div>
-                        </div>
-
-                        <!--BOX 3 - NEOdice -->
-
-                        <div class="commBox">
-                            <div class="innerbox"></div>
-                            <img src="spn/img/serv_neodice.svg" align="center" />
-                            <a href="javascript:$.growl($.t('service_under_maintenance'), { 'type': 'danger' });">
+                            <a href="https://coinimal.com" target="_blank">
                                 <div class="overBox">
                                     <div class="title overText">
-                                        NEOdice
+                                        Coinimal
                                     </div>
-                                    <div class="tagline overText" data-i18n="[html]neodice_desc">
-                                        Realtime DICE game running on NXT blockchain. Provably fair, playable via any NXT client.<br><br>Roll NeoDICE, beat the odds, support NXT.<br><br>Access to the service soon by clicking this box.
+                                    <div class="tagline overText" data-i18n="[html]coinimal_desc">
+                                        Vienna based Cryptocoin Gateway service, that allows you to directly buy and sell your Coins with EUR using your European bank account.<br><br>Access to their services via the FIAT OPERATIONS icon in the Balance Boxes.
                                     </div>
                                 </div>
                             </a>
                         </div>
 
-                        <!--BOX 4 - Opal Drive -->
+                        <!--BOX 4 - Opal Drive
 
                         <div class="commBox">
                             <div class="innerbox"></div>
@@ -1499,8 +1184,9 @@ works with tutorials, WIKI links and more.">HELP</a>
                                 </div>
                             </a>
                         </div>
+                         -->
 
-                        <!--BOX 5 - Syncthing -->
+                        <!--BOX 5 - Syncthing
 
                         <div class="commBox">
                             <div class="innerbox"></div>
@@ -1517,22 +1203,11 @@ works with tutorials, WIKI links and more.">HELP</a>
                             </a>
                         </div>
 
+                         -->
+
                         <!--BOX 6 - Jay -->
 
-                        <div class="commBox">
-                            <div class="innerbox"></div>
-                            <img src="spn/img/serv_jay.svg" class="centerImg"/>
-                            <a id="jay_wallet" href="#" class="md-trigger" data-modal="modal-17">
-                                <div class="overBox">
-                                    <div class="title overText">
-                                        Jay Wallet
-                                    </div>
-                                    <div class="tagline overText" data-i18n="[html]jay_wallet_desc">
-                                        A fast, easy, and safe Nxt web wallet experience
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
+
                     </div>
                     <div class="md-button-wrapper full-wrapper">
                         <button class="md-close md-close-img"><img src="spn/img/md-close_btn.svg" /></button>
@@ -1551,7 +1226,7 @@ works with tutorials, WIKI links and more.">HELP</a>
                         <div class="commBox">
                             <div class="innerbox"></div>
                             <img src="spn/img/comm_snwebsite.svg" align="center" />
-                            <a href="https://supernet.org" target="_blank">
+                            <a href="http://www.supernet.org/" target="_blank">
                                 <div class="overBox">
                                     <div class="title overText" data-i18n="supernet_official_website">
                                         SuperNET official website
@@ -1567,7 +1242,7 @@ works with tutorials, WIKI links and more.">HELP</a>
                         <div class="commBox">
                             <div class="innerbox"></div>
                             <img src="spn/img/comm_snforum.svg" align="center" />
-                            <a href="https://forum.thesupernet.org/index.php" target="_blank">
+                            <a href="http://forum.supernet.org/" target="_blank">
                                 <div class="overBox">
                                     <div class="title overText" data-i18n="supernet_official_forum">
                                         SuperNET official forum
@@ -1599,14 +1274,16 @@ works with tutorials, WIKI links and more.">HELP</a>
                         <div class="commBox">
                             <div class="innerbox"></div>
                             <img src="spn/img/comm_snslack.svg" align="center" />
-                            <div class="overBox">
-                                <div class="title overText">
-                                    superNET Slack
+                            <a href="http://slackinvite.supernet.org" target="_blank">
+                                <div class="overBox">
+                                    <div class="title overText">
+                                        superNET Slack
+                                    </div>
+                                    <div class="tagline overText" data-i18n="[html]snslack_desc">
+                                        Slack is becoming a standard for communications and briefs nowadays. <br><br>Request access clicking on this box and submitting your email for deeper information about what happens behind the scenes in superNET.
+                                    </div>
                                 </div>
-                                <div class="tagline overText" data-i18n="[html]snslack_desc">
-                                    Slack is becoming a standard for communications and briefs nowadays. <br><br>Request access clicking on this box and submitting your email for deeper information about what happens behind the scenes in superNET.
-                                </div>
-                            </div>
+                            </a>
                         </div>
 
                         <!--BOX 5 - superNET Radio -->
@@ -1810,39 +1487,6 @@ works with tutorials, WIKI links and more.">HELP</a>
 		<a class="md-trigger" data-modal="modal-jay-code" style="visibility:hidden"></a>
     </div>
 
-    <table id="spn_newbie" style="width:100%;height:100%;display:none">
-        <tr>
-            <td style="text-align:center;vertical-align:middle">
-                <center>Generating your deposit addresses <span class="loading_dots"><span>.</span><span>.</span><span>.</span></span></center><br />
-                <center class="loading"><div style="text-align:center;"><img src="img/loading_indicator.gif" alt="Loading..." width="32" height="32" /></div></center><br />
-                <button type="button" class="btn btn-spn" onclick="window.location.reload();">Reload</button>
-
-                <div class="col-md-6 col-md-offset-3 content" style="display:none">
-                    <section class="content">
-                        <div class="alert alert-no-icon alert-success" style="padding: 5px; margin-bottom: 15px;">Welcome to your new NXT account. The following form is OPTIONAL. <br /><br /> Your initial coin deposit will auto-converted into 10 NXT</div>
-
-                        <form class="form-horizontal">
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label">Email</label>
-                                <div class="col-sm-8">
-                                    <input id="newbie_email" type="text" class="form-control" placeholder="Email">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label">Auto-Convert NXT</label>
-                                <div class="input-group col-sm-8">
-                                    <input id="newbie_nxt" type="text" class="form-control" placeholder="Amount" value="10">
-                                    <span class="input-group-addon">NXT</span>
-                                </div>
-                            </div>
-                        </form>
-                        <button id="spn_newbie_submit" type="button" class="btn btn-spn" data-loading-text="Submiting...">Submit</button>
-                    </section>
-                </div>
-            </td>
-        </tr>
-    </table>
-
     <div class="modal fade" id="tx_history_modal" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-dialog-wider">
             <div class="modal-content">
@@ -1894,7 +1538,7 @@ works with tutorials, WIKI links and more.">HELP</a>
                             <input type="hidden" name="recipient" id="mgw_withdraw_modal_recipient" value="" />
                             <input type="hidden" name="asset" id="mgw_withdraw_modal_asset" value="" />
                             <input type="hidden" name="quantityQNT" id="mgw_withdraw_modal_quantityQNT" value="" />
-                            <input type="hidden" name="deadline" id="mgw_withdraw_modal_deadline" value="24" />
+                            <!-- <input type="hidden" name="deadline" id="mgw_withdraw_modal_deadline" value="24" /> -->
                             <input type="hidden" name="merchant_info" value="" data-default="" />
                         </div>
                         <div class="form-group">
@@ -1939,46 +1583,6 @@ works with tutorials, WIKI links and more.">HELP</a>
         </div>
     </div>
 
-    <div class="md-modal md-effect md-full" id="modal-server-status">
-        <div class="md-content">
-            <h3 data-i18n="servers_status">SERVERS STATUS</h3>
-            <div>
-                <div class="md-content-inner">
-
-                    <!--
-                    <div class="data-container data-loading" style="overflow:auto;">
-                        <table class="table table-striped" id="server_status_table">
-                            <thead>
-                                <tr>
-                                    <th data-i18n="coin">Coin</th>
-                                    <th data-i18n="server_1">Server 1</th>
-                                    <th data-i18n="server_2">Server 2</th>
-                                    <th data-i18n="server_3">Server 3</th>
-                                </tr>
-                            </thead>
-                            <tbody></tbody>
-                        </table>
-                        <div class="data-loading-container"><img src="img/loading_indicator.gif" alt="Loading..." width="32" height="32" /></div>
-                        <div class="data-empty-container"><p data-i18n="nxt_not_connected">Nxt is not connected</p></div>
-                    </div>
-                    -->
-                    <div class="col-lg-10">
-                        <div class="jumbotron">
-							The SuperNET multiwallet operates with MultiGateWay technology. MGW uses different servers operated by independent parties, which
-							allow you to deposit cryptocurrencies in the multisignature coin addresses in your SuperNET account, transforming them into digital assets. They also allow you to withdraw the assets in your account, transforming them back into coins. See <a href="http://multigateway.org" target="_blank">http://multigateway.org</a> for more information.
-							The MGW servers may be sometimes synchronizing or under maintenance for short timespans. Servers that are Offline or respond with a Timeout may cause a delay creating new deposit addresses, handling deposits and withdraws.
-                        </div>
-                        <div id="modal_server_status_content"></div>
-                    </div>
-                </div>
-                <div class="md-button-wrapper full-wrapper">
-                    <button class="md-close md-close-img"><img src="spn/img/md-close_btn.svg"/></button>
-                </div>
-                <!--<button class="md-close md-close-img">EXIT</button>-->
-            </div>
-        </div>
-    </div>
-
 	<div class="md-modal md-effect md-full" id="modal-jay-code">
         <div class="md-content">
             <h3 data-i18n="jay_wallet_code">Jay Wallet Code</h3>
@@ -1994,41 +1598,237 @@ works with tutorials, WIKI links and more.">HELP</a>
             </div>
         </div>
     </div>
+
+    <div class="modal fade" id="nxt_ae_modal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h3 class="modal-title">Nxt Asset Exchange</h3>
+                </div>
+                <div class="modal-body">
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal fade" id="coinomat_modal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h3 class="modal-title">Coinomat</h3>
+                </div>
+                <div class="modal-body">
+
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6 col-xs-6">
+                                <form role="form" class="form-horizontal">
+                                    <div>
+                                        <div id="div_spn_coinomat_amount_fr" class="form-group">
+                                            <label for="spn_coinomat_amount_fr" class="col-sm-4 control-label">You Give</label>
+                                            <div class="col-sm-8">
+                                                <input id="spn_coinomat_amount_fr" type="text" class="form-control" />
+                                                <span id="spn_coinomat_amount_fr_fail" class="glyphicon glyphicon-remove form-control-feedback show_popover" style="color:Red;display:none" data-html="true" data-content="" data-container="body" data-original-title="" title=""></span>
+                                                <span id="spn_coinomat_amount_fr_success" class="glyphicon glyphicon-ok form-control-feedback" style="display:none"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="col-md-3 col-xs-6">
+                                <div style="display:table-cell; vertical-align:middle">
+                                    <select id="spn_coinomat_fr" style="width:300px">
+                                        <option value="BTC">BTC - Bitcoin</option>
+                                        <option value="LTC">LTC - Litecoin</option>
+                                        <option value="PPC">PPC - Peercoin</option>
+                                        <option value="NXT">NXT - NXT</option>
+                                        <option value="PERFECT">PERFECT - Perfect Money USD</option>
+                                        <option value="EGOPAY">EGOPAY - Ego Pay USD</option>
+                                        <option value="OKPAY">OKPAY - OK Pay USD</option>
+                                        <option value="VISAMASTER">VISAMASTER - withdrawal to Visa/Mastercard</option>
+                                        <option value="COINO">COINO - CoinoUSD NXT asset</option>
+                                        <option value="USD">USD - Bank Wire</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-center">
+                            <i class="fa fa-arrows-v" onclick="SPN.reverseCoin();" style="cursor:pointer"></i>
+                        </p>
+                        <div class="row show-grid">
+                            <div class="col-md-6 col-sm-6 col-xs-6">
+                                <form role="form" class="form-horizontal">
+                                    <div>
+                                        <div class="form-group">
+                                            <label for="spn_coinomat_amount_to" class="col-sm-4 control-label">You Receive</label>
+                                            <div class="col-sm-8">
+                                                <input id="spn_coinomat_amount_to" type="text" class="form-control" readonly />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="col-md-3 col-xs-6">
+                                <div style="display:table-cell; vertical-align:middle">
+                                    <select id="spn_coinomat_to" style="width:300px">
+                                        <option value="BTC">BTC - Bitcoin</option>
+                                        <option value="LTC">LTC - Litecoin</option>
+                                        <option value="PPC">PPC - Peercoin</option>
+                                        <option value="NXT">NXT - NXT</option>
+                                        <option value="PERFECT">PERFECT - Perfect Money USD</option>
+                                        <option value="EGOPAY">EGOPAY - Ego Pay USD</option>
+                                        <option value="OKPAY">OKPAY - OK Pay USD</option>
+                                        <option value="VISAMASTER">VISAMASTER - withdrawal to Visa/Mastercard</option>
+                                        <option value="COINO">COINO - CoinoUSD NXT asset</option>
+                                        <option value="USD">USD - Bank Wire</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="spn_coinomat_wallet_addr_fr_div" class="row show-grid" style="display:none">
+                            <div class="col-md-6 col-sm-6 col-xs-6">
+                                <form role="form" class="form-horizontal">
+                                    <div class="form-group" id="spn_coinomat_usd_balance_div">
+                                        <label class="col-sm-4 control-label">USD Balance</label>
+                                        <div class="col-sm-8">
+                                            <h5 id="spn_coinomat_usd_balance"></h5>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div id="spn_coinomat_usd_verify_div" class="col-md-3 col-xs-6" style="display:none">
+                                <div>
+                                    <h5 style="display:inline-block"></h5>
+                                    <a id="usd_verify" href="#" class="btn btn-primary" role="button" style="margin-left:10px" onclick="SPN.verifyUSD();">Verify</a>
+                                    <a id="usd_add" href="#" class="btn btn-primary" role="button" style="margin-left:10px" onclick="SPN.addUSD();">Add USD</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="spn_coinomat_wallet_addr_to_div" class="row show-grid" style="display:none">
+                            <div class="col-md-6 col-sm-6 col-xs-6">
+                                <form role="form" class="form-horizontal">
+                                    <div class="form-group" id="spn_coinomat_wallet_addr_to_label_div">
+                                        <label id="spn_coinomat_wallet_addr_to_label" for="spn_coinomat_wallet_addr_to" class="col-sm-4 control-label"></label>
+                                        <div class="col-sm-8">
+                                            <input id="spn_coinomat_wallet_addr_to" type="text" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group has-feedback" id="spn_coinomat_perfect_code_div">
+                                        <label id="spn_coinomat_perfect_code" for="spn_coinomat_perfect_code_input" class="col-sm-4 control-label">Confirmation Code</label>
+                                        <div class="col-sm-8">
+                                            <input id="spn_coinomat_perfect_code_input" type="text" class="form-control" />
+                                            <span class="glyphicon glyphicon-question-sign form-control-feedback show_popover" style="color:Green" data-html="true" data-content="Leave this field empty if you do not want to use Perfect Money transaction protection." data-container="body" data-original-title="" title=""></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group" id="spn_coinomat_visamaster_to_div">
+                                        <label for="spn_coinomat_visamaster_bankcard" class="col-sm-4 control-label">Bank Card</label>
+                                        <div class="col-sm-8" id="spn_coinomat_visamaster_bankcard">
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div id="spn_coinomat_manage_bankcards_div" class="col-md-3 col-xs-6">
+                                <a href="#" class="btn btn-primary" role="button" onclick="SPN.manageBankCards()">Manage Bank Cards</a>
+                            </div>
+                        </div>
+                        <img id="spn_coinomat_loading" src="img/loading_indicator.gif" alt="Loading..." width="32" height="32" />
+                        <div class="alert-success alert alert-no-icon" id="spn_coinomat_exchange_message" style="padding: 5px; margin-bottom: 15px;"></div>
+                        <div class="box-footer show-grid"><a id="spn_coinomat_main_exchange" href="#" class="btn btn-primary disabled" role="button" onclick="SPN.coinomatExchange()">Exchange</a></div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="box box-primary">
+                                <div class="box-header"><h3 id="spn_coinomat_tx_history_header" class="box-title"></h3></div>
+                                <div class="box-body">
+                                    <div id="spn_coinomat_history" class="data-container data-loading" data-no-padding="true">
+                                        <table class="table table-striped">
+                                            <thead>
+                                            <tr>
+                                                <th>Transaction ID</th>
+                                                <th>Date</th>
+                                                <th id="spn_coinomat_history_in"></th>
+                                                <th>Exchange Rate</th>
+                                                <th id="spn_coinomat_history_out"></th>
+                                                <th>Status</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody></tbody>
+                                        </table>
+                                        <div class="data-loading-container"><img src="img/loading_indicator.gif" alt="Loading..." width="32" height="32" /></div>
+                                        <div class="data-empty-container"><p data-i18n="no_transactions_yet">No transactions yet.</p></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="spn_coinomat_exchanger_modal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Coinomat Exchanger</h4>
+                </div>
+                <div id="spn_coinomat_exchanger_content" class="modal-body">
+                    <img id="spn_coinomat_exchanger_loading" src="img/loading_indicator.gif" alt="Loading..." width="32" height="32" />
+                    <div class="alert-danger alert alert-no-icon" id="spn_coinomat_exchanger_error_message" style="display:none;padding: 5px; margin-bottom: 15px;"></div>
+                    <div class="alert-success alert alert-no-icon" id="spn_coinomat_exchanger_pubkey_message" style="display:none;padding: 5px; margin-bottom: 15px;"></div>
+                    <div class="alert-success alert alert-no-icon" id="spn_coinomat_exchanger_message" style="display:none;padding: 5px; margin-bottom: 15px;"></div>
+                    <div class="form-group" style="display:none">
+                        <label for="spn_coinomat_in_address" id="spn_coinomat_in_address_label">
+                        </label>
+                        <p id="spn_coinomat_in_address"></p>
+                        <div id="spn_coinomat_in_address_qr_code" style="display:none"></div>
+                        <div id="spn_coinomat_in_address_note_div" style="display:none">
+                            <label for="spn_coinomat_in_address_note">
+                                Include the following as message in your Nxt transaction
+                            </label>
+                            <p id="spn_coinomat_in_address_note"></p>
+                        </div>
+                    </div>
+                    <div class="form-group" style="display:none">
+                        <label for="spn_coinomat_out_address" id="spn_coinomat_out_address_label">
+                        </label>
+                        <p id="spn_coinomat_out_address"></p>
+                    </div>
+                    <div id="spn_coinomat_send_nxt_div" class="form-group" style="display:none">
+                        <a href="#" class="btn btn-primary" role="button" onclick="SPN.coinomatSendNxt()">Send NXT</a>
+                    </div>
+                    <div id="spn_coinomat_send_coinousd_div" class="form-group" style="display:none">
+                        <a id="btn_send_coinousd" href="#" class="btn btn-primary" role="button" data-toggle="modal" data-target="#transfer_asset_modal" data-asset="12982485703607823902" data-name="CoinoUSD" data-decimals="2">Send CoinoUSD</a>
+                    </div>
+                    <div id="spn_coinomat_open_web_div" class="form-group" style="display:none">
+                        <label for="spn_coinomat_in_address_note">
+                            You need to complete your transaction on Coinomat website
+                        </label>
+                        <a id="spn_coinomat_open_web_a" href="#" class="btn btn-primary" role="button" onclick="SPN.openCoinomatWebsite()">Open Coinomat website</a>
+                    </div>
+                    <div id="spn_coinomat_usd_div" class="form-group" style="display:none">
+                        <a id="spn_coinomat_pay_USD" href="#" class="btn btn-primary" role="button" data-loading-text="Loading...">Pay USD</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
 	
     <div id="testnet_warning" style="display:none;position:fixed;bottom:0;left:0;padding:5px;background:red;color:white;border-top-right-radius:5px;" data-i18n="[html]testnet_warning"><strong>Warning</strong>: You are connected to the TestNet. Do not use your real passphrase!</div>
 
 <!-- ------------------ blockchain download bar ------------------ -->
-    <!--
-    <div id="downloading_blockchain" style="margin-bottom:200px">
-        <div class="db_active">
-            <div style="font-weight:bold;margin-bottom:5px;">
-                <span data-i18n="downloading_blockchain">Downloading blockchain</span>
-                <span class="blocks_left_outer" style="display:none;">(<span class="blocks_left"></span>)</span>
-                <span class="loading_dots"><span>.</span><span>.</span><span>.</span></span>
-            </div>
-            <div class="db_progress_total">
-                <span data-i18n="total">Total</span>:
-                <div class="progress progress-striped sm active" style="margin-bottom:5px;margin-top:5px;">
-                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
-                        <span class="sr-only">0% Complete</span>
-                    </div>
-                </div>
-            </div>
-            <div class="db_progress_last">
-                <span class="last_num_blocks" data-i18n="last_num_blocks"></span>:
-                <div class="progress progress-striped sm active" style="margin-bottom:5px;margin-top:5px;">
-                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
-                        <span class="sr-only">0% Complete</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="db_halted" style="display:none;text-align:center;font-weight:bold;">
-            <span data-i18n="blockchain_download_halted">Blockchain download halted</span>,<br>
-            <span data-i18n="no_connection">no connection</span>
-        </div>
-    </div>
-    -->
+
     <div id="snLoader" style="display:none">
         <div id="snLoaderLogoWrap">
             <img id="snLoaderLogo" src="spn/img/superNETlogosymbolonly.svg" />
@@ -2037,7 +1837,7 @@ works with tutorials, WIKI links and more.">HELP</a>
             <span data-i18n="downloading_blockchain">Downloading Blockchain</span> (<span class="blocks_left"></span>)
         </div>
         <div id="snLoaderBar">
-            <span style="width: 0%"></span>
+            <span style="width: 1%;"></span>
         </div>
         <div class="db_halted" style="display:none;text-align:center;font-weight:bold;">
             <span data-i18n="blockchain_download_halted">Blockchain download halted</span>,<br>
@@ -2046,14 +1846,6 @@ works with tutorials, WIKI links and more.">HELP</a>
     </div>    
 <!-- ------------------ /blockchain download bar ------------------ -->
 
-<!-- -------------------- server status trigger -------------------- -->
-
-    <!--
-    <div id="server_status" class="fontOS">
-        <a class="btn btn-spn md-trigger sofTran fontOS" data-modal="modal-server-status" data-i18n="servers_status">SERVERS STATUS</a>
-    </div>
-    -->
-<!-- -------------------- /server status trigger -------------------- -->
 
     <div id="show_console">
         <a href="#" onclick="NRS.showConsole();return false;" style="color:black;"><i class="fa fa-terminal" style="font-weight:bold"></i></a>
@@ -2098,6 +1890,7 @@ works with tutorials, WIKI links and more.">HELP</a>
     <script src="js/3rdparty/jquery.rss.js" type="text/javascript"></script>
     <script src="js/3rdparty/webdb.js" type="text/javascript"></script>
     <script src="js/3rdparty/growl.js" type="text/javascript"></script>
+    <script src="js/3rdparty/select2.js" type="text/javascript"></script>
     <script src="js/3rdparty/jsbn.js" type="text/javascript"></script>
     <script src="js/3rdparty/jsbn2.js" type="text/javascript"></script>
     <script src="js/3rdparty/big.js" type="text/javascript"></script>
@@ -2150,7 +1943,10 @@ works with tutorials, WIKI links and more.">HELP</a>
     <script src="js/nrs.console.js" type="text/javascript"></script>
     <script src="js/nrs.util.js" type="text/javascript"></script>
 
+
     <script src="js/spn.js" type="text/javascript"></script>
+    <script src="js/spn.coinomat.js" type="text/javascript"></script>
+
     <script src="spn/js/spn.lite.js" type="text/javascript"></script>
     <script src="spn/js/spn.login.js" type="text/javascript"></script>
     <script src="spn/js/modernizr.js"></script>
@@ -2195,6 +1991,6 @@ works with tutorials, WIKI links and more.">HELP</a>
 			return window.open(url, title, 'toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width='+w+', height='+h+', top='+top+', left='+left);
 		} 
 	</script>
-	
+
 </body>
 </html>

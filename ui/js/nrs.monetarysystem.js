@@ -105,7 +105,8 @@ var NRS = (function(NRS, $, undefined) {
 		
 		NRS.sendRequest("getAccountCurrencies+", {
 			"account": NRS.accountRS,
-			"currency": currencyId
+			"currency": currencyId,
+            "includeCurrencyInfo": true
 		}, function(response) {
 			if (response.unconfirmedUnits) {
 				$("#your_currency_balance").html(NRS.formatQuantity(response.unconfirmedUnits, response.decimals));
@@ -363,6 +364,7 @@ var NRS = (function(NRS, $, undefined) {
 			NRS.sendRequest("getExchanges+", {
 				"currency": currencyId,
 				"account": NRS.accountRS,
+                "includeCurrencyInfo":true,
 				"firstIndex": NRS.pageNumber * NRS.itemsPerPage - NRS.itemsPerPage,
 				"lastIndex": NRS.pageNumber * NRS.itemsPerPage
 			}, function(response) {
@@ -399,6 +401,7 @@ var NRS = (function(NRS, $, undefined) {
 		} else {
 			NRS.sendRequest("getExchanges+", {
 				"currency": currencyId,
+                "includeCurrencyInfo":true,
 				"firstIndex": NRS.pageNumber * NRS.itemsPerPage - NRS.itemsPerPage,
 				"lastIndex": NRS.pageNumber * NRS.itemsPerPage
 			}, function(response) {
@@ -439,6 +442,7 @@ var NRS = (function(NRS, $, undefined) {
 		NRS.sendRequest("getAccountExchangeRequests+", {
 			"currency": currencyId,
 			"account": NRS.accountRS,
+            "includeCurrencyInfo": true,
 			"firstIndex": NRS.pageNumber * NRS.itemsPerPage - NRS.itemsPerPage,
 			"lastIndex": NRS.pageNumber * NRS.itemsPerPage
 		}, function (response) {
@@ -652,6 +656,7 @@ var NRS = (function(NRS, $, undefined) {
 		if (NRS.currenciesPageType == "my_currencies") {
 			NRS.sendRequest("getAccountCurrencies+", {
 				"account": NRS.accountRS,
+                "includeCurrencyInfo" : true,
 				"firstIndex": NRS.pageNumber * NRS.itemsPerPage - NRS.itemsPerPage,
 				"lastIndex": NRS.pageNumber * NRS.itemsPerPage
 			}, function(response) {
@@ -803,6 +808,7 @@ var NRS = (function(NRS, $, undefined) {
 	NRS.pages.exchange_history = function() {
 		NRS.sendRequest("getExchanges+", {
 			"account": NRS.accountRS,
+            "includeCurrencyInfo":true,
 			"firstIndex": NRS.pageNumber * NRS.itemsPerPage - NRS.itemsPerPage,
 			"lastIndex": NRS.pageNumber * NRS.itemsPerPage
 		}, function(response) {

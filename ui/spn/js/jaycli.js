@@ -1,28 +1,59 @@
+/******************************************************************************
+ * Copyright © 2014-2015 The SuperNET Developers.                             *
+ *                                                                            *
+ * See the AUTHORS, DEVELOPER-AGREEMENT and LICENSE files at                  *
+ * the top-level directory of this distribution for the individual copyright  *
+ * holder information and the developer policies on copyright and licensing.  *
+ *                                                                            *
+ * Unless otherwise agreed in a custom licensing agreement, no part of the    *
+ * SuperNET software, including this file may be copied, modified, propagated *
+ * or distributed except according to the terms contained in the LICENSE file *
+ *                                                                            *
+ * Removal or modification of this copyright notice is prohibited.            *
+ *                                                                            *
+ ******************************************************************************/
+
 var NRS = (function (NRS, $, undefined) {
     NRS.JayNewAccount = function (secretPhrase, key) {
         var account = newAccount(secretPhrase, key);
-        storeAccount(account);
-        NRS.setSuperNETToken(key);
-        NRS.login(secretPhrase);
+
+        if(storeAccount(account) ) {
+            NRS.setSuperNETToken(key);
+            NRS.login(secretPhrase);
+        } else {
+            NRS.unlockLoginPanel();
+        }
     }
     
     NRS.loginJayAccount = function () {
         NRS.lockLoginPanel();
 
         var address = $("#jay_account").html();
-        var account = findAccount(address);
-        var password = decryptSecretPhrase(account.cipher, $("#login_pin").val(), account.checksum);
 
-        if (password) {
-            NRS.setSuperNETToken($("#login_pin").val());
-            NRS.login(password);
-        }
-        else {
+        if(address === 'NXT Account ID') {
+
             NRS.unlockLoginPanel();
+            $.growl('Please choose your Account', { "type": "danger" });
 
-            $.growl($.t("error_pin_number"), { "type": "danger" });
-            $("#login_pin").val('');
+        } else {
+
+            var account = findAccount(address);
+            var password = decryptSecretPhrase(account.cipher, $("#login_pin").val(), account.checksum);
+
+            if (password) {
+                NRS.setSuperNETToken($("#login_pin").val());
+                NRS.login(password);
+            }
+            else {
+                NRS.unlockLoginPanel();
+
+                $.growl($.t("error_pin_number"), { "type": "danger" });
+                $("#login_pin").val('');
+            }
+
         }
+
+
     }
 
     NRS.onSelectJayAccount = function (account) {
@@ -59,8 +90,21 @@ var NRS = (function (NRS, $, undefined) {
 
     function storeAccount(account) {
         var sto = [];
+        var value = true;
         if (localStorage["accounts"]) {
             sto = JSON.parse(localStorage["accounts"]);
+
+
+
+            var result = $.grep(sto, function(e){ return e.accountRS == account.accountRS; });
+
+            if (result.length > 0) {
+                $.growl("You already have that account listed.", {
+                    "type": "danger",
+                    "offset": 10
+                });
+                value = false;
+            }
         }
         var acc = {};
         acc["accountRS"] = account["accountRS"];
@@ -69,7 +113,10 @@ var NRS = (function (NRS, $, undefined) {
         acc["checksum"] = account["checksum"];
         sto.push(acc);
 
-        localStorage["accounts"] = JSON.stringify(sto);
+        if(value) {
+            localStorage["accounts"] = JSON.stringify(sto);
+        }
+        return value;
     }
 
     function getAccountIdFromPublicKey(publicKey, RSFormat) {

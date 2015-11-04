@@ -1,3 +1,18 @@
+/******************************************************************************
+ * Copyright © 2014-2015 The SuperNET Developers.                             *
+ *                                                                            *
+ * See the AUTHORS, DEVELOPER-AGREEMENT and LICENSE files at                  *
+ * the top-level directory of this distribution for the individual copyright  *
+ * holder information and the developer policies on copyright and licensing.  *
+ *                                                                            *
+ * Unless otherwise agreed in a custom licensing agreement, no part of the    *
+ * SuperNET software, including this file may be copied, modified, propagated *
+ * or distributed except according to the terms contained in the LICENSE file *
+ *                                                                            *
+ * Removal or modification of this copyright notice is prohibited.            *
+ *                                                                            *
+ ******************************************************************************/
+
 var NRS = (function(NRS, $, undefined) {
     NRS.translate1en = {
   "Asset Distribution": "Asset Distribution",
@@ -1224,7 +1239,7 @@ var NRS = (function(NRS, $, undefined) {
   "syncthing_desc":"Open Source Continuous File Synchronization",
   "syncthing_not_running":"Your syncthing must be running. Please click <a target='_blank' href='__link__'>here</a> to download a copy of syncthing",
   "jay_wallet":"Jay Wallet",
-  "jay_wallet_desc":"A fast, easy, and safe Nxt web wallet experience",
+  "jay_wallet_desc":"A fast, easy, and safe Nxt web wallet experience. Access your SuperNET accounts via Jay.",
   "your_account":"Your NXT Account",
   "checking_server_connectivity":"Checking server connectivity",
   "jay_wallet_code":"Jay Wallet Code",
