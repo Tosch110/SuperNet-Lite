@@ -914,7 +914,7 @@ var NSV = (function(NSV, $, undefined) {
 		document.getElementById("nsv_aliasvote_check_percent3_lb").innerHTML = alias3;
 		document.getElementById("nsv_aliasvote_check_percent4_lb").innerHTML = alias4;
 		
-		NRS.sendOutsideRequest("/nxt?requestType=" + "getAccountTransactionIds", {
+		NRS.sendOutsideRequest("/nxt?requestType=" + "getBlockchainTransactions", {
 			"account":option1
 		}, function(response,input) {
 			if (response.errorCode) {
@@ -946,7 +946,7 @@ var NSV = (function(NSV, $, undefined) {
 				}					
 			}						
 		},false);
-		NRS.sendOutsideRequest("/nxt?requestType=" + "getAccountTransactionIds", {
+		NRS.sendOutsideRequest("/nxt?requestType=" + "getBlockchainTransactions", {
 			"account":option2
 		}, function(response,input) {
 			if (response.errorCode) {
@@ -979,7 +979,7 @@ var NSV = (function(NSV, $, undefined) {
 			}						
 		},false);
 		if (alias3 !== "") {
-			NRS.sendOutsideRequest("/nxt?requestType=" + "getAccountTransactionIds", {
+			NRS.sendOutsideRequest("/nxt?requestType=" + "getBlockchainTransactions", {
 				"account":option3
 			}, function(response,input) {
 				if (response.errorCode) {
@@ -1013,7 +1013,7 @@ var NSV = (function(NSV, $, undefined) {
 			},false);		
 		}
 		if (alias4 !== "") {
-			NRS.sendOutsideRequest("/nxt?requestType=" + "getAccountTransactionIds", {
+			NRS.sendOutsideRequest("/nxt?requestType=" + "getBlockchainTransactions", {
 				"account":option4
 			}, function(response,input) {
 				if (response.errorCode) {

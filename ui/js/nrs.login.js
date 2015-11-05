@@ -133,6 +133,8 @@ var NRS = (function(NRS, $, undefined) {
 	            return;
 	        }
 	    }
+
+
 		$("#login_password, #registration_password, #registration_password_repeat").val("");
 		$("#login_check_password_length").val(1);
 
@@ -152,6 +154,7 @@ var NRS = (function(NRS, $, undefined) {
 			NRS.sendRequest("getAccountId", {
 				"secretPhrase": password
 			}, function(response) {
+
 				if (!response.errorCode) {
 					NRS.account = String(response.account).escapeHTML();
 					NRS.accountRS = String(response.accountRS).escapeHTML();
@@ -271,7 +274,7 @@ var NRS = (function(NRS, $, undefined) {
 					$(window).on("hashchange", NRS.checkLocationHash);
 
 					NRS.getInitialTransactions();
-					MGW.initAfterLogin();
+					//MGW.initAfterLogin();
 				});
 			});
 		});

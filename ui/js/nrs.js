@@ -21,6 +21,7 @@
  * @depends {util/extensions.js}
  * @depends {util/nxtaddress.js}
  */
+
 var NRS = (function(NRS, $, undefined) {
 	"use strict";
 
