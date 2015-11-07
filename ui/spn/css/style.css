@@ -8,6 +8,11 @@
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
 
+@font-face {
+    font-family: 'oslite';
+    src: url('font/oslite.woff2');
+}
+
 html {
   font-size: 62.5%; 
   color: orange; }
@@ -52,6 +57,15 @@ Global Classes
 	font-weight: bold;
 }
 
+.md-close-img-eth {
+    padding-top: 15px;
+}
+
+.md-close-img-2 {
+    padding-top: 5px;
+}
+
+
 /* -------------------------------- 
 
 Main Components 
@@ -73,34 +87,34 @@ Main Components
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
 }
-    .cd-header:after {
-        content: "";
-        display: table;
-        clear: both;
-    }
+
+.cd-header:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.cd-header.nav-is-visible {
+    -webkit-transform: translateY(80px);
+    -moz-transform: translateY(80px);
+    -ms-transform: translateY(80px);
+    -o-transform: translateY(80px);
+    transform: translateY(80px);
+}
 
 
-    .cd-header.nav-is-visible {
-        -webkit-transform: translateY(80px);
-        -moz-transform: translateY(80px);
-        -ms-transform: translateY(80px);
-        -o-transform: translateY(80px);
-        transform: translateY(80px);
-    }
-
-
-    .cd-header .news {
-        font-family: normalText;
-        font-weight: 200;
-        #border: 1px solid #F58735;
-        float: left;
-        margin-top: 28px;
-        position: relative;
-        height: 150px;
-        top: 0px;
-        margin-left: 25px;
-        width: calc(90vw - 300px);
-    }
+.cd-header .news {
+    font-family: normalText;
+    font-weight: 200;
+    border: 1px solid #F58735;
+    float: left;
+    margin-top: 28px;
+    position: relative;
+    height: 150px;
+    top: 0px;
+    margin-left: 25px;
+    width: calc(90vw - 300px);
+}
 
 .accountinfo {
     position: relative;
@@ -463,17 +477,18 @@ Main Components
   
   
 main {
-  -webkit-transition: -webkit-transform 0.5s;
-  -moz-transition: -moz-transform 0.5s;
-  transition: transform 0.5s;
-  /* Force Hardware Acceleration in WebKit */
-  -webkit-transform: translateZ(0);
-  -moz-transform: translateZ(0);
-  -ms-transform: translateZ(0);
-  -o-transform: translateZ(0);
-  transform: translateZ(0);
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden; }
+    -webkit-transition: -webkit-transform 0.5s;
+    -moz-transition: -moz-transform 0.5s;
+    transition: transform 0.5s;
+    /* Force Hardware Acceleration in WebKit */
+    -webkit-transform: translateZ(0);
+    -moz-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    -o-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden; 
+}
 
   main h1 {
     text-align: center;
@@ -491,47 +506,46 @@ main {
     -o-transform: translateY(80px);
     transform: translateY(80px); }
 	
-  @media only screen and (min-width: 768px) {
+@media only screen and (min-width: 768px) {
     main.nav-is-visible {
       -webkit-transform: translateY(170px);
       -moz-transform: translateY(170px);
       -ms-transform: translateY(170px);
       -o-transform: translateY(170px);
-      transform: translateY(170px); }
+      transform: translateY(170px); 
+    }
 
     main h1 {
       font-size: 3.6rem;
-      margin: 4em auto; } }
+      margin: 4em auto; 
+    } 
+}
 
 .wrapper {
 	width: 90%;
 	margin-top: 100px !important;
 	
-	
 	margin-left: 0;
 	margin-right: 0;
-	margin: auto;
-	/*TEST ONLY*/
-	/*border: solid;
-	border-color: black;*/ 
+	margin: auto; 
 }
 
 @media only screen and (max-width: 400px) {
-  .wrapper {
-	width: 100%;
-	margin-top: 100px !important;
-	margin-left: 30px !important;
-	margin-right: 0;
-	margin: auto;
-}
+    .wrapper {
+        width: 100%;
+        margin-top: 100px !important;
+        margin-left: 30px !important;
+        margin-right: 0;
+        margin: auto;
+    }
 
-.cd-3d-nav-trigger {
-	margin-right: 22px;
-}
+    .cd-3d-nav-trigger {
+        margin-right: 22px;
+    }
 
-.cd-logo {
-  margin-left: 40px !important;
-}
+    .cd-logo {
+        margin-left: 40px !important;
+    }
 }
 
 .news {
@@ -577,13 +591,6 @@ main {
 	background: transparent;
 	color: #96989A;
 	overflow: hidden !important;
-	
-	/*border-radius: 8px;
-	-webkit-border-radius: 8px;
-	-o-border-radius: 8px;
-	-moz-border-radius: 8px;*/    /* Rounded borders - glitch problem */
-	
-	
 
 	transition:background 1s;
     -webkit-transition:background 1s;
@@ -599,7 +606,7 @@ main {
 }	
 
 .cbox:hover h3 {
-color: white !important;
+    color: white !important;
 }	
 
 
@@ -611,7 +618,6 @@ color: white !important;
    bottom: 0px;
    overflow: hidden;
 }
-
 
 .cboxcont h4 {
 	/* WALLET ADDRESS */
@@ -625,12 +631,10 @@ color: white !important;
 	word-wrap: break-word;
 }
 
-
 .cboxcont h4:hover {
 	color: orange;
 	cursor:default;
 }
-
 
 .cboxcont h3 {
 	/* COIN NAME */
@@ -651,7 +655,6 @@ color: white !important;
 
 .cboxcont h5 {
 	/* BALANCE */
-    /*margin-top: 20px;*/
 	margin-left: 10px;
 	font-weight: 600;
 	font-size: 1.8em;
@@ -667,7 +670,7 @@ color: white !important;
 }
 
 .coinaddr{
-     height:50px;
+    height:50px;
 }
 
 .coinaddr {
@@ -696,35 +699,35 @@ color: white !important;
 }
 
 .bgbtcd {
-	  background-image:url(../img/bg_btcd.svg);
-	  background-repeat: no repeat;
-	  
-	  transition: all .4s ease;
-	  -webkit-transition: all .4s ease;
+    background-image:url(../img/bg_btcd.svg);
+    background-repeat: no repeat;
+
+    transition: all .4s ease;
+    -webkit-transition: all .4s ease;
 }
 
 .cbox:hover .overboxBTCD { opacity: 0.75; }
 
 .cbox .overboxBTCD {
-  background-color: #0072F4;
-  position: relative;
-  top: 0;
-  left: 0;
-  color: white;
-  opacity: 0;
-  width: 100%;
-  height: 60px;
-  
-  transition: all .4s ease; 
-  transform: translateY(50px);
-  -webkit-transition: all .4s ease; 
-  -webkit-transform: translateY(50px);
+    background-color: #0072F4;
+    position: relative;
+    top: 0;
+    left: 0;
+    color: white;
+    opacity: 0;
+    width: 100%;
+    height: 60px;
+
+    transition: all .4s ease; 
+    transform: translateY(50px);
+    -webkit-transition: all .4s ease; 
+    -webkit-transform: translateY(50px);
 }
 
 .cbox:hover .overboxBTCD { 
 	opacity: 1;
-	transform: translateY(-4px);
-	-webkit-transform: translateY(-4px);
+	transform: translateY(0px);
+	-webkit-transform: translateY(0px);
 }
 
 .overboxBTCD ul {
@@ -735,50 +738,46 @@ color: white !important;
 	list-style: none;
 	/*display: inherit;*/
 }
-
 	
 .overboxBTCD li:hover {
 	cursor: pointer;
 }
 
-
 .overboxBTCD li:first-of-type {
-      position: absolute;
-	  background-image: url(../img/minicon_btcd.svg);
-	  background-repeat: no-repeat; 
-	  background-size: 100%;
-	  width: 80px;
-	  height: 60px;
-	  margin-top: 0px !important;
-	  margin-left: -2px !important;
-	  opacity: 0.5;
-      white-space: nowrap;
-      overflow: hidden;	
-	  text-indent: 100%;
-	  
-	 transition: all .4s ease;
-	 -webkit-transition: all .4s ease;
-}
+    position: absolute;
+    background-image: url(../img/minicon_btcd.svg);
+    background-repeat: no-repeat; 
+    background-size: 100% 105%;
+    width: 80px;
+    height: 60px;
+    margin-top: -2px !important;
+    margin-left: -2px !important;
+    opacity: 0.5;
+    white-space: nowrap;
+    overflow: hidden;	
+    text-indent: 100%;
 
+    transition: all .4s ease;
+    -webkit-transition: all .4s ease;
+}
 
 .overboxBTCD li:first-of-type:hover {
 	opacity: 1;
 }
-
 	  
 .overboxBTCD li:nth-of-type(2) {
-      position: absolute;
-	  background-image: url(../img/minicon_trans.svg); 
-	  background-repeat: no-repeat;
-	  background-size: 100%;
-	  width: 37px;
-	  height: 37px;
-	  margin-top: 4px !important;
-	  margin-left: 85px !important;
-	  
-	  opacity: 0.5;
-	  transition: all .4s ease;
-	  -webkit-transition: all .4s ease;
+    position: absolute;
+    background-image: url(../img/minicon_trans.svg); 
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 44px;
+    height: 44px;
+    margin-top: 6px;
+    margin-left: 95px;
+
+    opacity: 0.5;
+    transition: all .4s ease;
+    -webkit-transition: all .4s ease;
 }
 
 
@@ -789,8 +788,8 @@ color: white !important;
 
 .overboxBTCD li:nth-of-type(3) {
     position: absolute;
-    margin-top: 6px !important;
-    margin-left: 170px !important;
+    margin-top: 8px;
+    margin-left: 155px;
 
     transition: all .4s ease;
     -webkit-transition: all .4s ease;
@@ -802,20 +801,19 @@ color: white !important;
 }
 
 .overboxBTCD li:nth-of-type(4) {
-      position: absolute;
-	  background-image: url(../img/minicon_mailsend.svg);
-	  background-repeat: no-repeat; 
-	  background-size: 100%;
-	  width: 37px;
-	  height: 37px;
-	  margin-top: 4px !important;
-	  margin-left: 167px !important;
-	  
-	  opacity: 0.5;
-	  transition: all .4s ease;
-	  -webkit-transition: all .4s ease;	  
-}
+    position: absolute;
+    background-image: url(../img/minicon_mailsend.svg);
+    background-repeat: no-repeat; 
+    background-size: 100%;
+    width: 37px;
+    height: 37px;
+    margin-top: 4px !important;
+    margin-left: 167px !important;
 
+    opacity: 0.5;
+    transition: all .4s ease;
+    -webkit-transition: all .4s ease;	  
+}
 
 .overboxBTCD li:nth-of-type(4):hover {
 	opacity: 1;
@@ -829,11 +827,11 @@ color: white !important;
 }
 
 .bgvrc {
-	  background-image:url(../img/bg_vrc.svg);
-	  background-repeat: no repeat;
-	  
-	  transition: all .4s ease;
-	  -webkit-transition: all .4s ease;
+    background-image:url(../img/bg_vrc.svg);
+    background-repeat: no repeat;
+
+    transition: all .4s ease;
+    -webkit-transition: all .4s ease;
 }
 
 .cbox:hover .overboxVRC { opacity: 0.75; }
@@ -855,112 +853,101 @@ color: white !important;
 }
 
 .cbox:hover .overboxVRC { 
-	opacity: 1;
-	transform: translateY(-4px);
-	-webkit-transform: translateY(-4px);
+    opacity: 1;
+    transform: translateY(0px);
+    -webkit-transform: translateY(0px);
 }
 
 .overboxVRC ul {
-	position: relative;
-	float: left;
-	top: 0;
-	left: 0;
-	list-style: none;
-	/*display: inherit;*/
+    position: relative;
+    float: left;
+    top: 0;
+    left: 0;
+    list-style: none;
 }
 	
 .overboxVRC li:hover {
 	cursor: pointer;
 }
 
-
 .overboxVRC li:first-of-type {
-      position: absolute;
-	  background-image:url(../img/minicon_vrc.svg);
-	  background-repeat: no-repeat; 
-	  background-size: 100%;
-	  width: 80px;
-	  height: 60px;
-	  margin-top: 0px !important;
-	  margin-left: -2px !important;
-	  
-	  opacity: 0.5;
-	  transition: all .4s ease;
-	  -webkit-transition: all .4s ease;	  
+    position: absolute;
+    background-image:url(../img/minicon_vrc.svg);
+    background-repeat: no-repeat; 
+    background-size: 100% 100%;
+    width: 80px;
+    height: 60px;
+    margin-top: 0px;
+    margin-left: 0px;
+
+    opacity: 0.5;
+    transition: all .4s ease;
+    -webkit-transition: all .4s ease;	  
 }
 
 .overboxVRC li:first-of-type:hover {
 	opacity: 1;
 }
-
 	  
 .overboxVRC li:nth-of-type(2) {
-	position: absolute;
-	background-image: url(../img/minicon_trans.svg); 
-	background-repeat: no-repeat;
-	background-size: 100%;
-	width: 37px;
-	height: 37px;
-	margin-top: 4px !important;
-	margin-left: 85px !important;
-	  
-	opacity: 0.5;
-	ransition: all .4s ease;
-	-webkit-transition: all .4s ease;
-	  
-}
+    position: absolute;
+    background-image: url(../img/minicon_trans.svg); 
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 44px;
+    height: 44px;
+    margin-top: 6px;
+    margin-left: 95px;
 
+    opacity: 0.5;
+    transition: all .4s ease;
+    -webkit-transition: all .4s ease;
+}
 
 .overboxVRC li:nth-of-type(2):hover {
 	opacity: 1;
 }
 
-
 .overboxVRC li:nth-of-type(3) {
     position: absolute;
-    margin-top: 6px !important;
-    margin-left: 170px !important;
+    margin-top: 8px;
+    margin-left: 155px;
 
     transition: all .4s ease;
     -webkit-transition: all .4s ease;
 }
-
 
 .overboxVRC li:nth-of-type(3):hover {
 	opacity: 1;
 }
 
 .overboxVRC li:nth-of-type(4) {
-      position: absolute;
-	  background-image: url(../img/minicon_mailsend.svg);
-	  background-repeat: no-repeat; 
-	  background-size: 100%;
-	  width: 37px;
-	  height: 37px;
-	  margin-top: 4px !important;
-	  margin-left: 167px !important;
-	  
-	  opacity: 0.5;
-	  transition: all .4s ease;
-	  -webkit-transition: all .4s ease;	  
-}
+    position: absolute;
+    background-image: url(../img/minicon_mailsend.svg);
+    background-repeat: no-repeat; 
+    background-size: 100%;
+    width: 37px;
+    height: 37px;
+    margin-top: 4px !important;
+    margin-left: 167px !important;
 
+    opacity: 0.5;
+    transition: all .4s ease;
+    -webkit-transition: all .4s ease;	  
+}
 
 .overboxVRC li:nth-of-type(4):hover {
 	opacity: 1;
 }
 
-
-
-
 /* ------------ EMERGING MENU - BITS -------------- */
 
 .bgbits {
-	  background-image:url(../img/bg_bits.svg);
-	  background-repeat: no repeat;
-	  
-	  transition: all .4s ease;
-	  -webkit-transition: all .4s ease;
+    background-image:url(../img/bg_bits.svg);
+    background-repeat: no repeat;
+
+    transition: all .4s ease;
+    -webkit-transition: all .4s ease;
 }
 
 .cbox:hover .overboxBITS { 
@@ -968,27 +955,26 @@ color: white !important;
 }
 
 .cbox .overboxBITS {
-  background-color: orange;
-  position: relative;
-  top: 0;
-  left: 0;
-  color: white;
-  opacity: 0;
-  width: 100%;
-  height: 60px;
-  
-  transition: all .4s ease; 
-  transform: translateY(50px);
-  -webkit-transition: all .4s ease; 
-  -webkit-transform: translateY(50px);
+    background-color: orange;
+    position: relative;
+    top: 0;
+    left: 0;
+    color: white;
+    opacity: 0;
+    width: 100%;
+    height: 60px;
+
+    transition: all .4s ease; 
+    transform: translateY(50px);
+    -webkit-transition: all .4s ease; 
+    -webkit-transform: translateY(50px);
 }
 
 .cbox:hover .overboxBITS { 
 	opacity: 1;
-	transform: translateY(-4px);
-	-webkit-transform: translateY(-4px);
+	transform: translateY(0px);
+	-webkit-transform: translateY(0px);
 }
-
 
 .overboxBITS ul {
 	position: relative;
@@ -997,7 +983,6 @@ color: white !important;
 	left: 0;
 	list-style: none;
 }
-
 	
 .overboxBITS li:hover {
 	cursor: pointer;
@@ -1005,39 +990,37 @@ color: white !important;
 
 
 .overboxBITS li:first-of-type {
-      position: absolute;
-	  background-image:url(../img/minicon_bits.svg);
-	  background-repeat: no-repeat; 
-	  background-size: 100%;
-	  width: 80px;
-	  height: 60px;
-	  margin-top: 0px !important;
-	  margin-left: 0px !important;
-	  
-	  opacity: 0.5;
-	  transition: all .4s ease;
-	  -webkit-transition: all .4s ease;	  
-}
+    position: absolute;
+    background-image:url(../img/minicon_bits.svg);
+    background-repeat: no-repeat; 
+    background-size: 100% 100%;
+    width: 80px;
+    height: 60px;
+    margin-top: 0px;
+    margin-left: 0px;
 
+    opacity: 0.5;
+    transition: all .4s ease;
+    -webkit-transition: all .4s ease;	  
+}
 
 .overboxBITS li:first-of-type:hover {
 	opacity: 1;
 }
-
 	  
 .overboxBITS li:nth-of-type(2) {
-      position: absolute;
-	  background-image: url(../img/minicon_trans.svg); 
-	  background-repeat: no-repeat;
-	  background-size: 100%;
-	  width: 37px;
-	  height: 37px;
-	  margin-top: 4px !important;
-	  margin-left: 85px !important;
-	  
-	  opacity: 0.5;
-	  transition: all .4s ease;
-	  -webkit-transition: all .4s ease;
+    position: absolute;
+    background-image: url(../img/minicon_trans.svg); 
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 44px;
+    height: 44px;
+    margin-top: 6px;
+    margin-left: 95px;
+
+    opacity: 0.5;
+    transition: all .4s ease;
+    -webkit-transition: all .4s ease;
 }
 
 
@@ -1045,42 +1028,37 @@ color: white !important;
 	opacity: 1;
 }
 
-
 .overboxBITS li:nth-of-type(3) {
     position: absolute;
-    margin-top: 6px !important;
-    margin-left: 170px !important;
+    margin-top: 8px;
+    margin-left: 155px;
 
     transition: all .4s ease;
     -webkit-transition: all .4s ease;
 }
-
 
 .overboxBITS li:nth-of-type(3):hover {
 	opacity: 1;
 }
 
 .overboxBITS li:nth-of-type(4) {
-      position: absolute;
-	  background-image: url(../img/minicon_mailsend.svg);
-	  background-repeat: no-repeat; 
-	  background-size: 100%;
-	  width: 37px;
-	  height: 37px;
-	  margin-top: 4px !important;
-	  margin-left: 167px !important;
-	  
-	  opacity: 0.5;
-	  transition: all .4s ease;
-	  -webkit-transition: all .4s ease;	  
-}
+    position: absolute;
+    background-image: url(../img/minicon_mailsend.svg);
+    background-repeat: no-repeat; 
+    background-size: 100%;
+    width: 37px;
+    height: 37px;
+    margin-top: 4px !important;
+    margin-left: 167px !important;
 
+    opacity: 0.5;
+    transition: all .4s ease;
+    -webkit-transition: all .4s ease;	  
+}
 
 .overboxBITS li:nth-of-type(4):hover {
 	opacity: 1;
 }
-
-
 
 /* ------------ EMERGING MENU - OPAL -------------- */
 
@@ -1089,11 +1067,11 @@ color: white !important;
 }
 
 .bgopal {
-	  background-image:url(../img/bg_opal.svg);
-	  background-repeat: no repeat;
-	  
-	  transition: all .4s ease;
-	  -webkit-transition: all .4s ease;
+    background-image:url(../img/bg_opal.svg);
+    background-repeat: no repeat;
+
+    transition: all .4s ease;
+    -webkit-transition: all .4s ease;
 }
 
 .cbox:hover .overboxOPAL { 
@@ -1101,27 +1079,26 @@ color: white !important;
 }
 
 .cbox .overboxOPAL {
-  background-color: #484D7D;
-  position: relative;
-  top: 0;
-  left: 0;
-  color: white;
-  opacity: 0;
-  width: 100%;
-  height: 60px;
-  
-  transition: all .4s ease; 
-  transform: translateY(50px);
-  -webkit-transition: all .4s ease; 
-  -webkit-transform: translateY(50px);
+    background-color: #484D7D;
+    position: relative;
+    top: 0;
+    left: 0;
+    color: white;
+    opacity: 0;
+    width: 100%;
+    height: 60px;
+
+    transition: all .4s ease; 
+    transform: translateY(50px);
+    -webkit-transition: all .4s ease; 
+    -webkit-transform: translateY(50px);
 }
 
 .cbox:hover .overboxOPAL { 
 	opacity: 1;
-	transform: translateY(-4px); 
-	-webkit-transform: translateY(-4px);
+	transform: translateY(0px);
+	-webkit-transform: translateY(0px);
 }
-
 
 .overboxOPAL ul {
 	position: relative;
@@ -1135,83 +1112,76 @@ color: white !important;
 	cursor: pointer;
 }
 
-
 .overboxOPAL li:first-of-type {
-      position: absolute;
-	  background-image:url(../img/minicon_opal.svg);
-	  background-repeat: no-repeat; 
-	  background-size: 100%;
-	  width: 80px;
-	  height: 60px;
-	  margin-top: 0px !important;
-	  margin-left: 0px !important;
-	  
-	  opacity: 0.5;
-	  transition: all .4s ease;
-	  -webkit-transition: all .4s ease;	  
+    position: absolute;
+    background-image:url(../img/minicon_opal.svg);
+    background-repeat: no-repeat; 
+    background-size: 100% 100%;
+    width: 80px;
+    height: 60px;
+    margin-top: 0px;
+    margin-left: 0px;
+
+    opacity: 0.5;
+    transition: all .4s ease;
+    -webkit-transition: all .4s ease;	  
 }
 
 
 .overboxOPAL li:first-of-type:hover {
 	opacity: 1;
 }
-
-	  
+  
 .overboxOPAL li:nth-of-type(2) {
-      position: absolute;
-	  background-image: url(../img/minicon_trans.svg); 
-	  background-repeat: no-repeat;
-	  background-size: 100%;
-	  width: 37px;
-	  height: 37px;
-	  margin-top: 4px !important;
-	  margin-left: 85px !important;
-	  
-	  opacity: 0.5;
-	  transition: all .4s ease;
-	  -webkit-transition: all .4s ease;  
-}
+    position: absolute;
+    background-image: url(../img/minicon_trans.svg); 
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 44px;
+    height: 44px;
+    margin-top: 6px;
+    margin-left: 95px;
 
+    opacity: 0.5;
+    transition: all .4s ease;
+    -webkit-transition: all .4s ease;
+}
 
 .overboxOPAL li:nth-of-type(2):hover {
 	opacity: 1;
 }
 
-
 .overboxOPAL li:nth-of-type(3) {
     position: absolute;
-    margin-top: 6px !important;
-    margin-left: 170px !important;
+    margin-top: 8px;
+    margin-left: 155px;
 
     transition: all .4s ease;
     -webkit-transition: all .4s ease;
 }
-
 
 .overboxOPAL li:nth-of-type(4):hover {
 	opacity: 1;
 }
 
 .overboxOPAL li:nth-of-type(4) {
-      position: absolute;
-	  background-image: url(../img/minicon_mailsend.svg);
-	  background-repeat: no-repeat; 
-	  background-size: 100%;
-	  width: 37px;
-	  height: 37px;
-	  margin-top: 4px !important;
-	  margin-left: 167px !important;
-	  
-	  opacity: 0.5;
-	  transition: all .4s ease;
-	  -webkit-transition: all .4s ease;	  
-}
+    position: absolute;
+    background-image: url(../img/minicon_mailsend.svg);
+    background-repeat: no-repeat; 
+    background-size: 100%;
+    width: 37px;
+    height: 37px;
+    margin-top: 4px !important;
+    margin-left: 167px !important;
 
+    opacity: 0.5;
+    transition: all .4s ease;
+    -webkit-transition: all .4s ease;	  
+}
 
 .overboxOPAL li:nth-of-type(3):hover {
 	opacity: 1;
 }
-
 
 /* ------------ EMERGING MENU - NXT -------------- */
 
@@ -1220,11 +1190,11 @@ color: white !important;
 }
 
 .bgnxt {
-	  background-image:url(../img/bg_nxt.svg);
-	  background-repeat: no repeat;
-	  
-	  transition: all .4s ease;
-	  -webkit-transition: all .4s ease;
+    background-image:url(../img/bg_nxt.svg);
+    background-repeat: no-repeat;
+
+    transition: all .4s ease;
+    -webkit-transition: all .4s ease;
 }
 
 .cbox:hover .overboxNXT { 
@@ -1232,27 +1202,26 @@ color: white !important;
 }
 
 .cbox .overboxNXT {
-  background-color: #007EB0;
-  position: relative;
-  top: 0;
-  left: 0;
-  color: white;
-  opacity: 0;
-  width: 100%;
-  height: 60px;
-  
-  transition: all .4s ease; 
-  transform: translateY(50px);
-  -webkit-transition: all .4s ease; 
-  -webkit-transform: translateY(50px);
+    background-color: #007EB0;
+    position: relative;
+    top: 0;
+    left: 0;
+    color: white;
+    opacity: 0;
+    width: 100%;
+    height: 60px;
+
+    transition: all .4s ease; 
+    transform: translateY(50px);
+    -webkit-transition: all .4s ease; 
+    -webkit-transform: translateY(50px);
 }
 
 .cbox:hover .overboxNXT { 
 	opacity: 1;
-	transform: translateY(-4px);
-	-webkit-transform: translateY(-4px);
+	transform: translateY(0px);
+	-webkit-transform: translateY(0px);
 }
-
 
 .overboxNXT ul {
 	position: relative;
@@ -1261,91 +1230,81 @@ color: white !important;
 	left: 0;
 	list-style: none;
 }
-
 	
 .overboxNXT li:hover {
 	cursor: pointer;
 }
 
-
 .overboxNXT li:first-of-type {
-      position: absolute;
-	  background-image:url(../img/minicon_nxt.svg);
-	  background-repeat: no-repeat;
-	  background-size: 100%;
-	  width: 80px;
-	  height: 60px;
-	  margin-top: 0px !important;
-	  margin-left: -2px !important;
-	  
-	  opacity: 0.5;
-	  transition: all .4s ease;
-	  -webkit-transition: all .4s ease;	  
-}
+    position: absolute;
+    background-image:url(../img/minicon_nxt.svg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    width: 80px;
+    height: 60px;
+    margin-top: 0px;
+    margin-left: 0px;
 
+    opacity: 0.5;
+    transition: all .4s ease;
+    -webkit-transition: all .4s ease;	  
+}
 
 .overboxNXT li:first-of-type:hover {
 	opacity: 1;
 }
 
-	  
 .overboxNXT li:nth-of-type(2) {
-      position: absolute;
-	  background-image: url(../img/minicon_trans.svg); 
-	  background-repeat: no-repeat;
-	  background-size: 100%;
-	  width: 37px;
-	  height: 37px;
-	  margin-top: 4px !important;
-	  margin-left: 85px !important;
-	  
-	  opacity: 0.5;
-	  transition: all .4s ease;
-	  -webkit-transition: all .4s ease;
-	  
-}
+    position: absolute;
+    background-image: url(../img/minicon_trans.svg); 
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 44px;
+    height: 44px;
+    margin-top: 6px;
+    margin-left: 95px;
 
+    opacity: 0.5;
+    transition: all .4s ease;
+    -webkit-transition: all .4s ease;
+}
 
 .overboxNXT li:nth-of-type(2):hover {
 	opacity: 1;
 }
 
-
 .overboxNXT li:nth-of-type(3) {
-      position: absolute;
-	  margin-top: 6px !important;
-	  margin-left: 170px !important;
+    position: absolute;
+    margin-top: 8px;
+    margin-left: 155px;
 
-	  transition: all .4s ease;
-	  -webkit-transition: all .4s ease;	  
+    transition: all .4s ease;
+    -webkit-transition: all .4s ease;
 }
-
 
 .overboxNXT li:nth-of-type(3):hover {
 	opacity: 1;
 }
 
 .overboxNXT li:nth-of-type(4) {
-      position: absolute;
-	  background-image: url(../img/minicon_mailsend.svg);
-	  background-repeat: no-repeat; 
-	  background-size: 100%;
-	  font-color: white;
-	  width: 37px;
-	  height: 37px;
-	  margin-top: 4px !important;
-	  margin-left: 167px !important;
-	  
-	  opacity: 0.5;
-	  transition: all .4s ease;
-	  -webkit-transition: all .4s ease;	  
-}
+    position: absolute;
+    background-image: url(../img/minicon_mailsend.svg);
+    background-repeat: no-repeat; 
+    background-size: 100%;
+    color: white;
+    width: 37px;
+    height: 37px;
+    margin-top: 4px !important;
+    margin-left: 167px !important;
 
+    opacity: 0.5;
+    transition: all .4s ease;
+    -webkit-transition: all .4s ease;	  
+}
 
 .overboxNXT li:nth-of-type(4):hover {
 	opacity: 1;
 }
-
 
 /* ------------ EMERGING MENU - VPN -------------- */
 
@@ -1354,11 +1313,11 @@ color: white !important;
 }
 
 .bgvpn {
-	  background-image:url(../img/bg_vpn.svg);
-	  background-repeat: no repeat;
-	  
-	  transition: all .4s ease;
-	  -webkit-transition: all .4s ease;
+    background-image:url(../img/bg_vpn.svg);
+    background-repeat: no repeat;
+
+    transition: all .4s ease;
+    -webkit-transition: all .4s ease;
 }
 
 .cbox:hover .overboxVPN { 
@@ -1366,19 +1325,19 @@ color: white !important;
 }
 
 .cbox .overboxVPN {
-  background-color: #3D6C29;
-  position: relative;
-  top: 0;
-  left: 0;
-  color: white;
-  opacity: 0;
-  width: 100%;
-  height: 60px;
-  
-  transition: all .4s ease; 
-  transform: translateY(50px);
-  -webkit-transition: all .4s ease; 
-  -webkit-transform: translateY(50px);
+    background-color: #3D6C29;
+    position: relative;
+    top: 0;
+    left: 0;
+    color: white;
+    opacity: 0;
+    width: 100%;
+    height: 60px;
+
+    transition: all .4s ease; 
+    transform: translateY(50px);
+    -webkit-transition: all .4s ease; 
+    -webkit-transform: translateY(50px);
 }
 
 .cbox:hover .overboxVPN { 
@@ -1387,7 +1346,6 @@ color: white !important;
 	-webkit-transform: translateY(-4px);
 }
 
-
 .overboxVPN ul {
 	position: relative;
 	float: left;
@@ -1395,28 +1353,25 @@ color: white !important;
 	left: 0;
 	list-style: none;
 }
-
 	
 .overboxVPN li:hover {
 	cursor: pointer;
 }
 
-
 .overboxVPN li:first-of-type {
-      position: absolute;
-	  background-image:url(../img/minicon_vpn.svg);
-	  background-repeat: no-repeat; 
-	  background-size: 100%;
-	  width: 80px;
-	  height: 60px;
-	  margin-top: 0px !important;
-	  margin-left: 0px !important;
-	  
-	  opacity: 0.5;
-	  transition: all .4s ease;
-	  -webkit-transition: all .4s ease;	  
-}
+    position: absolute;
+    background-image:url(../img/minicon_vpn.svg);
+    background-repeat: no-repeat; 
+    background-size: 100%;
+    width: 80px;
+    height: 60px;
+    margin-top: 0px !important;
+    margin-left: 0px !important;
 
+    opacity: 0.5;
+    transition: all .4s ease;
+    -webkit-transition: all .4s ease;	  
+}
 
 .overboxVPN li:first-of-type:hover {
 	opacity: 1;
@@ -1424,61 +1379,55 @@ color: white !important;
 
 	  
 .overboxVPN li:nth-of-type(2) {
-      position: absolute;
-	  background-image: url(../img/minicon_trans.svg); 
-	  background-repeat: no-repeat;
-	  background-size: 100%;
-	  width: 37px;
-	  height: 37px;
-	  margin-top: 4px !important;
-	  margin-left: 85px !important;
-	  
-	  opacity: 0.5;
-	  transition: all .4s ease;
-	  -webkit-transition: all .4s ease;	  
-}
+    position: absolute;
+    background-image: url(../img/minicon_trans.svg); 
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 44px;
+    height: 44px;
+    margin-top: 6px;
+    margin-left: 95px;
 
+    opacity: 0.5;
+    transition: all .4s ease;
+    -webkit-transition: all .4s ease;
+}
 
 .overboxVPN li:nth-of-type(2):hover {
 	opacity: 1;
 }
 
-
 .overboxVPN li:nth-of-type(3) {
     position: absolute;
-    margin-top: 6px !important;
-    margin-left: 170px !important;
+    margin-top: 8px;
+    margin-left: 155px;
 
     transition: all .4s ease;
     -webkit-transition: all .4s ease;
 }
-
 
 .overboxVPN li:nth-of-type(3):hover {
 	opacity: 1;
 }
 
 .overboxVPN li:nth-of-type(4) {
-      position: absolute;
-	  background-image: url(../img/minicon_mailsend.svg);
-	  background-repeat: no-repeat; 
-	  background-size: 100%;
-	  width: 37px;
-	  height: 37px;
-	  margin-top: 4px !important;
-	  margin-left: 167px !important;
-	  
-	  opacity: 0.5;
-	  transition: all .4s ease;
-	  -webkit-transition: all .4s ease;	  
-}
+    position: absolute;
+    background-image: url(../img/minicon_mailsend.svg);
+    background-repeat: no-repeat; 
+    background-size: 100%;
+    width: 37px;
+    height: 37px;
+    margin-top: 4px !important;
+    margin-left: 167px !important;
 
+    opacity: 0.5;
+    transition: all .4s ease;
+    -webkit-transition: all .4s ease;	  
+}
 
 .overboxVPN li:nth-of-type(4):hover {
 	opacity: 1;
 }
-
-
 
 /* ------------ EMERGING MENU - BTC -------------- */
 
@@ -1487,37 +1436,36 @@ color: white !important;
 }
 
 .bgbtc {
-	  background-image:url(../img/bg_btc.svg);
-	  background-repeat: no repeat;
-	  
-	  transition: all .4s ease;
-	  -webkit-transition: all .4s ease;
+    background-image:url(../img/bg_btc.svg);
+    background-repeat: no repeat;
+
+    transition: all .4s ease;
+    -webkit-transition: all .4s ease;
 }
 
 .cbox:hover .overboxBTC { opacity: 0.75; }
 
 .cbox .overboxBTC {
-  background-color: #F8A138;
-  position: relative;
-  top: 0;
-  left: 0;
-  color: white;
-  opacity: 0;
-  width: 100%;
-  height: 60px;
-  
-  transition: all .4s ease; 
-  transform: translateY(50px);
-  -webkit-transition: all .4s ease; 
-  -webkit-transform: translateY(50px);
+    background-color: #F8A138;
+    position: relative;
+    top: 0;
+    left: 0;
+    color: white;
+    opacity: 0;
+    width: 100%;
+    height: 60px;
+
+    transition: all .4s ease; 
+    transform: translateY(50px);
+    -webkit-transition: all .4s ease; 
+    -webkit-transform: translateY(50px);
 }
 
 .cbox:hover .overboxBTC { 
 	opacity: 1;
-	transform: translateY(-4px); 
-	-webkit-transform: translateY(-4px);
+	transform: translateY(0px); 
+	-webkit-transform: translateY(0px);
 }
-
 
 .overboxBTC ul {
 	position: relative;
@@ -1526,85 +1474,76 @@ color: white !important;
 	left: 0;
 	list-style: none;
 }
-
 	
 .overboxBTC li:hover {
 	cursor: pointer;
 }
 
-
 .overboxBTC li:first-of-type {
-      position: absolute;
-	  background-image:url(../img/minicon_btc.svg);
-	  background-repeat: no-repeat; 
-	  background-size: 100%;
-	  width: 80px;
-	  height: 60px;
-	  margin-top: 0px !important;
-	  margin-left: 0px !important;
-	  
-	  opacity: 0.5;
-	  transition: all .4s ease;
-	  -webkit-transition: all .4s ease;	 
-}
+    position: absolute;
+    background-image:url(../img/minicon_btc.svg);
+    background-repeat: no-repeat; 
+    background-size: 100% 100%;
+    width: 80px;
+    height: 60px;
+    margin-top: 0px !important;
+    margin-left: 0px !important;
 
+    opacity: 0.5;
+    transition: all .4s ease;
+    -webkit-transition: all .4s ease;	 
+}
 
 .overboxBTC li:first-of-type:hover {
 	opacity: 1;
 }
-
-	  
+  
 .overboxBTC li:nth-of-type(2) {
-      position: absolute;
-	  background-image: url(../img/minicon_trans.svg); 
-	  background-repeat: no-repeat;
-	  background-size: 100%;
-	  width: 37px;
-	  height: 37px;
-	  margin-top: 4px !important;
-	  margin-left: 85px !important;
-	  
-	  opacity: 0.5;
-	  transition: all .4s ease;
-	  -webkit-transition: all .4s ease;
-	  
-}
+    position: absolute;
+    background-image: url(../img/minicon_trans.svg); 
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 44px;
+    height: 44px;
+    margin-top: 6px;
+    margin-left: 95px;
 
+    opacity: 0.5;
+    transition: all .4s ease;
+    -webkit-transition: all .4s ease;
+}
 
 .overboxBTC li:nth-of-type(2):hover {
 	opacity: 1;
 }
 
-
 .overboxBTC li:nth-of-type(3) {
     position: absolute;
-    margin-top: 6px !important;
-    margin-left: 170px !important;
+    margin-top: 8px;
+    margin-left: 155px;
 
     transition: all .4s ease;
     -webkit-transition: all .4s ease;
 }
-
 
 .overboxBTC li:nth-of-type(3):hover {
 	opacity: 1;
 }
 
 .overboxBTC li:nth-of-type(4) {
-      position: absolute;
-	  background-image: url(../img/minicon_mailsend.svg);
-	  background-repeat: no-repeat; 
-	  background-size: 100%;
-	  width: 37px;
-	  height: 37px;
-	  margin-top: 4px !important;
-	  margin-left: 167px !important;
-	  
-	  opacity: 0.5;
-	  transition: all .4s ease;
-	  -webkit-transition: all .4s ease;	  
-}
+    position: absolute;
+    background-image: url(../img/minicon_mailsend.svg);
+    background-repeat: no-repeat; 
+    background-size: 100%;
+    width: 37px;
+    height: 37px;
+    margin-top: 4px !important;
+    margin-left: 167px !important;
 
+    opacity: 0.5;
+    transition: all .4s ease;
+    -webkit-transition: all .4s ease;	  
+}
 
 .overboxBTC li:nth-of-type(4):hover {
 	opacity: 1;
@@ -1617,37 +1556,36 @@ color: white !important;
 }
 
 .bgltc {
-	  background-image:url(../img/bg_ltc.svg);
-	  background-repeat: no repeat;
-	  
-	  transition: all .4s ease;
-	  -webkit-transition: all .4s ease;
+    background-image:url(../img/bg_ltc.svg);
+    background-repeat: no repeat;
+
+    transition: all .4s ease;
+    -webkit-transition: all .4s ease;
 }
 
 .cbox:hover .overboxLTC { opacity: 0.75; }
 
 .cbox .overboxLTC {
-  background-color: #969696;
-  position: relative;
-  top: 0;
-  left: 0;
-  color: white;
-  opacity: 0;
-  width: 100%;
-  height: 60px;
-  
-  transition: all .4s ease; 
-  transform: translateY(50px);
-  -webkit-transition: all .4s ease; 
-  -webkit-transform: translateY(50px);
+    background-color: #969696;
+    position: relative;
+    top: 0;
+    left: 0;
+    color: white;
+    opacity: 0;
+    width: 100%;
+    height: 60px;
+
+    transition: all .4s ease; 
+    transform: translateY(50px);
+    -webkit-transition: all .4s ease; 
+    -webkit-transform: translateY(50px);
 }
 
 .cbox:hover .overboxLTC { 
 	opacity: 1;
-	transform: translateY(-4px); 
-	-webkit-transform: translateY(-4px);
+	transform: translateY(0px); 
+	-webkit-transform: translateY(0px);
 }
-
 
 .overboxLTC ul {
 	position: relative;
@@ -1657,47 +1595,42 @@ color: white !important;
 	list-style: none;
 }
 
-	
 .overboxLTC li:hover {
 	cursor: pointer;
 }
 
-
 .overboxLTC li:first-of-type {
-      position: absolute;
-	  background-image:url(../img/minicon_ltc.svg);
-	  background-repeat: no-repeat; 
-	  background-size: 100%;
-	  width: 80px;
-	  height: 60px;
-	  margin-top: 0px !important;
-	  margin-left: 0px !important;
-	  
-	  opacity: 0.5;
-	  transition: all .4s ease;
-	  -webkit-transition: all .4s ease;	 
-}
+    position: absolute;
+    background-image:url(../img/minicon_ltc.svg);
+    background-repeat: no-repeat; 
+    background-size: 100% 100%;
+    width: 80px;
+    height: 60px;
+    margin-top: 0px;
+    margin-left: 0px;
 
+    opacity: 0.5;
+    transition: all .4s ease;
+    -webkit-transition: all .4s ease;	 
+}
 
 .overboxLTC li:first-of-type:hover {
 	opacity: 1;
 }
-
-	  
+  
 .overboxLTC li:nth-of-type(2) {
-      position: absolute;
-	  background-image: url(../img/minicon_trans.svg); 
-	  background-repeat: no-repeat;
-	  background-size: 100%;
-	  width: 37px;
-	  height: 37px;
-	  margin-top: 4px !important;
-	  margin-left: 85px !important;
-	  
-	  opacity: 0.5;
-	  transition: all .4s ease;
-	  -webkit-transition: all .4s ease;
-	  
+    position: absolute;
+    background-image: url(../img/minicon_trans.svg); 
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 44px;
+    height: 44px;
+    margin-top: 6px;
+    margin-left: 95px;
+
+    opacity: 0.5;
+    transition: all .4s ease;
+    -webkit-transition: all .4s ease;
 }
 
 
@@ -1705,50 +1638,52 @@ color: white !important;
 	opacity: 1;
 }
 
-
 .overboxLTC li:nth-of-type(3) {
     position: absolute;
-    margin-top: 6px !important;
-    margin-left: 170px !important;
+    margin-top: 8px;
+    margin-left: 155px;
 
     transition: all .4s ease;
     -webkit-transition: all .4s ease;
 }
 
-.fa-book {
-    color: white;
-    opacity: 0.5;
-}
-
-.fa-book:hover {
-    opacity: 0.3;
-}
-
-
 .overboxLTC li:nth-of-type(3):hover {
 	opacity: 1;
 }
 
-.overboxLTC li:nth-of-type(4) {
-      position: absolute;
-	  background-image: url(../img/minicon_mailsend.svg);
-	  background-repeat: no-repeat; 
-	  background-size: 100%;
-	  width: 37px;
-	  height: 37px;
-	  margin-top: 4px !important;
-	  margin-left: 167px !important;
-	  
-	  opacity: 0.5;
-	  transition: all .4s ease;
-	  -webkit-transition: all .4s ease;	  
+.fa-book {
+    color: white;
+    opacity: 0.5;
+    font-size: 40px;
+
+    transition: all .4s ease;
+    -webkit-transition: all .4s ease;
+}
+
+.fa-book:hover {
+    opacity: 1;
+}
+
+.overboxLTC li:nth-of-type(4) { /* Temporary disabled */
+    position: absolute;
+	display: none;  
+    background-image: url(../img/minicon_mailsend.svg);
+    background-repeat: no-repeat; 
+    background-size: 100%;
+    width: 37px;
+    height: 37px;
+    margin-top: 4px !important;
+    margin-left: 167px !important;
+
+    opacity: 0.5;
+    transition: all .4s ease;
+    -webkit-transition: all .4s ease;	  
 }
 
 
 .overboxLTC li:nth-of-type(4):hover {
 	opacity: 1;
 }
-
 
 /* ------------ EMERGING MENU - BBR -------------- */
 
@@ -1769,27 +1704,26 @@ color: white !important;
 }
 
 .cbox .overboxBBR {
-  background-color: #0199DC;
-  position: relative;
-  top: 0;
-  left: 0;
-  color: white;
-  opacity: 0;
-  width: 100%;
-  height: 60px;
-  
-  transition: all .4s ease; 
-  transform: translateY(50px);
-  -webkit-transition: all .4s ease; 
-  -webkit-transform: translateY(50px);
+    background-color: #0199DC;
+    position: relative;
+    top: 0;
+    left: 0;
+    color: white;
+    opacity: 0;
+    width: 100%;
+    height: 60px;
+
+    transition: all .4s ease; 
+    transform: translateY(50px);
+    -webkit-transition: all .4s ease; 
+    -webkit-transform: translateY(50px);
 }
 
 .cbox:hover .overboxBBR { 
 	opacity: 1;
-	transform: translateY(-4px);
-	-webkit-transform: translateY(-4px);
+	transform: translateY(0px);
+	-webkit-transform: translateY(0px);
 }
-
 
 .overboxBBR ul {
 	position: relative;
@@ -1799,48 +1733,43 @@ color: white !important;
 	list-style: none;
 }
 
-	
 .overboxBBR li:hover {
 	cursor: pointer;
 }
 
-
 .overboxBBR li:first-of-type {
-      position: absolute;
-	  background-image:url(../img/minicon_bbr.svg);
-	  background-repeat: no-repeat; 
-	  background-size: 100%;
-	  width: 80px;
-	  height: 60px;
-	  margin-top: 0px !important;
-	  margin-left: 0px !important;
-	  
-	  opacity: 0.5;
-	  transition: all .4s ease;
-	  -webkit-transition: all .4s ease;	 
-}
+    position: absolute;
+    background-image:url(../img/minicon_bbr.svg);
+    background-repeat: no-repeat; 
+    background-size: 100%;
+    width: 80px;
+    height: 60px;
+    margin-top: 0px !important;
+    margin-left: 0px !important;
 
+    opacity: 0.5;
+    transition: all .4s ease;
+    -webkit-transition: all .4s ease;	 
+}
 
 .overboxBBR li:first-of-type:hover {
 	opacity: 1;
 }
-
-	  
+ 
 .overboxBBR li:nth-of-type(2) {
-      position: absolute;
-	  background-image: url(../img/minicon_trans.svg); 
-	  background-repeat: no-repeat;
-	  background-size: 100%;
-	  width: 37px;
-	  height: 37px;
-	  margin-top: 4px !important;
-	  margin-left: 85px !important;
-	  
-	  opacity: 0.5;
-	  transition: all .4s ease;
-	  -webkit-transition: all .4s ease;  
-}
+    position: absolute;
+    background-image: url(../img/minicon_trans.svg); 
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 44px;
+    height: 44px;
+    margin-top: 6px;
+    margin-left: 95px;
 
+    opacity: 0.5;
+    transition: all .4s ease;
+    -webkit-transition: all .4s ease;
+}
 
 .overboxBBR li:nth-of-type(2):hover {
 	opacity: 1;
@@ -1849,38 +1778,35 @@ color: white !important;
 
 .overboxBBR li:nth-of-type(3) {
     position: absolute;
-    margin-top: 6px !important;
-    margin-left: 170px !important;
+    margin-top: 8px;
+    margin-left: 155px;
 
     transition: all .4s ease;
     -webkit-transition: all .4s ease;
 }
-
 
 .overboxBBR li:nth-of-type(3):hover {
 	opacity: 1;
 }
 
 .overboxBBR li:nth-of-type(4) {
-      position: absolute;
-	  background-image: url(../img/minicon_mailsend.svg);
-	  background-repeat: no-repeat; 
-	  background-size: 100%;
-	  width: 37px;
-	  height: 37px;
-	  margin-top: 4px !important;
-	  margin-left: 167px !important;
-	  
-	  opacity: 0.5;
-	  transition: all .4s ease;
-	  -webkit-transition: all .4s ease;	  
-}
+    position: absolute;
+    background-image: url(../img/minicon_mailsend.svg);
+    background-repeat: no-repeat; 
+    background-size: 100%;
+    width: 37px;
+    height: 37px;
+    margin-top: 4px !important;
+    margin-left: 167px !important;
 
+    opacity: 0.5;
+    transition: all .4s ease;
+    -webkit-transition: all .4s ease;	  
+}
 
 .overboxBBR li:nth-of-type(4):hover {
 	opacity: 1;
 }
-
 
 /* ------------ EMERGING MENU - DOGE -------------- */
 
@@ -1889,11 +1815,11 @@ color: white !important;
 }
 
 .bgdoge {
-	  background-image:url(../img/bg_doge.svg);
-	  background-repeat: no repeat;
-	  
-	  transition: all .4s ease;
-	  -webkit-transition: all .4s ease;
+    background-image:url(../img/bg_doge.svg);
+    background-repeat: no repeat;
+
+    transition: all .4s ease;
+    -webkit-transition: all .4s ease;
 }
 
 .cbox:hover .overboxDOGE { 
@@ -1901,27 +1827,26 @@ color: white !important;
 }
 
 .cbox .overboxDOGE {
-  background-color: rgba(186,159,50,1);
-  position: relative;
-  top: 0;
-  left: 0;
-  color: white;
-  opacity: 0;
-  width: 100%;
-  height: 60px;
-  
-  transition: all .4s ease; 
-  transform: translateY(50px);
-  -webkit-transition: all .4s ease; 
-  -webkit-transform: translateY(50px);
+    background-color: rgba(186,159,50,1);
+    position: relative;
+    top: 0;
+    left: 0;
+    color: white;
+    opacity: 0;
+    width: 100%;
+    height: 60px;
+
+    transition: all .4s ease; 
+    transform: translateY(50px);
+    -webkit-transition: all .4s ease; 
+    -webkit-transform: translateY(50px);
 }
 
 .cbox:hover .overboxDOGE { 
 	opacity: 1;
-	transform: translateY(-4px);
-	-webkit-transform: translateY(-4px);
+	transform: translateY(0px);
+	-webkit-transform: translateY(0px);
 }
-
 
 .overboxDOGE ul {
 	position: relative;
@@ -1931,88 +1856,79 @@ color: white !important;
 	list-style: none;
 }
 
-	
 .overboxDOGE li:hover {
 	cursor: pointer;
 }
 
-
 .overboxDOGE li:first-of-type {
-      position: absolute;
-	  background-image:url(../img/minicon_doge.svg);
-	  background-repeat: no-repeat; 
-	  background-size: 100%;
-	  width: 80px;
-	  height: 60px;
-	  margin-top: 0px !important;
-	  margin-left: 0px !important;
-	  
-	  opacity: 0.5;
-	  transition: all .4s ease;
-	  -webkit-transition: all .4s ease;	   
-}
+    position: absolute;
+    background-image:url(../img/minicon_doge.svg);
+    background-repeat: no-repeat; 
+    background-size: 100% 100%;
+    width: 80px;
+    height: 60px;
+    margin-top: 0px;
+    margin-left: 0px;
 
+    opacity: 0.5;
+    transition: all .4s ease;
+    -webkit-transition: all .4s ease;	   
+}
 
 .overboxDOGE li:first-of-type:hover {
 	opacity: 1;
 }
-
-	  
+  
 .overboxDOGE li:nth-of-type(2) {
-      position: absolute;
-	  background-image: url(../img/minicon_trans.svg); 
-	  background-repeat: no-repeat;
-	  background-size: 100%;
-	  width: 37px;
-	  height: 37px;
-	  margin-top: 4px !important;
-	  margin-left: 85px !important;
-	  
-	  opacity: 0.5;
-	  transition: all .4s ease;
-	  -webkit-transition: all .4s ease;  
-}
+    position: absolute;
+    background-image: url(../img/minicon_trans.svg); 
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 44px;
+    height: 44px;
+    margin-top: 6px;
+    margin-left: 95px;
 
+    opacity: 0.5;
+    transition: all .4s ease;
+    -webkit-transition: all .4s ease;
+}
 
 .overboxDOGE li:nth-of-type(2):hover {
 	opacity: 1; 
 }
 
-
 .overboxDOGE li:nth-of-type(3) {
     position: absolute;
-    margin-top: 6px !important;
-    margin-left: 170px !important;
+    margin-top: 8px;
+    margin-left: 155px;
 
     transition: all .4s ease;
     -webkit-transition: all .4s ease;
 }
-
 
 .overboxDOGE li:nth-of-type(3):hover {
 	opacity: 1;	
 }
 
 .overboxDOGE li:nth-of-type(4) {
-      position: absolute;
-	  background-image: url(../img/minicon_mailsend.svg);
-	  background-repeat: no-repeat; 
-	  background-size: 100%;
-	  width: 37px;
-	  height: 37px;
-	  margin-top: 4px !important;
-	  margin-left: 167px !important;
-	  
-	  opacity: 0.5;
-	  transition: all .4s ease;
-	  -webkit-transition: all .4s ease;	  
-}
+    position: absolute;
+    background-image: url(../img/minicon_mailsend.svg);
+    background-repeat: no-repeat; 
+    background-size: 100%;
+    width: 37px;
+    height: 37px;
+    margin-top: 4px !important;
+    margin-left: 167px !important;
 
+    opacity: 0.5;
+    transition: all .4s ease;
+    -webkit-transition: all .4s ease;	  
+}
 
 .overboxDOGE li:nth-of-type(4):hover {
 	opacity: 1;
 }
-
 
 /* ------------ EMERGING MENU - FIBRE -------------- */
 
@@ -2021,10 +1937,10 @@ color: white !important;
 }
 
 .bgFIBRE {
-	  background-image:url(../img/bg_fibre.svg);
-	  background-repeat: no-repeat;
-	  transition: all .4s ease;
-	  -webkit-transition: all .4s ease;
+    background-image:url(../img/bg_fibre.svg);
+    background-repeat: no-repeat;
+    transition: all .4s ease;
+    -webkit-transition: all .4s ease;
 }
 
 .cbox:hover .overboxFIBRE { 
@@ -2032,27 +1948,26 @@ color: white !important;
 }
 
 .cbox .overboxFIBRE {
-  background-color: rgba(0,0,0,1);
-  position: relative;
-  top: 0;
-  left: 0;
-  color: white;
-  opacity: 0;
-  width: 100%;
-  height: 60px;
-  
-  transition: all .4s ease; 
-  transform: translateY(50px);
-  -webkit-transition: all .4s ease; 
-  -webkit-transform: translateY(50px);
+    background-color: rgba(0,0,0,1);
+    position: relative;
+    top: 0;
+    left: 0;
+    color: white;
+    opacity: 0;
+    width: 100%;
+    height: 60px;
+
+    transition: all .4s ease; 
+    transform: translateY(50px);
+    -webkit-transition: all .4s ease; 
+    -webkit-transform: translateY(50px);
 }
 
 .cbox:hover .overboxFIBRE { 
 	opacity: 1;
-	transform: translateY(-4px);
-	-webkit-transform: translateY(-4px);
+	transform: translateY(0px);
+	-webkit-transform: translateY(0px);
 }
-
 
 .overboxFIBRE ul {
 	position: relative;
@@ -2061,89 +1976,80 @@ color: white !important;
 	left: 0;
 	list-style: none;
 }
-
 	
 .overboxFIBRE li:hover {
 	cursor: pointer;
 }
 
-
 .overboxFIBRE li:first-of-type {
-      position: absolute;
-	  background-image:url(../img/minicon_fibre.svg);
-	  background-repeat: no-repeat; 
-	  background-size: 100%;
-	  width: 80px;
-	  height: 60px;
-	  margin-top: 0px !important;
-	  margin-left: 0px !important;
-	  
-	  opacity: 0.5;
-	  transition: all .4s ease;
-	  -webkit-transition: all .4s ease;	   
-}
+    position: absolute;
+    background-image:url(../img/minicon_fibre.svg);
+    background-repeat: no-repeat; 
+    background-size: 100%;
+    width: 80px;
+    height: 60px;
+    margin-top: 0px !important;
+    margin-left: 0px !important;
 
+    opacity: 0.5;
+    transition: all .4s ease;
+    -webkit-transition: all .4s ease;	   
+}
 
 .overboxFIBRE li:first-of-type:hover {
 	opacity: 1;
 }
-
-	  
+  
 .overboxFIBRE li:nth-of-type(2) {
-      position: absolute;
-	  background-image: url(../img/minicon_trans.svg); 
-	  background-repeat: no-repeat;
-	  background-size: 100%;
-	  width: 37px;
-	  height: 37px;
-	  margin-top: 4px !important;
-	  margin-left: 85px !important;
-	  
-	  opacity: 0.5;
-	  transition: all .4s ease;
-	  -webkit-transition: all .4s ease;  
-}
+    position: absolute;
+    background-image: url(../img/minicon_trans.svg); 
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 44px;
+    height: 44px;
+    margin-top: 6px;
+    margin-left: 95px;
 
+    opacity: 0.5;
+    transition: all .4s ease;
+    -webkit-transition: all .4s ease;
+}
 
 .overboxFIBRE li:nth-of-type(2):hover {
 	opacity: 1; 
 }
 
-
 .overboxFIBRE li:nth-of-type(3) {
     position: absolute;
-    margin-top: 6px !important;
-    margin-left: 170px !important;
+    margin-top: 8px;
+    margin-left: 155px;
 
     transition: all .4s ease;
     -webkit-transition: all .4s ease;
 }
-
 
 .overboxFIBRE li:nth-of-type(3):hover {
 	opacity: 1;	
 }
 
 .overboxFIBRE li:nth-of-type(4) {
-      position: absolute;
-	  background-image: url(../img/minicon_mailsend.svg);
-	  background-repeat: no-repeat; 
-	  background-size: 100%;
-	  width: 37px;
-	  height: 37px;
-	  margin-top: 4px !important;
-	  margin-left: 167px !important;
-	  
-	  opacity: 0.5;
-	  transition: all .4s ease;
-	  -webkit-transition: all .4s ease;	  
-}
+    position: absolute;
+    background-image: url(../img/minicon_mailsend.svg);
+    background-repeat: no-repeat; 
+    background-size: 100%;
+    width: 37px;
+    height: 37px;
+    margin-top: 4px !important;
+    margin-left: 167px !important;
 
+    opacity: 0.5;
+    transition: all .4s ease;
+    -webkit-transition: all .4s ease;	  
+}
 
 .overboxFIBRE li:nth-of-type(4):hover {
 	opacity: 1;
 }
-
 
 .cd-3d-nav li a{
     display:block !important;
@@ -2161,10 +2067,10 @@ color: white !important;
 }
 
 .bgSYS {
-	  background-image:url(../img/bg_sys.svg);
-	  background-repeat: no-repeat;
-	  transition: all .4s ease;
-	  -webkit-transition: all .4s ease;
+    background-image:url(../img/bg_sys.svg);
+    background-repeat: no-repeat;
+    transition: all .4s ease;
+    -webkit-transition: all .4s ease;
 }
 
 .cbox:hover .overboxSYS { 
@@ -2172,27 +2078,26 @@ color: white !important;
 }
 
 .cbox .overboxSYS {
-  background-color: rgba(0,0,0,1);
-  position: relative;
-  top: 0;
-  left: 0;
-  color: white;
-  opacity: 0;
-  width: 100%;
-  height: 60px;
-  
-  transition: all .4s ease; 
-  transform: translateY(50px);
-  -webkit-transition: all .4s ease; 
-  -webkit-transform: translateY(50px);
+    background-color: rgba(0,0,0,1);
+    position: relative;
+    top: 0;
+    left: 0;
+    color: white;
+    opacity: 0;
+    width: 100%;
+    height: 60px;
+
+    transition: all .4s ease; 
+    transform: translateY(50px);
+    -webkit-transition: all .4s ease; 
+    -webkit-transform: translateY(50px);
 }
 
 .cbox:hover .overboxSYS { 
 	opacity: 1;
-	transform: translateY(-4px);
-	-webkit-transform: translateY(-4px);
+	transform: translateY(0px);
+	-webkit-transform: translateY(0px);
 }
-
 
 .overboxSYS ul {
 	position: relative;
@@ -2201,85 +2106,76 @@ color: white !important;
 	left: 0;
 	list-style: none;
 }
-
 	
 .overboxSYS li:hover {
 	cursor: pointer;
 }
 
-
 .overboxSYS li:first-of-type {
-      position: absolute;
-	  background-image:url(../img/minicon_sys.svg);
-	  background-repeat: no-repeat; 
-	  background-size: 100%;
-	  width: 80px;
-	  height: 60px;
-	  margin-top: 0px !important;
-	  margin-left: 0px !important;
-	  
-	  opacity: 0.5;
-	  transition: all .4s ease;
-	  -webkit-transition: all .4s ease;	   
-}
+    position: absolute;
+    background-image:url(../img/minicon_sys.svg);
+    background-repeat: no-repeat; 
+    background-size: 100%;
+    width: 80px;
+    height: 60px;
+    margin-top: 0px !important;
+    margin-left: 0px !important;
 
+    opacity: 0.5;
+    transition: all .4s ease;
+    -webkit-transition: all .4s ease;	   
+}
 
 .overboxSYS li:first-of-type:hover {
 	opacity: 1;
 }
-
 	  
 .overboxSYS li:nth-of-type(2) {
-      position: absolute;
-	  background-image: url(../img/minicon_trans.svg); 
-	  background-repeat: no-repeat;
-	  background-size: 100%;
-	  width: 37px;
-	  height: 37px;
-	  margin-top: 4px !important;
-	  margin-left: 85px !important;
-	  
-	  opacity: 0.5;
-	  transition: all .4s ease;
-	  -webkit-transition: all .4s ease;  
-}
+    position: absolute;
+    background-image: url(../img/minicon_trans.svg); 
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 44px;
+    height: 44px;
+    margin-top: 6px;
+    margin-left: 95px;
 
+    opacity: 0.5;
+    transition: all .4s ease;
+    -webkit-transition: all .4s ease;
+}
 
 .overboxSYS li:nth-of-type(2):hover {
 	opacity: 1; 
 }
 
-
 .overboxSYS li:nth-of-type(3) {
     position: absolute;
-    margin-top: 6px !important;
-    margin-left: 170px !important;
-    font-color:white;
+    margin-top: 8px;
+    margin-left: 155px;
 
     transition: all .4s ease;
     -webkit-transition: all .4s ease;
 }
-
 
 .overboxSYS li:nth-of-type(3):hover {
 	opacity: 1;	
 }
 
 .overboxSYS li:nth-of-type(4) {
-      position: absolute;
-	  background-image: url(../img/minicon_mailsend.svg);
-	  background-repeat: no-repeat; 
-	  background-size: 100%;
-	  width: 37px;
-	  height: 37px;
-	  margin-top: 4px !important;
-	  margin-left: 167px !important;
-	  
-	  opacity: 0.5;
-	  transition: all .4s ease;
-	  -webkit-transition: all .4s ease;	  
-}
+    position: absolute;
+    background-image: url(../img/minicon_mailsend.svg);
+    background-repeat: no-repeat; 
+    background-size: 100%;
+    width: 37px;
+    height: 37px;
+    margin-top: 4px !important;
+    margin-left: 167px !important;
 
+    opacity: 0.5;
+    transition: all .4s ease;
+    -webkit-transition: all .4s ease;	  
+}
 
 .overboxSYS li:nth-of-type(4):hover {
 	opacity: 1;
@@ -2295,7 +2191,6 @@ color: white !important;
     cursor:pointer !important;
 }
 
-
 /* ----------------------------------------------- */
 /* ------------ FULL SCREEN POP-UPS -------------- */
 /* ----------------------------------------------- */
@@ -2309,6 +2204,15 @@ color: white !important;
 .commBox, overBox, overText, tagline {
 	font-weight: 200;
 }
+
+.tagline {
+    font-family: 'oslite' !important;
+}
+
+.btn-xs {
+    font-family: 'oslite' !important;
+}
+
 
 /* ------------ commBox MAIN CONTAINERS -------------- */
 
@@ -2325,32 +2229,32 @@ color: white !important;
 /* ------------ IMAGE INSIDE CONTAINERS -------------- */
 
 .commBox img {
-  position: absolute;
-  width: 100%;
-  -webkit-transition: all 300ms ease-out;
-  -moz-transition: all 300ms ease-out;
-  -o-transition: all 300ms ease-out;
-  -ms-transition: all 300ms ease-out;
-  transition: all 300ms ease-out;  
+    position: absolute;
+    width: 100%;
+    -webkit-transition: all 300ms ease-out;
+    -moz-transition: all 300ms ease-out;
+    -o-transition: all 300ms ease-out;
+    -ms-transition: all 300ms ease-out;
+    transition: all 300ms ease-out;  
 }
 
 /* ------------ OVERLAY ANIMATION -------------- */
 
 .commBox .overBox {
-  background: rgba(255,255,255,1) ; /* Changing this value to transparent leaves us with the text scrolling in only*/
-  position: absolute;
-  margin: 0;
-  color: black;
-  z-index: 100;
-  -webkit-transition: all 300ms ease-out;
-  -moz-transition: all 300ms ease-out;
-  -o-transition: all 300ms ease-out;
-  -ms-transition: all 300ms ease-out;
-  transition: all 300ms ease-out;
-  opacity: 0;
-  width: 210px; /* size of the overlay entering */
-  height: 200px;
-  overflow: hidden !important;
+    background: rgba(255,255,255,1) ; /* Changing this value to transparent leaves us with the text scrolling in only*/
+    position: absolute;
+    margin: 0;
+    color: black;
+    z-index: 100;
+    -webkit-transition: all 300ms ease-out;
+    -moz-transition: all 300ms ease-out;
+    -o-transition: all 300ms ease-out;
+    -ms-transition: all 300ms ease-out;
+    transition: all 300ms ease-out;
+    opacity: 0;
+    width: 210px; /* size of the overlay entering */
+    height: 200px;
+    overflow: hidden !important;
 }
 
 .overBox {
@@ -2363,46 +2267,46 @@ color: white !important;
 /* ------------ commBox TEXT ANIMATION AND STYLE -------------- */
 
 .commBox .overText {
-  -webkit-transition: all 300ms ease-out;
-  -moz-transition: all 300ms ease-out;
-  -o-transition: all 300ms ease-out;
-  -ms-transition: all 300ms ease-out;
-  transition: all 300ms ease-out;
-  transform: translateY(40px);
-  -webkit-transform: translateY(40px);
+    -webkit-transition: all 300ms ease-out;
+    -moz-transition: all 300ms ease-out;
+    -o-transition: all 300ms ease-out;
+    -ms-transition: all 300ms ease-out;
+    transition: all 300ms ease-out;
+    transform: translateY(40px);
+    -webkit-transform: translateY(40px);
 }
 
 .commBox .title {
-  font-family: myfontCAPS;
-  font-size: .7em;
-  text-transform: uppercase;
-  opacity: 0;
-  transition-delay: 0.2s;
-  transition-duration: 0.2s;
+    font-family: myfontCAPS;
+    font-size: .7em;
+    text-transform: uppercase;
+    opacity: 0;
+    transition-delay: 0.2s;
+    transition-duration: 0.2s;
 }
 
 .commBox:hover .title,
 .commBox:focus .title {
-  opacity: 1;
-  padding-bottom: 5px;
-  transform: translateY(0px);
-  -webkit-transform: translateY(0px);
+    opacity: 1;
+    padding-bottom: 5px;
+    transform: translateY(0px);
+    -webkit-transform: translateY(0px);
 }
 
 .commBox .tagline {
-  font-family: normalText;
-  font-size: 0.7em;
-  font-weight: 200;
-  opacity: 0;
-  transition-delay: 0.2s;
-  transition-duration: 0.2s;
+    font-family: normalText;
+    font-size: 0.7em;
+    font-weight: 200;
+    opacity: 0;
+    transition-delay: 0.2s;
+    transition-duration: 0.2s;
 }
 
 .commBox:hover .tagline,
 .commBox:focus .tagline {
-  opacity: 1;
-  transform: translateX(0px);
-  -webkit-transform: translateX(0px);
+    opacity: 1;
+    transform: translateX(0px);
+    -webkit-transform: translateX(0px);
 }
 
 .commBox a, .commBox a:visited, .commBox a:active, .commBox a:link {
