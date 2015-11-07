@@ -1,0 +1,15 @@
+SuperNET v2.07
+
+- Overboxes resized and repositioned accordingly.
+- Mini-icons inside Overboxes relocated and adjusted.
+- Adapted and positioned the coin <-> coin icon according to the new space distribution.
+- Adapted and positioned the fontawesome new icon added to the Overbox.
+- Adjusted animation to cover the exact space.
+- Reactivated CryptoPanels project entry from PROJECTS.
+- Deactivated Atomic project entry from PROJECTS.
+- Corrected several typos and grammatical errors (english version).
+- Modified all the md-close-image-2 icons so they are properly vertical aligned.
+- Added md-close-img-eth to the main top unfolding menu header close buttons so vertical alignment could be achieved.
+- Added a light woff2 font and changed the description of all boxes under the top unfolding menu (.tagline) to adopt it for better readibility.
+- Changed slightly the GENERATE ADDRESS button aesthetics to match overall GUI feeling.
+- General CSS maintenance file cleaning.
