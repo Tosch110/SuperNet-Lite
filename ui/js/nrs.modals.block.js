@@ -16,7 +16,8 @@ var NRS = (function(NRS, $, undefined) {
 
 		NRS.sendRequest("getBlock+", {
 			"height": blockHeight,
-			"includeTransactions": "true"
+			"includeTransactions": "true",
+            "includeExecutedPhased" : "true"
 		}, function(response) {
 			NRS.showBlockModal(response);
 		});

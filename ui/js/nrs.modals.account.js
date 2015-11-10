@@ -109,10 +109,12 @@ var NRS = (function(NRS, $, undefined) {
 
 	/*some duplicate methods here...*/
 	NRS.userInfoModal.transactions = function(type) {
-		NRS.sendRequest("getAccountTransactions", {
+		NRS.sendRequest("getBlockchainTransactions", {
 			"account": NRS.userInfoModal.user,
 			"firstIndex": 0,
-			"lastIndex": 100
+			"lastIndex": 100,
+            "includeExpiredPrunable" : "true",
+            "includePhasingResult" : "true"
 		}, function(response) {
 			if (response.transactions && response.transactions.length) {
 				var rows = "";
@@ -319,7 +321,8 @@ var NRS = (function(NRS, $, undefined) {
 		NRS.sendRequest("getDGSGoods", {
 			"seller": NRS.userInfoModal.user,
 			"firstIndex": 0,
-			"lastIndex": 100
+			"lastIndex": 100,
+            "includeCounts" : "true"
 		}, function(response) {
 			var rows = "";
 
@@ -340,7 +343,8 @@ var NRS = (function(NRS, $, undefined) {
 	
 	NRS.userInfoModal.currencies = function() {
 		NRS.sendRequest("getAccountCurrencies+", {
-			"account": NRS.userInfoModal.user
+			"account": NRS.userInfoModal.user,
+            "includeCurrencyInfo" : "true"
 		}, function(response) {
 			var rows = "";
 			if (response.accountCurrencies && response.accountCurrencies.length) {
@@ -364,7 +368,10 @@ var NRS = (function(NRS, $, undefined) {
 
 	NRS.userInfoModal.assets = function() {
 		NRS.sendRequest("getAccount", {
-			"account": NRS.userInfoModal.user
+			"account": NRS.userInfoModal.user,
+            "includeAssets" : "true",
+            "includeCurrencies" : "true",
+            "includeEffectiveBalance" : "true"
 		}, function(response) {
 			if (response.assetBalances && response.assetBalances.length) {
 				var assets = {};
@@ -408,7 +415,8 @@ var NRS = (function(NRS, $, undefined) {
 		NRS.sendRequest("getTrades", {
 			"account": NRS.userInfoModal.user,
 			"firstIndex": 0,
-			"lastIndex": 100
+			"lastIndex": 100,
+            "includeAssetInfo" : "true"
 		}, function(response, input) {
 			var rows = "";
 
@@ -435,7 +443,8 @@ var NRS = (function(NRS, $, undefined) {
 
 	NRS.userInfoModal.addIssuedAssets = function(assets) {
 		NRS.sendRequest("getAssetsByIssuer", {
-			"account": NRS.userInfoModal.user
+			"account": NRS.userInfoModal.user,
+            "includeCounts" :"true"
 		}, function(response) {
 			if (response.assets && response.assets[0] && response.assets[0].length) {
 				$.each(response.assets[0], function(key, issuedAsset) {

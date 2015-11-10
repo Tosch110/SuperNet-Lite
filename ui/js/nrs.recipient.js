@@ -108,7 +108,8 @@ var NRS = (function(NRS, $, undefined) {
 
 	NRS.getAccountError = function(accountId, callback) {
 		NRS.sendRequest("getAccount", {
-			"account": accountId
+			"account": accountId,
+            "includeEffectiveBalance" : "true"
 		}, function(response) {
 			if (response.publicKey) {
 				if (response.name){
