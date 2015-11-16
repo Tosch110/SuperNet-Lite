@@ -197,7 +197,10 @@ var NRS = (function (NRS, $, undefined) {
         });
 
         NRS.sendRequest("getAccount", {
-            account: NRS.accountRS
+            account: NRS.accountRS,
+            "includeAssets" : "true",
+            "includeCurrencies" : "true",
+            "includeEffectiveBalance" : "true"
         }, function (response) {
             if (response.unconfirmedBalanceNQT) {
                 $("#account_balance").html(NRS.formatStyledAmount(response.unconfirmedBalanceNQT));

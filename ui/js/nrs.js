@@ -1328,7 +1328,8 @@ var NRS = (function(NRS, $, undefined) {
 				return;
 			}
 			NRS.sendRequest("getTransaction", {
-				"transaction": id
+				"transaction": id,
+                "includePhasingResult" : "true"
 			}, function(response, input) {
 				if (!response.errorCode) {
 					response.transaction = input.transaction;
@@ -1343,7 +1344,7 @@ var NRS = (function(NRS, $, undefined) {
 						} else {
 							NRS.sendRequest("getBlock", {
 								"block": id,
-                        "includeTransactions": "true"
+                                "includeTransactions": "true"
 							}, function(response, input) {
 								if (!response.errorCode) {
 									response.block = input.block;
