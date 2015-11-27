@@ -1,5 +1,5 @@
 var NRS = (function (NRS, $, undefined) {
-    NRS.spnliteversion = "2.0.7";
+    NRS.spnliteversion = "2.0.8";
     NRS.isJay = false;
     var server = "http://localhost:7876"; /*http://localhost:7876*/
     var peerExplorerUrl = "http://peerexplorer.com/api_openapi_hallmark_version_jsonp";
@@ -152,6 +152,9 @@ var NRS = (function (NRS, $, undefined) {
             NRS.autoLogin();
         }
 
+        NRS.checkSuperNETVersion();
+
+
         if (localStorage) {
             if (localStorage["accounts"]) {
                 var accounts = JSON.parse(localStorage["accounts"]);
@@ -177,6 +180,56 @@ var NRS = (function (NRS, $, undefined) {
             $("#login_pin_div").hide();
             $("#import_nxt").hide();
         }
+    }
+
+    NRS.checkSuperNETVersion = function() {
+
+        NRS.sendRequest("getAlias", {
+            aliasName: 'SuperNETLiteVersion'
+        }, function (response) {
+
+            if (response.aliasName) {
+                if(response.accountRS == 'NXT-XGNC-YULH-4WR6-HW3R2') {
+
+                    NRS.officialVersion = response.aliasURI;
+
+                    var versionCheckOnline = NRS.officialVersion.split('.');
+                    var versionCheckRunning = NRS.spnliteversion.split('.');
+
+                    if(versionCheckOnline[0] > versionCheckRunning[0]) {
+
+                        $('#superNETClientVersion').html('SuperNET Version: '+NRS.spnliteversion+' - new: <a href="http://www.supernet.org/" target="_blank">'+NRS.officialVersion+'</a> <small>Please update! Major Update</small>');
+
+                    } else {
+
+                        if(versionCheckOnline[1] > versionCheckRunning[1]) {
+
+                            $('#superNETClientVersion').html('SuperNET Version: '+NRS.spnliteversion+' - new: <a href="http://www.supernet.org/" target="_blank">'+NRS.officialVersion+'</a> <small>Please update. minor Update</small>');
+
+                        } else {
+
+                            if(versionCheckOnline[2] > versionCheckRunning[2]) {
+
+                                $('#superNETClientVersion').html('SuperNET Version: '+NRS.spnliteversion+' - new: <a href="http://www.supernet.org/" target="_blank">'+NRS.officialVersion+'</a> <small>Please update</small>');
+
+                            } else if(versionCheckOnline[2] === versionCheckRunning[2]) {
+
+                                $('#superNETClientVersion').html('SuperNET Version: '+NRS.spnliteversion+' <i class="fa fa-check text-success"></i>');
+
+                            } else {
+                                $('#superNETClientVersion').html('SuperNET Version: '+NRS.spnliteversion+' <i class="fa fa-check text-success"></i> You are beyond official Release.');
+                            }
+                        }
+                    }
+
+                }  else {
+                    $('#superNETClientVersion').html('SuperNET Version: '+NRS.spnliteversion+' <i class="fa fa-remove text-warning">Failed checking Version. Changed Account?</i>');
+                }
+            } else {
+                $('#superNETClientVersion').html('SuperNET Version: '+NRS.spnliteversion+' <i class="fa fa-remove text-warning">Failed checking Version</i>');
+            }
+        });
+
     }
 
     NRS.hideDashboardElementinJay = function () {
