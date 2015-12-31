@@ -1425,7 +1425,8 @@ var NRS = (function(NRS, $, undefined) {
 		NRS.sendRequest("getTrades+", {
 			"account": NRS.accountRS,
 			"firstIndex": NRS.pageNumber * NRS.itemsPerPage - NRS.itemsPerPage,
-			"lastIndex": NRS.pageNumber * NRS.itemsPerPage
+			"lastIndex": NRS.pageNumber * NRS.itemsPerPage,
+            "includeAssetInfo" : "true"
 		}, function(response, input) {
 			if (response.trades && response.trades.length) {
 				if (response.trades.length > NRS.itemsPerPage) {
@@ -1462,7 +1463,8 @@ var NRS = (function(NRS, $, undefined) {
 		NRS.sendRequest("getAssetTransfers+", {
 			"account": NRS.accountRS,
 			"firstIndex": NRS.pageNumber * NRS.itemsPerPage - NRS.itemsPerPage,
-			"lastIndex": NRS.pageNumber * NRS.itemsPerPage
+			"lastIndex": NRS.pageNumber * NRS.itemsPerPage,
+            "includeAssetInfo" : "true"
 		}, function(response, input) {
 			if (response.transfers && response.transfers.length) {
 				if (response.transfers.length > NRS.itemsPerPage) {
