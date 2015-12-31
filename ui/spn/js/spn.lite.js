@@ -1,5 +1,5 @@
 var NRS = (function (NRS, $, undefined) {
-    NRS.spnliteversion = "2.0.8";
+    NRS.spnliteversion = "2.0.9";
     NRS.isJay = false;
     var server = "http://localhost:7876"; /*http://localhost:7876*/
     var peerExplorerUrl = "http://peerexplorer.com/api_openapi_hallmark_version_jsonp";

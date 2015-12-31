@@ -1441,6 +1441,7 @@ main {
 
     transition: all .4s ease;
     -webkit-transition: all .4s ease;
+    opacity: 0.5;
 }
 
 .cbox:hover .overboxBTC { opacity: 0.75; }
