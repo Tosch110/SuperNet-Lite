@@ -700,7 +700,7 @@ main {
 
 .bgbtcd {
     background-image:url(../img/bg_btcd.svg);
-    background-repeat: no repeat;
+    background-repeat: no-repeat;
 
     transition: all .4s ease;
     -webkit-transition: all .4s ease;
@@ -828,7 +828,7 @@ main {
 
 .bgvrc {
     background-image:url(../img/bg_vrc.svg);
-    background-repeat: no repeat;
+    background-repeat: no-repeat;
 
     transition: all .4s ease;
     -webkit-transition: all .4s ease;
@@ -944,7 +944,7 @@ main {
 
 .bgbits {
     background-image:url(../img/bg_bits.svg);
-    background-repeat: no repeat;
+    background-repeat: no-repeat;
 
     transition: all .4s ease;
     -webkit-transition: all .4s ease;
@@ -1068,7 +1068,7 @@ main {
 
 .bgopal {
     background-image:url(../img/bg_opal.svg);
-    background-repeat: no repeat;
+    background-repeat: no-repeat;
 
     transition: all .4s ease;
     -webkit-transition: all .4s ease;
@@ -1314,7 +1314,7 @@ main {
 
 .bgvpn {
     background-image:url(../img/bg_vpn.svg);
-    background-repeat: no repeat;
+    background-repeat: no-repeat;
 
     transition: all .4s ease;
     -webkit-transition: all .4s ease;
@@ -1437,7 +1437,7 @@ main {
 
 .bgbtc {
     background-image:url(../img/bg_btc.svg);
-    background-repeat: no repeat;
+    background-repeat: no-repeat;
 
     transition: all .4s ease;
     -webkit-transition: all .4s ease;
@@ -1557,7 +1557,7 @@ main {
 
 .bgltc {
     background-image:url(../img/bg_ltc.svg);
-    background-repeat: no repeat;
+    background-repeat: no-repeat;
 
     transition: all .4s ease;
     -webkit-transition: all .4s ease;
@@ -1693,7 +1693,7 @@ main {
 
 .bgbbr {
 	  background-image:url(../img/bg_bbr.svg);
-	  background-repeat: no repeat;
+	  background-repeat: no-repeat;
 	  
 	  transition: all .4s ease;
 	  -webkit-transition: all .4s ease;
@@ -1816,7 +1816,7 @@ main {
 
 .bgdoge {
     background-image:url(../img/bg_doge.svg);
-    background-repeat: no repeat;
+    background-repeat: no-repeat;
 
     transition: all .4s ease;
     -webkit-transition: all .4s ease;
