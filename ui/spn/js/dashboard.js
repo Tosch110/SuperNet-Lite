@@ -526,7 +526,6 @@ var NRS = (function (NRS, $, undefined) {
                     merchant_info: ""
                 }, function (response) {
 
-                    console.log(response);
                     $btn.button('reset');
                     if (response.errorCode) {
                         $.growl(NRS.translateServerError(response), { "type": "danger" });
