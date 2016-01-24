@@ -518,13 +518,14 @@ var NRS = (function (NRS, $, undefined) {
                     secretPhrase: "",
                     messageIsText: "true",
                     message: message,
-                    feeNQT: "100000000",
+                    feeNQT: "0",
                     deadline: "1440",
                     recipient: recipient,
                     asset: coinDetails[0].assetID,
                     quantityQNT: NRS.convertToQNT($("#field113cont").val(), coinDetails[0].decimal),
                     merchant_info: ""
                 }, function (response) {
+
                     $btn.button('reset');
                     if (response.errorCode) {
                         $.growl(NRS.translateServerError(response), { "type": "danger" });
@@ -564,7 +565,7 @@ var NRS = (function (NRS, $, undefined) {
                 secretPhrase: "",
                 messageIsText: "true",
                 message: message,
-                feeNQT: "100000000",
+                feeNQT: "0",
                 deadline: "1440",
                 recipient: recipient,
                 asset: coinDetails[0].assetID,

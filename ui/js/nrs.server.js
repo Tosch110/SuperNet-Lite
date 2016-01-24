@@ -467,7 +467,7 @@ var NRS = (function(NRS, $, undefined) {
 			}
 		}
 
-		if (transaction.amountNQT !== data.amountNQT || transaction.feeNQT !== data.feeNQT) {
+		if (transaction.amountNQT !== data.amountNQT) {
 			return false;
 		}
 
