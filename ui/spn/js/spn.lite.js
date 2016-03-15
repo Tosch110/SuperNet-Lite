@@ -241,6 +241,7 @@ var NRS = (function (NRS, $, undefined) {
             $(".bgbits h4").css('visibility', 'hidden');
             $(".bgopal h4").css('visibility', 'hidden');
             $(".bgvrc h4").css('visibility', 'hidden');
+            $(".bginfx h4").css('visibility', 'hidden');
         }
     }
 
