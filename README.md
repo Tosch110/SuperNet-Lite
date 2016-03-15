@@ -1,5 +1,5 @@
 # SuperNet-Lite
-Monitor and handle BTC, LTC, BTCD, NXT, DOGE and more coins with just opening the supernet.html file. No Blockchain Download needed.
+Monitor and handle BTC, LTC, BTCD, NXT, DOGE, INFX and more coins with just opening the supernet.html file. No Blockchain Download needed.
 
 #How to start?
 
