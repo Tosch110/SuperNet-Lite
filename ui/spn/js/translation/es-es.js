@@ -1213,7 +1213,7 @@ var NRS = (function(NRS, $, undefined) {
   "please_specify_recipient":"Por favor, especifique la cuenta del destinatario",
   "please_specify_amount":"Por favor, especifique la cantidad",
   "insufficient_coin":"Su saldo es insuficiente",
-  "sending_coin_required_nxt":"Enviando <coin> Esta operación tiene una cuota de 1 NXT",
+  "sending_coin_required_nxt":"Enviando <coin> Esta operación tiene una cuota en la red de 2 NXT",
   "minimum_coin_send":"La cantidad mínima de monedas para un envío son",
   "online":"En linea",
   "offline":"Desconectado",

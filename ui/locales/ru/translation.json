@@ -1197,7 +1197,7 @@
   "please_specify_recipient":"Пожалуйста, укажите аккаунт получателя",
   "please_specify_amount":"Пожалуйста, укажите количество",
   "insufficient_coin":"У вас недостаточно <coin>",
-  "sending_coin_required_nxt":"Для отправки <coin> требуется 1 NXT",
+  "sending_coin_required_nxt":"Для отправки <coin> требуется 2 NXT",
   "minimum_coin_send":"Минимальное количество для отправки",
   "online":"в сети",
   "offline":"не в сети",

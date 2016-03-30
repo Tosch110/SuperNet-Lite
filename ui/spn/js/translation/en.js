@@ -1224,7 +1224,7 @@ var NRS = (function(NRS, $, undefined) {
   "please_specify_recipient":"Please specify your recipient account",
   "please_specify_amount":"Please specify your amount",
   "insufficient_coin":"You have insufficient <coin>",
-  "sending_coin_required_nxt":"Sending <coin> involves 1 NXT fee",
+  "sending_coin_required_nxt":"Sending <coin> involves 2 NXT network fee",
   "minimum_coin_send":"Minimum coin to send is",
   "online":"Online",
   "offline":"Offline",

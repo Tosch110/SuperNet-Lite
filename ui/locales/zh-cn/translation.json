@@ -1197,7 +1197,7 @@
   "please_specify_recipient":"请注明您的接收者帐户",
   "please_specify_amount":"请注明您的数量",
   "insufficient_coin":"您的 <coin> 不足",
-  "sending_coin_required_nxt":"发送 <coin> 需要 1 NXT",
+  "sending_coin_required_nxt":"发送 <coin> 需要 2 NXT",
   "minimum_coin_send":"最底发送币为",
   "online":"在线",
   "offline":"离线",
