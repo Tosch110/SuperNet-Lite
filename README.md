@@ -1,6 +1,9 @@
 # SuperNet-Lite
 Monitor and handle BTC, LTC, BTCD, NXT, DOGE, INFX and more coins with just opening the supernet.html file. No Blockchain Download needed.
 
+# Update
+Version 3 Available: https://github.com/Tosch110/SuperNET-Lite-3
+
 #How to start?
 
 * Download the files. 
